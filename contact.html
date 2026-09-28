@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Get A Quote | Myers Insurance Group</title>
+  <meta name="description" content="Get a free insurance quote from Myers Insurance Group. Business, personal, group benefits, and real estate coverage across Ohio. No phone calls. Just results." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Get A Quote | Myers Insurance Group" />
+  <meta property="og:description" content="Get a free insurance quote. Business, personal, group benefits, real estate. Ohio independent broker since 2008." />
+  <meta property="og:url" content="https://myersinsurancegroup.com/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get A Quote | Myers Insurance Group" />
+  <meta name="twitter:description" content="Get a free insurance quote. Business, personal, group benefits, real estate. Ohio independent broker since 2008." />
+  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/contact.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2NK67NX7H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P2NK67NX7H');
+  </script>
+</head>
+<body>
+
+  <!-- ATTITUDE BAR -->
+  <div class="attitude-bar">
+    <p class="attitude-line-1">Saints &amp; Sinners. Jews &amp; Gentiles. Freaks &amp; Geeks. In-Laws &amp; Outlaws. Strippers &amp; Scholars. Far Left, Far Right &amp; Fiercely Independent.</p>
+    <p class="attitude-line-2">INSURING SINCE 2008.</p>
+  </div>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
+        <svg class="logo-mark" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M22 3 L39 9 L39 23 Q39 34 22 43 Q5 34 5 23 L5 9 Z" fill="#1B2B5E" stroke="#B8962E" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="22" cy="16" r="2.8" fill="#B8962E"/>
+          <line x1="22" y1="20" x2="11" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="22" y1="20" x2="33" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="22" y1="20" x2="22" y2="30" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="22" y1="30" x2="15" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="30" x2="29" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-wordmark">
+          <span class="logo-myers">MYERS</span>
+          <span class="logo-sub">INSURANCE GROUP</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/business-insurance.html">Business</a></li>
+        <li><a href="/personal-lines.html">Personal</a></li>
+        <li><a href="/group-benefits.html">Group Benefits</a></li>
+        <li><a href="/real-estate.html">Real Estate</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/coverage-review.html">Coverage Review</a></li>
+        <li><a href="/contact.html" class="nav-cta">Get A Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero navy">
+      <div class="container">
+        <p class="hero-eyebrow">GET IN TOUCH</p>
+        <h1 class="page-hero-headline">Let's get you covered.</h1>
+        <div class="brand-badge">NO JUDGMENT. JUST COVERAGE.</div>
+        <p class="page-hero-sub">Fill out the form below and we'll reach out within 24 hours. No phone calls. No pressure. Just answers.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT CONTENT -->
+    <section class="contact-section">
+      <div class="container contact-grid">
+
+        <!-- FORM -->
+        <div class="contact-form-wrap">
+          <h2 class="form-title">Tell us about your needs</h2>
+          <p class="form-sub">Every field helps us prepare a better quote. Fill in what you can.</p>
+
+          <form
+            id="quoteForm"
+            action="https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID"
+            method="POST"
+            enctype="multipart/form-data"
+            novalidate
+          >
+
+            <!-- Hidden honeypot -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <!-- Name -->
+            <div class="field-group">
+              <label for="name" class="field-label">Full name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" class="field-input" placeholder="John Smith" required autocomplete="name" />
+            </div>
+
+            <!-- Email -->
+            <div class="field-group">
+              <label for="email" class="field-label">Email address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" class="field-input" placeholder="john@example.com" required autocomplete="email" />
+            </div>
+
+            <!-- Phone -->
+            <div class="field-group">
+              <label for="phone" class="field-label">Phone number</label>
+              <input type="tel" id="phone" name="phone" class="field-input" placeholder="(330) 555-0100" autocomplete="tel" />
+            </div>
+
+            <!-- Coverage type -->
+            <div class="field-group">
+              <label for="coverage" class="field-label">What type of coverage do you need? <span class="required">*</span></label>
+              <select id="coverage" name="coverage" class="field-input" required>
+                <option value="" disabled selected>Select coverage type</option>
+                <option value="Business Insurance">Business Insurance</option>
+                <option value="Personal Lines — Home">Personal Lines — Home</option>
+                <option value="Personal Lines — Auto">Personal Lines — Auto</option>
+                <option value="Personal Lines — Life">Personal Lines — Life</option>
+                <option value="Personal Lines — Umbrella">Personal Lines — Umbrella</option>
+                <option value="Group Benefits — Health">Group Benefits — Health</option>
+                <option value="Group Benefits — Dental">Group Benefits — Dental</option>
+                <option value="Group Benefits — Life">Group Benefits — Life</option>
+                <option value="Group Benefits — Planning">Group Benefits — Benefits Planning</option>
+                <option value="Real Estate — Rental Property">Real Estate — Rental Property</option>
+                <option value="Real Estate — Multi-Unit">Real Estate — Multi-Unit / Apartment</option>
+                <option value="Content Creator">Content Creator</option>
+                <option value="Realtor / Mortgage Partner">Realtor / Mortgage Partner</option>
+                <option value="Website Services">Website Services</option>
+                <option value="Multiple / Not Sure">Multiple / Not Sure</option>
+              </select>
+            </div>
+
+            <!-- Business type (conditional) -->
+            <div class="field-group" id="bizTypeGroup">
+              <label for="bizType" class="field-label">Business type</label>
+              <input type="text" id="bizType" name="business_type" class="field-input" placeholder="e.g. Restaurant, Contractor, Bar, Weed Shop..." />
+            </div>
+
+            <!-- Current carrier -->
+            <div class="field-group">
+              <label for="carrier" class="field-label">Current insurance carrier (if any)</label>
+              <input type="text" id="carrier" name="current_carrier" class="field-input" placeholder="e.g. State Farm, Progressive, Erie..." />
+            </div>
+
+            <!-- Message -->
+            <div class="field-group">
+              <label for="message" class="field-label">Anything else we should know?</label>
+              <textarea id="message" name="message" class="field-input field-textarea" placeholder="Tell us about your business, property, team size, or anything that helps us prepare..." rows="4"></textarea>
+            </div>
+
+            <!-- How did you hear about us -->
+            <div class="field-group">
+              <label for="source" class="field-label">How did you hear about us?</label>
+              <select id="source" name="source" class="field-input">
+                <option value="" disabled selected>Select one</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Referral">Referral</option>
+                <option value="Google">Google Search</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Friend / Family">Friend / Family</option>
+                <option value="Realtor / Mortgage Pro">Realtor / Mortgage Professional</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-gold btn-full submit-btn" id="submitBtn">
+              Send my quote request →
+            </button>
+
+            <p class="form-disclaimer">No phone calls. We'll reach out by email or DM within 24 hours.</p>
+
+          </form>
+
+          <!-- Success message -->
+          <div class="form-success" id="formSuccess" hidden>
+            <i class="ti ti-circle-check success-icon"></i>
+            <h3 class="success-title">Got it — we'll be in touch.</h3>
+            <p class="success-sub">We received your request and will reach out within 24 hours. No phone calls. Just answers.</p>
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="contact-sidebar">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">What happens next?</h3>
+            <ol class="sidebar-steps">
+              <li>
+                <span class="sidebar-step-num">1</span>
+                <div>
+                  <strong>We review your request</strong>
+                  <p>Usually within a few hours during business days.</p>
+                </div>
+              </li>
+              <li>
+                <span class="sidebar-step-num">2</span>
+                <div>
+                  <strong>We reach out</strong>
+                  <p>By email or Facebook DM — whichever works best for you.</p>
+                </div>
+              </li>
+              <li>
+                <span class="sidebar-step-num">3</span>
+                <div>
+                  <strong>We build your coverage</strong>
+                  <p>Custom to your business, family, or portfolio. No cookie-cutter policies.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="sidebar-card sidebar-card-dark">
+            <h3 class="sidebar-title-light">Already have a policy?</h3>
+            <p class="sidebar-sub-light">Upload your dec pages and our AI will analyze your current coverage — identifying gaps and where you're overpaying.</p>
+            <a href="/coverage-review.html" class="btn-gold" style="margin-top:1rem; display:inline-block;">Get a free coverage review →</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">What we cover</h3>
+            <div class="sidebar-tags">
+              <span class="tag">Business Insurance</span>
+              <span class="tag">Personal Lines</span>
+              <span class="tag">Group Benefits</span>
+              <span class="tag">Real Estate</span>
+              <span class="tag">Life Insurance</span>
+              <span class="tag">Content Creators</span>
+              <span class="tag">Landlords</span>
+              <span class="tag">Realtor Partners</span>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer navy">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <svg class="logo-mark logo-mark-sm" width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M22 3 L39 9 L39 23 Q39 34 22 43 Q5 34 5 23 L5 9 Z" fill="#1B2B5E" stroke="#B8962E" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="22" cy="16" r="2.8" fill="#B8962E"/>
+          <line x1="22" y1="20" x2="11" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="22" y1="20" x2="33" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="22" y1="20" x2="22" y2="30" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="22" y1="30" x2="15" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="30" x2="29" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-wordmark">
+          <span class="logo-myers">MYERS</span>
+          <span class="logo-sub">INSURANCE GROUP</span>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/business-insurance.html">Business</a>
+        <a href="/personal-lines.html">Personal</a>
+        <a href="/group-benefits.html">Group Benefits</a>
+        <a href="/real-estate.html">Real Estate</a>
+        <a href="/about.html">About</a>
+        <a href="/coverage-review.html">Coverage Review</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span>Myers Insurance Group</span>
+        <span>Ohio independent broker</span>
+        <span>Est. 2008</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/contact.js"></script>
+
+</body>
+</html>
