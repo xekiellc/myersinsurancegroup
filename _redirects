@@ -1,11 +1,5 @@
 # Myers Insurance Group — _redirects
 # Cloudflare Pages routing
 
-# Clean URLs — strip .html
-/business-insurance  /business-insurance.html  200
-/personal-lines      /personal-lines.html       200
-/group-benefits      /group-benefits.html        200
-/real-estate         /real-estate.html           200
-/about               /about.html                 200
-/coverage-review     /coverage-review.html       200
-/contact             /contact.html               200
+# 404 fallback
+/404  /404.html  200
