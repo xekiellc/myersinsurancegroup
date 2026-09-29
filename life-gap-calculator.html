@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Life Insurance Gap Calculator | Myers Insurance Group</title>
+  <meta name="description" content="Find out if your family is properly protected with life insurance. Free 10-question assessment. Get your life insurance gap score instantly." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Life Insurance Gap Calculator | Myers Insurance Group" />
+  <meta property="og:description" content="Is your family properly protected? Find out if you have enough life insurance in 2 minutes. Free assessment." />
+  <meta property="og:url" content="https://myersinsurancegroup.com/life-gap-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Life Insurance Gap Calculator | Myers Insurance Group" />
+  <meta name="twitter:description" content="Is your family properly protected? Find out if you have enough life insurance in 2 minutes. Free assessment." />
+  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/inner-page.css" />
+
+  <style>
+    .calc-hero {
+      background: var(--navy);
+      padding: 3rem 0 2.5rem;
+      border-bottom: 3px solid var(--gold);
+      text-align: center;
+    }
+    .calc-section {
+      background: var(--surface);
+      padding: 3rem 0 4rem;
+      min-height: 60vh;
+    }
+    .calc-wrap { max-width: 680px; margin: 0 auto; }
+    .calc-progress-bar-wrap {
+      background: var(--border);
+      border-radius: 20px;
+      height: 6px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .calc-progress-bar {
+      background: var(--gold);
+      height: 100%;
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+    .calc-progress-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-align: right;
+    }
+    .question-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+    .question-card.active { display: block; }
+    .question-num {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .question-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .question-sub {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .answer-grid { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 14px;
+      font-family: var(--font);
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .answer-btn:hover { border-color: var(--gold); background: rgba(184,150,46,0.05); }
+    .answer-btn.selected { border-color: var(--gold); background: rgba(184,150,46,0.08); font-weight: 500; }
+    .answer-icon { font-size: 20px; color: var(--gold); flex-shrink: 0; }
+    .calc-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+    .calc-back-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 20px;
+      font-size: 13px;
+      font-family: var(--font);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .calc-back-btn:hover { border-color: var(--text-secondary); }
+    .results-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: none;
+    }
+    .results-card.active { display: block; }
+    .results-header { background: var(--navy); padding: 2rem; text-align: center; }
+    .results-score-label { font-size: 11px; letter-spacing: 2px; color: #9AAAD4; text-transform: uppercase; margin-bottom: 10px; }
+    .results-score { font-size: 72px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .results-score-sub { font-size: 14px; color: #9AAAD4; }
+    .results-grade { display: inline-block; padding: 6px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 12px; }
+    .grade-critical { background: rgba(192,57,43,0.2); color: #e74c3c; }
+    .grade-concerning { background: rgba(230,126,34,0.2); color: #e67e22; }
+    .grade-moderate { background: rgba(184,150,46,0.2); color: var(--gold); }
+    .grade-good { background: rgba(39,174,96,0.2); color: #27ae60; }
+    .results-body { padding: 2rem; }
+    .results-summary { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500; }
+    .gap-list { margin-bottom: 1.5rem; }
+    .gap-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--border); }
+    .gap-item:last-child { border-bottom: none; }
+    .gap-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .gap-icon.red { color: #e74c3c; }
+    .gap-icon.orange { color: #e67e22; }
+    .gap-icon.green { color: #27ae60; }
+    .gap-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .gap-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+    .results-disclaimer { font-size: 11px; color: var(--text-muted); line-height: 1.6; padding-top: 1rem; border-top: 0.5px solid var(--border); margin-top: 1.5rem; }
+    .results-cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .life-quote-banner {
+      background: var(--navy);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .life-quote-banner p {
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    .life-quote-banner span {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+    @media (max-width: 480px) {
+      .results-score { font-size: 56px; }
+      .results-cta-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ATTITUDE BAR -->
+  <div class="attitude-bar">
+    <p class="attitude-line-1">Saints &amp; Sinners. Jews &amp; Gentiles. Freaks &amp; Geeks. In-Laws &amp; Outlaws. Strippers &amp; Scholars. Far Left, Far Right &amp; Fiercely Independent.</p>
+    <p class="attitude-line-2">INSURING SINCE 2008.</p>
+  </div>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
+        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/business-insurance.html">Business</a></li>
+        <li><a href="/personal-lines.html">Personal</a></li>
+        <li><a href="/group-benefits.html">Group Benefits</a></li>
+        <li><a href="/real-estate.html">Real Estate</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/coverage-review.html">Coverage Review</a></li>
+        <li><a href="/contact.html" class="nav-cta">Get A Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="calc-hero">
+      <div class="container">
+        <p class="hero-eyebrow">LIFE INSURANCE GAP CALCULATOR</p>
+        <h1 class="hero-headline" style="font-size:clamp(24px,4vw,36px); margin-bottom:10px;">Is your family properly protected?</h1>
+        <p style="color:#9AAAD4; font-size:15px; margin-bottom:0;">10 questions. 2 minutes. Free. No obligation.</p>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="calc-section">
+      <div class="container">
+        <div class="calc-wrap">
+
+          <!-- Quote banner -->
+          <div class="life-quote-banner">
+            <p>"If you can't afford life insurance, you can't afford not to have life insurance."</p>
+            <span>READ THAT AGAIN.</span>
+          </div>
+
+          <div id="progressWrap">
+            <div class="calc-progress-label" id="progressLabel">Question 1 of 10</div>
+            <div class="calc-progress-bar-wrap">
+              <div class="calc-progress-bar" id="progressBar" style="width:10%"></div>
+            </div>
+          </div>
+
+          <!-- Q1 -->
+          <div class="question-card active" id="q1">
+            <div class="question-num">Question 1 of 10</div>
+            <div class="question-text">Do you currently have life insurance?</div>
+            <div class="question-sub">Life insurance is the financial safety net for the people who depend on you. Without it, your family's financial security depends entirely on you never dying — which is not a plan.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(1,'yes_personal',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — I have a personal life insurance policy</button>
+              <button class="answer-btn" onclick="answer(1,'work_only',20)"><i class="ti ti-alert-triangle answer-icon"></i>Only through my employer</button>
+              <button class="answer-btn" onclick="answer(1,'no_no_dependents',5)"><i class="ti ti-user answer-icon"></i>No — and I have no dependents</button>
+              <button class="answer-btn" onclick="answer(1,'no_dependents',30)"><i class="ti ti-alert-circle answer-icon"></i>No — and I do have dependents</button>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="question-card" id="q2">
+            <div class="question-num">Question 2 of 10</div>
+            <div class="question-text">Does anyone depend on your income?</div>
+            <div class="question-sub">A spouse, children, aging parents, or anyone whose financial stability would be disrupted by your death qualifies as a dependent for life insurance purposes.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(2,'spouse_kids',0)"><i class="ti ti-users answer-icon"></i>Yes — spouse and/or children</button>
+              <button class="answer-btn" onclick="answer(2,'parents',0)"><i class="ti ti-heart answer-icon"></i>Yes — aging parents or other family</button>
+              <button class="answer-btn" onclick="answer(2,'business',0)"><i class="ti ti-building-store answer-icon"></i>Yes — a business partner or co-owner</button>
+              <button class="answer-btn" onclick="answer(2,'none',0)"><i class="ti ti-user answer-icon"></i>No — no one depends on my income</button>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="question-card" id="q3">
+            <div class="question-num">Question 3 of 10</div>
+            <div class="question-text">If you died tomorrow, how long could your family maintain their current lifestyle without your income?</div>
+            <div class="question-sub">This is the core question of life insurance need. The answer determines how much coverage you actually need — not a rough guess.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(3,'indefinitely',0)"><i class="ti ti-circle-check answer-icon"></i>Indefinitely — they're fully financially independent</button>
+              <button class="answer-btn" onclick="answer(3,'years',5)"><i class="ti ti-calendar answer-icon"></i>Several years — they'd eventually need to adjust</button>
+              <button class="answer-btn" onclick="answer(3,'months',20)"><i class="ti ti-alert-triangle answer-icon"></i>A few months — it would be very difficult</button>
+              <button class="answer-btn" onclick="answer(3,'immediately',30)"><i class="ti ti-alert-circle answer-icon"></i>Immediately — they could not survive financially</button>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="question-card" id="q4">
+            <div class="question-num">Question 4 of 10</div>
+            <div class="question-text">Do you have a mortgage or other significant debt?</div>
+            <div class="question-sub">When you die, your debts don't disappear. Your family inherits your mortgage, car payments, and other obligations. Life insurance should cover these in addition to income replacement.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(4,'no_debt',0)"><i class="ti ti-circle-check answer-icon"></i>No — I'm debt free</button>
+              <button class="answer-btn" onclick="answer(4,'mortgage_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and my life insurance covers it</button>
+              <button class="answer-btn" onclick="answer(4,'mortgage_not_covered',15)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — and my coverage doesn't account for it</button>
+              <button class="answer-btn" onclick="answer(4,'unsure',10)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure if my coverage is enough</button>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="question-card" id="q5">
+            <div class="question-num">Question 5 of 10</div>
+            <div class="question-text">Is your life insurance through your employer?</div>
+            <div class="question-sub">Employer-provided life insurance is not portable. It disappears the day you leave — by choice, layoff, disability, or retirement. Many people discover this gap at exactly the wrong moment.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(5,'personal_only',0)"><i class="ti ti-circle-check answer-icon"></i>No — I have a personal policy only</button>
+              <button class="answer-btn" onclick="answer(5,'both',5)"><i class="ti ti-info-circle answer-icon"></i>Both — employer and personal policy</button>
+              <button class="answer-btn" onclick="answer(5,'employer_only',20)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — employer only, no personal policy</button>
+              <button class="answer-btn" onclick="answer(5,'none',0)"><i class="ti ti-ban answer-icon"></i>I don't have any life insurance</button>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="question-card" id="q6">
+            <div class="question-num">Question 6 of 10</div>
+            <div class="question-text">Do you know how much life insurance coverage you have?</div>
+            <div class="question-sub">Most people either have no idea what their coverage amount is, or have a vague sense that it's "enough." Neither is acceptable when your family's financial security is at stake.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(6,'know_adequate',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I'm confident it's adequate</button>
+              <button class="answer-btn" onclick="answer(6,'know_unsure',10)"><i class="ti ti-info-circle answer-icon"></i>Yes — but I'm not sure if it's enough</button>
+              <button class="answer-btn" onclick="answer(6,'vague',15)"><i class="ti ti-alert-triangle answer-icon"></i>Vaguely — I know roughly what I have</button>
+              <button class="answer-btn" onclick="answer(6,'no_idea',20)"><i class="ti ti-alert-circle answer-icon"></i>No idea — I don't know my coverage amount</button>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="question-card" id="q7">
+            <div class="question-num">Question 7 of 10</div>
+            <div class="question-text">Do you own a business?</div>
+            <div class="question-sub">Business owners have additional life insurance needs — key person insurance to protect the business, and buy-sell agreements to protect your partners and your family's stake in the business.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(7,'no',0)"><i class="ti ti-ban answer-icon"></i>No — I don't own a business</button>
+              <button class="answer-btn" onclick="answer(7,'yes_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I have key person / buy-sell coverage</button>
+              <button class="answer-btn" onclick="answer(7,'yes_not_covered',15)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — but I don't have business life insurance</button>
+              <button class="answer-btn" onclick="answer(7,'yes_unsure',8)"><i class="ti ti-question-mark answer-icon"></i>Yes — and I'm not sure what I have</button>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="question-card" id="q8">
+            <div class="question-num">Question 8 of 10</div>
+            <div class="question-text">Do you have children under 18?</div>
+            <div class="question-sub">Children create a specific life insurance need — coverage must last until they're financially independent, which can be 18-25 years away. This directly affects how much coverage you need.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(8,'no',0)"><i class="ti ti-ban answer-icon"></i>No children under 18</button>
+              <button class="answer-btn" onclick="answer(8,'yes_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and my coverage accounts for them</button>
+              <button class="answer-btn" onclick="answer(8,'yes_not_covered',15)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — and my coverage doesn't fully account for them</button>
+              <button class="answer-btn" onclick="answer(8,'yes_unsure',10)"><i class="ti ti-question-mark answer-icon"></i>Yes — and I'm not sure if my coverage is enough</button>
+            </div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="question-card" id="q9">
+            <div class="question-num">Question 9 of 10</div>
+            <div class="question-text">What type of life insurance do you have?</div>
+            <div class="question-sub">Term life covers you for a specific period — usually the years your family needs you most. Whole life and universal life are permanent policies that also build cash value. Both have their place.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(9,'term',0)"><i class="ti ti-calendar-time answer-icon"></i>Term life insurance</button>
+              <button class="answer-btn" onclick="answer(9,'whole',0)"><i class="ti ti-infinity answer-icon"></i>Whole or universal life insurance</button>
+              <button class="answer-btn" onclick="answer(9,'both',0)"><i class="ti ti-circle-check answer-icon"></i>Both term and permanent coverage</button>
+              <button class="answer-btn" onclick="answer(9,'employer',10)"><i class="ti ti-building answer-icon"></i>Only what my employer provides</button>
+              <button class="answer-btn" onclick="answer(9,'none',25)"><i class="ti ti-alert-circle answer-icon"></i>None</button>
+            </div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="question-card" id="q10">
+            <div class="question-num">Question 10 of 10</div>
+            <div class="question-text">When did you last review your life insurance coverage?</div>
+            <div class="question-sub">Marriage, divorce, new children, a home purchase, a raise, or a new business all change your life insurance needs. A policy bought 5 years ago may be significantly inadequate today.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(10,'recent',0)"><i class="ti ti-calendar-check answer-icon"></i>Within the last 12 months</button>
+              <button class="answer-btn" onclick="answer(10,'two_years',8)"><i class="ti ti-calendar answer-icon"></i>1–2 years ago</button>
+              <button class="answer-btn" onclick="answer(10,'old',15)"><i class="ti ti-calendar-x answer-icon"></i>More than 2 years ago</button>
+              <button class="answer-btn" onclick="answer(10,'never',20)"><i class="ti ti-alert-triangle answer-icon"></i>Never — I've never reviewed it</button>
+              <button class="answer-btn" onclick="answer(10,'no_coverage',0)"><i class="ti ti-ban answer-icon"></i>I don't have any life insurance to review</button>
+            </div>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="results-card" id="results">
+            <div class="results-header">
+              <div class="results-score-label">YOUR LIFE INSURANCE GAP SCORE</div>
+              <div class="results-score" id="scoreDisplay">0</div>
+              <div class="results-score-sub">out of 100 — higher score = more gaps</div>
+              <div class="results-grade" id="gradeDisplay"></div>
+            </div>
+            <div class="results-body">
+              <p class="results-summary" id="resultsSummary"></p>
+              <p class="section-label">WHAT WE FOUND</p>
+              <div class="gap-list" id="gapList"></div>
+              <div class="results-cta-row">
+                <a href="/contact.html" class="btn-gold">Get life insurance today →</a>
+                <a href="/coverage-review.html" class="btn-navy">Upload my current policy</a>
+              </div>
+              <p class="results-disclaimer">This assessment is for informational purposes only and does not constitute insurance advice. Life insurance needs vary significantly by individual situation, income, debt, and family structure. Contact Myers Insurance Group for a personalized life insurance evaluation.</p>
+            </div>
+          </div>
+
+          <div class="calc-nav" id="calcNav" style="display:none;">
+            <button class="calc-back-btn" onclick="goBack()">← Back</button>
+            <span></span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta navy">
+      <div class="container footer-cta-inner">
+        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
+        <h2 class="footer-cta-headline">Your family deserves better than a GoFundMe.</h2>
+        <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
+        <div class="footer-cta-btns">
+          <a href="/contact.html" class="btn-gold">Get life insurance today</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload my current policy</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer navy">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img logo-img-sm" />
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/business-insurance.html">Business</a>
+        <a href="/personal-lines.html">Personal</a>
+        <a href="/group-benefits.html">Group Benefits</a>
+        <a href="/real-estate.html">Real Estate</a>
+        <a href="/about.html">About</a>
+        <a href="/coverage-review.html">Coverage Review</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span>Myers Insurance Group</span>
+        <span>Ohio independent broker</span>
+        <span>Est. 2008</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+  var answers = {};
+  var totalScore = 0;
+  var currentQ = 1;
+  var history = [];
+
+  function answer(qNum, value, points) {
+    var card = document.getElementById('q' + qNum);
+    card.querySelectorAll('.answer-btn').forEach(function(btn) { btn.classList.remove('selected'); });
+    event.currentTarget.classList.add('selected');
+    answers['q' + qNum] = { value: value, points: points };
+    setTimeout(function() {
+      history.push(currentQ);
+      if (qNum < 10) { showQuestion(qNum + 1); } else { showResults(); }
+    }, 300);
+  }
+
+  function showQuestion(num) {
+    document.querySelectorAll('.question-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('results').classList.remove('active');
+    document.getElementById('q' + num).classList.add('active');
+    currentQ = num;
+    var pct = (num / 10) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Question ' + num + ' of 10';
+    document.getElementById('progressWrap').style.display = 'block';
+    document.getElementById('calcNav').style.display = num > 1 ? 'flex' : 'none';
+    window.scrollTo({ top: document.getElementById('progressWrap').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  function goBack() {
+    if (history.length === 0) return;
+    var prev = history.pop();
+    document.querySelectorAll('.question-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('results').classList.remove('active');
+    document.getElementById('q' + prev).classList.add('active');
+    currentQ = prev;
+    var pct = (prev / 10) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Question ' + prev + ' of 10';
+    document.getElementById('progressWrap').style.display = 'block';
+    document.getElementById('calcNav').style.display = history.length > 0 ? 'flex' : 'none';
+  }
+
+  function showResults() {
+    totalScore = 0;
+    Object.values(answers).forEach(function(a) { totalScore += a.points; });
+    totalScore = Math.min(totalScore, 100);
+
+    document.querySelectorAll('.question-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('calcNav').style.display = 'none';
+    document.getElementById('results').classList.add('active');
+    document.getElementById('scoreDisplay').textContent = totalScore;
+
+    var grade, gradeClass, summary;
+    if (totalScore >= 60) {
+      grade = '⚠️ Critical Gaps Found';
+      gradeClass = 'grade-critical';
+      summary = 'Your life insurance situation has serious gaps that leave your family financially vulnerable. If something happened to you today, the people who depend on you would face real financial hardship. This needs to be addressed immediately.';
+    } else if (totalScore >= 35) {
+      grade = '⚡ Concerning Gaps Found';
+      gradeClass = 'grade-concerning';
+      summary = 'Your life insurance has some significant gaps worth addressing soon. You have some protection in place, but there are areas where your family could be left exposed.';
+    } else if (totalScore >= 15) {
+      grade = '📋 Some Gaps to Address';
+      gradeClass = 'grade-moderate';
+      summary = 'Your life insurance coverage is mostly in order but there are some gaps worth reviewing. A conversation with Myers Insurance Group can make sure your family is fully protected.';
+    } else {
+      grade = '✅ Looking Good';
+      gradeClass = 'grade-good';
+      summary = 'Based on your answers, your life insurance situation appears to be in solid shape. Life circumstances change — an annual review ensures your coverage keeps pace with your life.';
+    }
+
+    document.getElementById('gradeDisplay').textContent = grade;
+    document.getElementById('gradeDisplay').className = 'results-grade ' + gradeClass;
+    document.getElementById('resultsSummary').textContent = summary;
+
+    var gaps = [];
+
+    if (answers.q1 && answers.q1.value === 'no_dependents') gaps.push({ icon: 'ti-alert-circle red', title: 'No Life Insurance With Dependents', desc: 'If you can\'t afford life insurance, you can\'t afford not to have it. People who depend on your income deserve better than a GoFundMe when you\'re gone.' });
+    if (answers.q1 && answers.q1.value === 'work_only') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Life Insurance Only Through Employer', desc: 'Employer life insurance disappears when you leave — by choice, layoff, or disability. Your family\'s protection shouldn\'t depend on your employment status.' });
+    if (answers.q3 && answers.q3.value === 'immediately') gaps.push({ icon: 'ti-alert-circle red', title: 'Family Cannot Survive Financially Without You', desc: 'This is exactly the situation life insurance exists to solve. Your family should never be one death away from financial collapse.' });
+    if (answers.q3 && answers.q3.value === 'months') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Family Has Limited Financial Runway', desc: 'A few months of runway isn\'t enough. Life insurance should provide years of income replacement — not just a bridge to crisis.' });
+    if (answers.q4 && answers.q4.value === 'mortgage_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Mortgage Not Covered by Life Insurance', desc: 'Your family inherits your mortgage when you die. Your coverage should be sufficient to pay off the home AND replace your income — not just one or the other.' });
+    if (answers.q5 && answers.q5.value === 'employer_only') gaps.push({ icon: 'ti-alert-triangle orange', title: 'No Portable Life Insurance', desc: 'The day you leave your job — for any reason — your life insurance ends. A personal policy is the only coverage that stays with you regardless of your employment.' });
+    if (answers.q6 && answers.q6.value === 'no_idea') gaps.push({ icon: 'ti-alert-circle red', title: 'Unknown Coverage Amount', desc: 'Not knowing your life insurance coverage amount is not acceptable when your family\'s financial future depends on it. You need to know this number.' });
+    if (answers.q6 && answers.q6.value === 'vague') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Uncertain Coverage Amount', desc: 'Vaguely knowing your coverage isn\'t enough. A precise understanding of your coverage — and whether it\'s adequate — is essential.' });
+    if (answers.q7 && answers.q7.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Business Owner Without Business Life Insurance', desc: 'Key person insurance protects your business if you die. A buy-sell agreement protects your family\'s stake. Both are essential for any business owner.' });
+    if (answers.q8 && answers.q8.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Children Not Fully Accounted For', desc: 'Minor children create a specific coverage need that extends 15-25 years into the future. Your coverage amount needs to reflect the full cost of raising them without your income.' });
+    if (answers.q9 && answers.q9.value === 'none') gaps.push({ icon: 'ti-alert-circle red', title: 'No Life Insurance At All', desc: 'If someone depends on you financially, you need life insurance. It costs less than you think. The conversation you\'re putting off could be the most important financial decision you ever make.' });
+    if (answers.q9 && answers.q9.value === 'employer') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Only Employer-Provided Coverage', desc: 'Employer life insurance is a benefit — not a plan. One job change stands between your family and having no coverage at all.' });
+    if (answers.q10 && (answers.q10.value === 'old' || answers.q10.value === 'never')) gaps.push({ icon: 'ti-info-circle orange', title: 'Coverage Not Recently Reviewed', desc: 'Life changes — marriage, children, a new home, a raise — all affect how much life insurance you need. A policy bought five years ago may be significantly inadequate today.' });
+
+    if (gaps.length === 0) {
+      gaps.push({ icon: 'ti-circle-check green', title: 'No Major Gaps Identified', desc: 'Based on your answers, your life insurance coverage appears to be in solid shape. An annual review with Myers Insurance Group confirms your family stays fully protected as your life evolves.' });
+    }
+
+    var gapList = document.getElementById('gapList');
+    gapList.innerHTML = '';
+    gaps.forEach(function(g) {
+      var div = document.createElement('div');
+      div.className = 'gap-item';
+      div.innerHTML = '<i class="ti ' + g.icon + ' gap-icon"></i><div><div class="gap-title">' + g.title + '</div><div class="gap-desc">' + g.desc + '</div></div>';
+      gapList.appendChild(div);
+    });
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'life_gap_calculator_complete', { event_category: 'engagement', event_label: 'score_' + totalScore, value: totalScore });
+    }
+
+    window.scrollTo({ top: document.getElementById('results').offsetTop - 100, behavior: 'smooth' });
+  }
+  </script>
+
+</body>
+</html>
