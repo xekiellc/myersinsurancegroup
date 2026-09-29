@@ -4,27 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>About | Myers Insurance Group</title>
-  <meta name="description" content="Myers Insurance Group — a different kind of Ohio insurance brokerage. Independent. Knowledgeable. Insuring since 2008. No judgment. Just coverage." />
-
-  <!-- Open Graph -->
+  <meta name="description" content="Myers Insurance Group — Ohio's independent insurance broker since 2008. A different kind of brokerage. No judgment. Just coverage." />
   <meta property="og:title" content="About | Myers Insurance Group" />
-  <meta property="og:description" content="A different kind of Ohio insurance brokerage. Independent. Knowledgeable. Insuring since 2008. No judgment. Just coverage." />
   <meta property="og:url" content="https://myersinsurancegroup.com/about.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
-
-  <!-- Twitter/X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About | Myers Insurance Group" />
-  <meta name="twitter:description" content="A different kind of Ohio insurance brokerage. Independent. Knowledgeable. Insuring since 2008. No judgment. Just coverage." />
-  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
-
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="canonical" href="https://myersinsurancegroup.com/about.html" />
+  <link rel="icon" type="image/png" href="/assets/myers_apple_vibe.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
   <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/about.css" />
+  <link rel="stylesheet" href="/css/inner-page.css" />
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2NK67NX7H"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -32,6 +22,125 @@
     gtag('js', new Date());
     gtag('config', 'G-P2NK67NX7H');
   </script>
+
+  <style>
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .about-tile {
+      background: var(--white);
+      padding: 40px 36px;
+      border-right: 0.5px solid var(--border-light);
+      border-bottom: 0.5px solid var(--border-light);
+    }
+
+    .about-tile:nth-child(2) { border-right: none; }
+    .about-tile:nth-child(3) { border-bottom: none; }
+    .about-tile:nth-child(4) { border-right: none; border-bottom: none; }
+
+    .about-tile-n {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--subtle);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .about-tile-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+
+    .about-tile-desc {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    .who-section {
+      background: var(--black);
+      padding: var(--section-padding) 0;
+    }
+
+    .who-section .section-label { color: rgba(255,255,255,0.28); }
+    .who-section .section-headline { color: var(--white); }
+    .who-section .section-sub { color: rgba(255,255,255,0.4); }
+
+    .who-list-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 0.5px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .who-item {
+      padding: 28px 24px;
+      border-right: 0.5px solid rgba(255,255,255,0.06);
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .who-item:nth-child(3n) { border-right: none; }
+    .who-item:nth-last-child(-n+3) { border-bottom: none; }
+
+    .who-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+
+    .who-item-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.65;
+    }
+
+    .statement-section {
+      background: var(--white);
+      padding: var(--section-padding) 0;
+      text-align: center;
+    }
+
+    .statement {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -1px;
+      line-height: 1.25;
+      max-width: 800px;
+      margin: 0 auto 16px;
+    }
+
+    .statement-sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--subtle);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-tile { border-right: none; }
+      .who-list-grid { grid-template-columns: 1fr; }
+      .who-item { border-right: none !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -44,23 +153,12 @@
   <!-- NAV -->
   <header class="site-header">
     <nav class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
-        <svg class="logo-mark" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M22 3 L39 9 L39 23 Q39 34 22 43 Q5 34 5 23 L5 9 Z" fill="#1B2B5E" stroke="#B8962E" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="22" cy="16" r="2.8" fill="#B8962E"/>
-          <line x1="22" y1="20" x2="11" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="33" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="22" y2="30" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="15" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="29" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <div class="logo-wordmark">
-          <span class="logo-myers">MYERS</span>
-          <span class="logo-sub">INSURANCE GROUP</span>
-        </div>
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img" />
+        <span class="nav-logo-text">Myers Insurance Group</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <i class="ti ti-menu-2"></i>
+      <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+        <i class="ti ti-menu-2" id="navIcon"></i>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="/business-insurance.html">Business</a></li>
@@ -76,166 +174,105 @@
 
   <main>
 
-    <!-- PAGE HERO -->
-    <section class="page-hero navy">
+    <!-- HERO -->
+    <section class="page-hero">
       <div class="container">
         <p class="hero-eyebrow">ABOUT MYERS INSURANCE GROUP</p>
         <h1 class="page-hero-headline">A different kind of<br>Ohio insurance brokerage.</h1>
-        <div class="brand-badge">NO JUDGMENT. JUST COVERAGE.</div>
         <p class="page-hero-sub">Independent. Knowledgeable. On your side. Insuring Ohio businesses and families since 2008.</p>
-      </div>
-    </section>
-
-    <!-- EVERYONE WELCOME -->
-    <section class="everyone-section dark-navy">
-      <div class="container">
-        <p class="section-label" style="color: var(--gold);">WHO WE SERVE</p>
-        <h2 class="section-headline-light">Saints &amp; Sinners. Jews &amp; Gentiles.<br>Freaks &amp; Geeks. In-Laws &amp; Outlaws.<br>Strippers &amp; Scholars.</h2>
-        <p class="section-sub-light" style="margin-top: 1rem;">Far Left, Far Right, and Fiercely Independent. We don't care who you are, how you vote, what you believe, or what kind of business you run. We care that you're covered — properly, completely, and at a price that makes sense.</p>
-        <p class="section-sub-light">At Myers Insurance Group, your politics stay at the door and your coverage comes first. No exceptions.</p>
-      </div>
-    </section>
-
-    <!-- THE BROKERAGE -->
-    <section class="brokerage-section">
-      <div class="container brokerage-grid">
-
-        <div class="brokerage-content">
-          <p class="section-label">THE BROKERAGE</p>
-          <h2 class="section-headline">Not your typical brokerage.</h2>
-          <p class="about-body">Passing the licensing exam is the minimum requirement to become an insurance agent. We built Myers Insurance Group to be considerably more.</p>
-          <p class="about-body">Myers Insurance Group is an independent brokerage — which means we work for you, not for a carrier. We're not captive to one company, one product line, or one way of doing things. We shop the market, find the right coverage at the right price, and build policies around what you actually need.</p>
-          <p class="about-body">We bring a background in finance, public policy, and health sciences to every conversation. We understand risk at a level most agents never will. And we use that depth to protect what you've built — whether it's a business, a family, a portfolio, or all three.</p>
-          <p class="about-body">We've also built premium websites for Ohio businesses and beyond. If your business needs a web presence that actually works, we can handle that too. Insurance covered. Website built. One stop. Done.</p>
+        <div class="hero-ctas">
+          <a href="/contact.html" class="btn-outline">Get a free quote</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload your policy →</a>
         </div>
-
-        <aside class="brokerage-stats">
-          <div class="about-stat-card">
-            <span class="about-stat-num">2008</span>
-            <span class="about-stat-lbl">Insuring since</span>
-          </div>
-          <div class="about-stat-card">
-            <span class="about-stat-num">40+</span>
-            <span class="about-stat-lbl">Business types insured</span>
-          </div>
-          <div class="about-stat-card">
-            <span class="about-stat-num">100%</span>
-            <span class="about-stat-lbl">Independent</span>
-          </div>
-          <div class="about-stat-card">
-            <span class="about-stat-num">Ohio</span>
-            <span class="about-stat-lbl">Based &amp; operated</span>
-          </div>
-          <div class="about-stat-card about-stat-card-wide">
-            <span class="about-stat-num">No Judgment.</span>
-            <span class="about-stat-lbl">Just Coverage.</span>
-          </div>
-        </aside>
-
       </div>
     </section>
 
     <!-- WHAT MAKES US DIFFERENT -->
-    <section class="different-section">
+    <section class="inner-section">
       <div class="container">
-        <p class="section-label">WHAT MAKES US DIFFERENT</p>
-        <h2 class="section-headline">Why Myers Insurance Group.</h2>
-        <div class="different-grid">
-
-          <div class="different-card">
-            <i class="ti ti-shield-check different-icon"></i>
-            <h3 class="different-title">100% Independent</h3>
-            <p class="different-desc">No captive carrier. No corporate quota. No script. We work for you — not for an insurance company. That means we shop the market and find what's actually right for your situation.</p>
+        <span class="section-label">WHAT MAKES US DIFFERENT</span>
+        <h2 class="section-headline">Passing the licensing exam is the minimum.</h2>
+        <p class="section-sub">We built Myers Insurance Group to be considerably more.</p>
+        <div class="about-grid">
+          <div class="about-tile">
+            <span class="about-tile-n">01</span>
+            <div class="about-tile-title">Truly independent</div>
+            <div class="about-tile-desc">We don't work for any carrier. We work for you. As an independent broker, we shop the entire market to find the right coverage at the right price — not the right coverage for our quota.</div>
           </div>
-
-          <div class="different-card">
-            <i class="ti ti-users different-icon"></i>
-            <h3 class="different-title">No judgment. Ever.</h3>
-            <p class="different-desc">Churches and strip clubs. Weed shops and law offices. Content creators and contractors. Progressive or conservative. We insure everyone — and we treat everyone the same.</p>
+          <div class="about-tile">
+            <span class="about-tile-n">02</span>
+            <div class="about-tile-title">No judgment — ever</div>
+            <div class="about-tile-desc">Strip clubs, weed shops, adult content creators, bars at 2am. Saints and sinners. If you run a legitimate business in Ohio, we will find you coverage. Full stop. No moral gatekeeping.</div>
           </div>
-
-          <div class="different-card">
-            <i class="ti ti-cpu different-icon"></i>
-            <h3 class="different-title">AI-powered coverage analysis</h3>
-            <p class="different-desc">Upload your current dec pages and our AI extracts every detail — coverage limits, premiums, gaps, class codes. We review it personally and reach out within 24 hours. No other Ohio broker offers this.</p>
+          <div class="about-tile">
+            <span class="about-tile-n">03</span>
+            <div class="about-tile-title">Built since 2008</div>
+            <div class="about-tile-desc">Insuring Ohio businesses and families since 2008. We've seen the claims that come in, the gaps that leave people exposed, and the policies that look comprehensive until they're actually tested.</div>
           </div>
-
-          <div class="different-card">
-            <i class="ti ti-school different-icon"></i>
-            <h3 class="different-title">Deep expertise</h3>
-            <p class="different-desc">Finance, public policy, and health sciences background. We understand risk, financial exposure, and the real-world consequences of being underinsured in a way most agents simply don't.</p>
+          <div class="about-tile">
+            <span class="about-tile-n">04</span>
+            <div class="about-tile-title">DM only. No phone calls.</div>
+            <div class="about-tile-desc">We respond by email or Facebook DM — with real answers, not a call center script. No hold music. No automated phone trees. Just a straight conversation about your coverage.</div>
           </div>
-
-          <div class="different-card">
-            <i class="ti ti-building-store different-icon"></i>
-            <h3 class="different-title">Every business type</h3>
-            <p class="different-desc">From barber shops to bowling alleys, strip clubs to churches, weed shops to law offices — 40+ business types covered. If you own it and run it, we can insure it.</p>
-          </div>
-
-          <div class="different-card">
-            <i class="ti ti-device-laptop different-icon"></i>
-            <h3 class="different-title">Tech-forward operation</h3>
-            <p class="different-desc">We build innovative websites and technology platforms. That same tech-forward approach applies to how we serve clients — faster, smarter, and with better tools than the competition.</p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- WHAT WE COVER SNAPSHOT -->
-    <section class="cover-snapshot navy">
+    <!-- WHO WE SERVE -->
+    <section class="who-section">
       <div class="container">
-        <p class="section-label">WHAT WE COVER</p>
-        <h2 class="section-headline-light">Every business. Every family. Every property.</h2>
-        <div class="snapshot-grid">
-          <a href="/business-insurance.html" class="snapshot-card">
-            <i class="ti ti-building-store"></i>
-            <span>Business Insurance</span>
-          </a>
-          <a href="/personal-lines.html" class="snapshot-card">
-            <i class="ti ti-home-heart"></i>
-            <span>Personal Lines</span>
-          </a>
-          <a href="/group-benefits.html" class="snapshot-card">
-            <i class="ti ti-users"></i>
-            <span>Group Benefits</span>
-          </a>
-          <a href="/real-estate.html" class="snapshot-card">
-            <i class="ti ti-building"></i>
-            <span>Real Estate &amp; Investment</span>
-          </a>
-          <a href="/coverage-review.html" class="snapshot-card">
-            <i class="ti ti-cpu"></i>
-            <span>AI Coverage Review</span>
-          </a>
-          <a href="/contact.html" class="snapshot-card">
-            <i class="ti ti-handshake"></i>
-            <span>Realtor &amp; Mortgage Partners</span>
-          </a>
+        <span class="section-label">WHO WE SERVE</span>
+        <h2 class="section-headline">Everyone Ohio has to offer.</h2>
+        <p class="section-sub">Saints &amp; Sinners. Jews &amp; Gentiles. Freaks &amp; Geeks. In-Laws &amp; Outlaws. Strippers &amp; Scholars. Far Left, Far Right &amp; Fiercely Independent.</p>
+        <div class="who-list-grid">
+          <div class="who-item">
+            <div class="who-item-title">Business Owners</div>
+            <div class="who-item-desc">Every type. Every industry. 40+ business types covered across Ohio.</div>
+          </div>
+          <div class="who-item">
+            <div class="who-item-title">Families</div>
+            <div class="who-item-desc">Home, auto, life, umbrella. Coverage for everything you've built together.</div>
+          </div>
+          <div class="who-item">
+            <div class="who-item-title">Real Estate Investors</div>
+            <div class="who-item-desc">Single family to apartment complexes. Landlord policies built for portfolios.</div>
+          </div>
+          <div class="who-item">
+            <div class="who-item-title">Content Creators</div>
+            <div class="who-item-desc">YouTubers, streamers, OnlyFans creators. Spicy or mild — no judgment.</div>
+          </div>
+          <div class="who-item">
+            <div class="who-item-title">Realtor Partners</div>
+            <div class="who-item-desc">Homeowners at closing. Investment buyers. Mutual referral arrangements.</div>
+          </div>
+          <div class="who-item">
+            <div class="who-item-title">The Uninsurable</div>
+            <div class="who-item-desc">Cannabis dispensaries, strip clubs, tattoo shops. If others won't — we will.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- COMMUNITY -->
-    <section class="community-section">
+    <!-- STATEMENT -->
+    <section class="statement-section">
       <div class="container">
-        <p class="section-label">COMMUNITY</p>
-        <h2 class="section-headline">We do business with you.<br>You do business with us.</h2>
-        <p class="section-sub">Myers Insurance Group isn't just a brokerage. We're part of the Ohio business community. We eat at local restaurants, drink at local bars, shop local, and send referrals to the businesses we support. We show up with our wallets and our networks — and we expect the same energy in return.</p>
-        <p class="section-sub">If we spend money at your business, you bring your insurance to us. You refer us. You share our content. That's not a transaction — that's a partnership. That's how community works when everybody's serious about winning.</p>
-        <a href="/contact.html" class="btn-gold">Let's work together →</a>
+        <p class="statement">"If you can't afford life insurance,<br>you can't afford not to have it."</p>
+        <span class="statement-sub">READ THAT AGAIN.</span>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="/contact.html" class="btn-outline-dark">Get a free quote</a>
+          <a href="/coverage-review.html" class="btn-outline-dark">Upload my policy →</a>
+        </div>
       </div>
     </section>
 
     <!-- FOOTER CTA -->
-    <section class="footer-cta navy">
+    <section class="footer-cta">
       <div class="container footer-cta-inner">
-        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
-        <h2 class="footer-cta-headline">Plan. Prepare. Protect.</h2>
+        <h2 class="footer-cta-headline">Ready to get properly covered?</h2>
         <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
         <div class="footer-cta-btns">
-          <a href="/contact.html" class="btn-gold">Get a free quote</a>
-          <a href="/coverage-review.html" class="btn-outline">Upload my policy</a>
+          <a href="/contact.html" class="btn-primary">Get a free quote</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload my policy →</a>
         </div>
       </div>
     </section>
@@ -243,24 +280,13 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer navy">
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-logo">
-        <svg class="logo-mark logo-mark-sm" width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M22 3 L39 9 L39 23 Q39 34 22 43 Q5 34 5 23 L5 9 Z" fill="#1B2B5E" stroke="#B8962E" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="22" cy="16" r="2.8" fill="#B8962E"/>
-          <line x1="22" y1="20" x2="11" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="33" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="22" y2="30" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="15" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="29" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <div class="logo-wordmark">
-          <span class="logo-myers">MYERS</span>
-          <span class="logo-sub">INSURANCE GROUP</span>
-        </div>
-      </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img-sm" />
+        <span class="nav-logo-text" style="color:rgba(255,255,255,0.45); font-size:13px;">Myers Insurance Group</span>
+      </a>
+      <nav class="footer-nav">
         <a href="/business-insurance.html">Business</a>
         <a href="/personal-lines.html">Personal</a>
         <a href="/group-benefits.html">Group Benefits</a>
@@ -278,6 +304,5 @@
   </footer>
 
   <script src="/js/main.js"></script>
-
 </body>
 </html>
