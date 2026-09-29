@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Business Coverage Gap Calculator | Myers Insurance Group</title>
+  <meta name="description" content="Find out if your business insurance has dangerous gaps. Free 10-question assessment. Get your coverage gap score instantly." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Business Coverage Gap Calculator | Myers Insurance Group" />
+  <meta property="og:description" content="Does your business insurance have dangerous gaps? Find out in 2 minutes. Free assessment." />
+  <meta property="og:url" content="https://myersinsurancegroup.com/business-gap-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Business Coverage Gap Calculator | Myers Insurance Group" />
+  <meta name="twitter:description" content="Does your business insurance have dangerous gaps? Find out in 2 minutes. Free assessment." />
+  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/inner-page.css" />
+
+  <style>
+    .calc-hero {
+      background: var(--navy);
+      padding: 3rem 0 2.5rem;
+      border-bottom: 3px solid var(--gold);
+      text-align: center;
+    }
+
+    .calc-section {
+      background: var(--surface);
+      padding: 3rem 0 4rem;
+      min-height: 60vh;
+    }
+
+    .calc-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Progress */
+    .calc-progress-bar-wrap {
+      background: var(--border);
+      border-radius: 20px;
+      height: 6px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .calc-progress-bar {
+      background: var(--gold);
+      height: 100%;
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    .calc-progress-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-align: right;
+    }
+
+    /* Question card */
+    .question-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+
+    .question-card.active { display: block; }
+
+    .question-num {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .question-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .question-sub {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .answer-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answer-btn {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 14px;
+      font-family: var(--font);
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .answer-btn:hover {
+      border-color: var(--gold);
+      background: rgba(184,150,46,0.05);
+    }
+
+    .answer-btn.selected {
+      border-color: var(--gold);
+      background: rgba(184,150,46,0.08);
+      font-weight: 500;
+    }
+
+    .answer-icon {
+      font-size: 20px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .calc-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .calc-back-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 20px;
+      font-size: 13px;
+      font-family: var(--font);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .calc-back-btn:hover { border-color: var(--text-secondary); }
+
+    /* Results */
+    .results-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: none;
+    }
+
+    .results-card.active { display: block; }
+
+    .results-header {
+      background: var(--navy);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .results-score-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #9AAAD4;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .results-score {
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .results-score-sub {
+      font-size: 14px;
+      color: #9AAAD4;
+    }
+
+    .results-grade {
+      display: inline-block;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    .grade-critical { background: rgba(192,57,43,0.2); color: #e74c3c; }
+    .grade-concerning { background: rgba(230,126,34,0.2); color: #e67e22; }
+    .grade-moderate { background: rgba(184,150,46,0.2); color: var(--gold); }
+    .grade-good { background: rgba(39,174,96,0.2); color: #27ae60; }
+
+    .results-body { padding: 2rem; }
+
+    .results-summary {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .gap-list { margin-bottom: 1.5rem; }
+
+    .gap-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .gap-item:last-child { border-bottom: none; }
+
+    .gap-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .gap-icon.red { color: #e74c3c; }
+    .gap-icon.orange { color: #e67e22; }
+    .gap-icon.green { color: #27ae60; }
+
+    .gap-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .gap-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .results-disclaimer {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-top: 1rem;
+      border-top: 0.5px solid var(--border);
+      margin-top: 1.5rem;
+    }
+
+    .results-cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 480px) {
+      .results-score { font-size: 56px; }
+      .results-cta-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ATTITUDE BAR -->
+  <div class="attitude-bar">
+    <p class="attitude-line-1">Saints &amp; Sinners. Jews &amp; Gentiles. Freaks &amp; Geeks. In-Laws &amp; Outlaws. Strippers &amp; Scholars. Far Left, Far Right &amp; Fiercely Independent.</p>
+    <p class="attitude-line-2">INSURING SINCE 2008.</p>
+  </div>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
+        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/business-insurance.html">Business</a></li>
+        <li><a href="/personal-lines.html">Personal</a></li>
+        <li><a href="/group-benefits.html">Group Benefits</a></li>
+        <li><a href="/real-estate.html">Real Estate</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/coverage-review.html">Coverage Review</a></li>
+        <li><a href="/contact.html" class="nav-cta">Get A Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="calc-hero">
+      <div class="container">
+        <p class="hero-eyebrow">BUSINESS COVERAGE GAP CALCULATOR</p>
+        <h1 class="hero-headline" style="font-size:clamp(24px,4vw,36px); margin-bottom:10px;">Does your business insurance have dangerous gaps?</h1>
+        <p style="color:#9AAAD4; font-size:15px; margin-bottom:0;">10 questions. 2 minutes. Free. No obligation.</p>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="calc-section">
+      <div class="container">
+        <div class="calc-wrap">
+
+          <!-- Progress -->
+          <div id="progressWrap">
+            <div class="calc-progress-label" id="progressLabel">Question 1 of 10</div>
+            <div class="calc-progress-bar-wrap">
+              <div class="calc-progress-bar" id="progressBar" style="width:10%"></div>
+            </div>
+          </div>
+
+          <!-- Q1 -->
+          <div class="question-card active" id="q1">
+            <div class="question-num">Question 1 of 10</div>
+            <div class="question-text">Do you have a current General Liability policy?</div>
+            <div class="question-sub">General Liability covers third-party injury, property damage, and basic business claims. It's the foundation of any business policy.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(1,'yes',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — I have GL coverage</button>
+              <button class="answer-btn" onclick="answer(1,'no',20)"><i class="ti ti-circle-x answer-icon"></i>No — I don't have GL coverage</button>
+              <button class="answer-btn" onclick="answer(1,'unsure',10)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure what I have</button>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="question-card" id="q2">
+            <div class="question-num">Question 2 of 10</div>
+            <div class="question-text">Do you have employees?</div>
+            <div class="question-sub">Ohio law requires Workers Compensation coverage for most businesses with employees. Operating without it carries significant legal and financial risk.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(2,'no_employees',0)"><i class="ti ti-user answer-icon"></i>No — I'm a sole operator</button>
+              <button class="answer-btn" onclick="answer(2,'yes_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I have Workers Comp</button>
+              <button class="answer-btn" onclick="answer(2,'yes_no_wc',25)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — but I don't have Workers Comp</button>
+              <button class="answer-btn" onclick="answer(2,'unsure',12)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure</button>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="question-card" id="q3">
+            <div class="question-num">Question 3 of 10</div>
+            <div class="question-text">Do you use vehicles for your business?</div>
+            <div class="question-sub">Personal auto insurance does NOT cover vehicles used for business purposes. This is one of the most common and costly coverage gaps we find.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(3,'no',0)"><i class="ti ti-car-off answer-icon"></i>No — I don't use vehicles for business</button>
+              <button class="answer-btn" onclick="answer(3,'yes_commercial',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I have commercial auto coverage</button>
+              <button class="answer-btn" onclick="answer(3,'yes_personal',20)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — but I'm using my personal auto policy</button>
+              <button class="answer-btn" onclick="answer(3,'unsure',10)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure what my policy covers</button>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="question-card" id="q4">
+            <div class="question-num">Question 4 of 10</div>
+            <div class="question-text">Do you serve alcohol at your business?</div>
+            <div class="question-sub">Liquor liability is typically excluded from standard General Liability policies. If you serve alcohol and don't have it, one incident can end your business.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(4,'no',0)"><i class="ti ti-ban answer-icon"></i>No — we don't serve alcohol</button>
+              <button class="answer-btn" onclick="answer(4,'yes_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I have liquor liability coverage</button>
+              <button class="answer-btn" onclick="answer(4,'yes_not_covered',25)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — but I don't have liquor liability</button>
+              <button class="answer-btn" onclick="answer(4,'unsure',10)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure if my policy covers it</button>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="question-card" id="q5">
+            <div class="question-num">Question 5 of 10</div>
+            <div class="question-text">Do you provide professional services or advice?</div>
+            <div class="question-sub">If a client claims your work caused them financial harm, General Liability won't cover it. Professional Liability (E&O) is a separate policy and often overlooked.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(5,'no',0)"><i class="ti ti-ban answer-icon"></i>No — I sell products, not services</button>
+              <button class="answer-btn" onclick="answer(5,'yes_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I have Professional Liability / E&O</button>
+              <button class="answer-btn" onclick="answer(5,'yes_not_covered',15)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — but I don't have Professional Liability</button>
+              <button class="answer-btn" onclick="answer(5,'unsure',8)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure</button>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="question-card" id="q6">
+            <div class="question-num">Question 6 of 10</div>
+            <div class="question-text">Do you store customer data digitally?</div>
+            <div class="question-sub">Customer names, emails, payment info, and health data are all covered under cyber liability. Standard business policies exclude data breach costs.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(6,'no',0)"><i class="ti ti-ban answer-icon"></i>No — I don't store any customer data</button>
+              <button class="answer-btn" onclick="answer(6,'yes_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I have cyber liability coverage</button>
+              <button class="answer-btn" onclick="answer(6,'yes_not_covered',15)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — but I don't have cyber coverage</button>
+              <button class="answer-btn" onclick="answer(6,'unsure',8)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure</button>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="question-card" id="q7">
+            <div class="question-num">Question 7 of 10</div>
+            <div class="question-text">Do you own or lease business equipment worth more than $10,000?</div>
+            <div class="question-sub">Equipment, tools, computers, and inventory need dedicated property coverage. General Liability doesn't cover your own property — only damage to others.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(7,'no',0)"><i class="ti ti-ban answer-icon"></i>No — minimal equipment</button>
+              <button class="answer-btn" onclick="answer(7,'yes_covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — and I have business property coverage</button>
+              <button class="answer-btn" onclick="answer(7,'yes_not_covered',15)"><i class="ti ti-alert-triangle answer-icon"></i>Yes — but I don't have property coverage</button>
+              <button class="answer-btn" onclick="answer(7,'unsure',8)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure what my policy covers</button>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="question-card" id="q8">
+            <div class="question-num">Question 8 of 10</div>
+            <div class="question-text">If your business had to close for 30 days due to a fire or covered loss, could you survive financially?</div>
+            <div class="question-sub">Business Interruption coverage replaces lost income when a covered event forces you to close temporarily. Without it, a disaster can permanently close a business that survived the event.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(8,'covered',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — I have Business Interruption coverage</button>
+              <button class="answer-btn" onclick="answer(8,'yes_no_coverage',15)"><i class="ti ti-alert-triangle answer-icon"></i>I could survive, but I don't have BI coverage</button>
+              <button class="answer-btn" onclick="answer(8,'no_no_coverage',20)"><i class="ti ti-alert-circle answer-icon"></i>No — 30 days closed would be catastrophic</button>
+              <button class="answer-btn" onclick="answer(8,'unsure',10)"><i class="ti ti-question-mark answer-icon"></i>I'm not sure</button>
+            </div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="question-card" id="q9">
+            <div class="question-num">Question 9 of 10</div>
+            <div class="question-text">When did you last review your insurance coverage?</div>
+            <div class="question-sub">Businesses change. Coverage that was right 3 years ago may leave you dangerously exposed today. Annual reviews are the minimum standard.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(9,'recent',0)"><i class="ti ti-calendar-check answer-icon"></i>Within the last 12 months</button>
+              <button class="answer-btn" onclick="answer(9,'two_years',8)"><i class="ti ti-calendar answer-icon"></i>1–2 years ago</button>
+              <button class="answer-btn" onclick="answer(9,'old',15)"><i class="ti ti-calendar-x answer-icon"></i>More than 2 years ago</button>
+              <button class="answer-btn" onclick="answer(9,'never',20)"><i class="ti ti-alert-triangle answer-icon"></i>Never — I've never reviewed it</button>
+            </div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="question-card" id="q10">
+            <div class="question-num">Question 10 of 10</div>
+            <div class="question-text">Do you know the exact coverage limits on your current policy?</div>
+            <div class="question-sub">Most business owners don't know their limits until they file a claim and find out they're not enough. Knowing your limits is the first step to knowing if they're adequate.</div>
+            <div class="answer-grid">
+              <button class="answer-btn" onclick="answer(10,'yes',0)"><i class="ti ti-circle-check answer-icon"></i>Yes — I know my exact limits</button>
+              <button class="answer-btn" onclick="answer(10,'roughly',8)"><i class="ti ti-info-circle answer-icon"></i>Roughly — but not exactly</button>
+              <button class="answer-btn" onclick="answer(10,'no',15)"><i class="ti ti-alert-triangle answer-icon"></i>No — I have no idea</button>
+            </div>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="results-card" id="results">
+            <div class="results-header">
+              <div class="results-score-label">YOUR COVERAGE GAP SCORE</div>
+              <div class="results-score" id="scoreDisplay">0</div>
+              <div class="results-score-sub">out of 100 — higher score = more gaps</div>
+              <div class="results-grade" id="gradeDisplay"></div>
+            </div>
+            <div class="results-body">
+              <p class="results-summary" id="resultsSummary"></p>
+              <p class="section-label">WHAT WE FOUND</p>
+              <div class="gap-list" id="gapList"></div>
+              <div class="results-cta-row">
+                <a href="/contact.html" class="btn-gold">Get a free quote →</a>
+                <a href="/coverage-review.html" class="btn-navy">Upload my current policy</a>
+              </div>
+              <p class="results-disclaimer">This assessment is for informational purposes only and does not constitute insurance advice. Coverage needs vary by business type, size, and operations. Contact Myers Insurance Group for a personalized evaluation of your specific coverage needs.</p>
+            </div>
+          </div>
+
+          <!-- Back button (outside cards) -->
+          <div class="calc-nav" id="calcNav" style="display:none;">
+            <button class="calc-back-btn" id="backBtn" onclick="goBack()">← Back</button>
+            <span></span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta navy">
+      <div class="container footer-cta-inner">
+        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
+        <h2 class="footer-cta-headline">Don't wait for a claim to find out you're underinsured.</h2>
+        <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
+        <div class="footer-cta-btns">
+          <a href="/contact.html" class="btn-gold">Get a free quote</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload my current policy</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer navy">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img logo-img-sm" />
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/business-insurance.html">Business</a>
+        <a href="/personal-lines.html">Personal</a>
+        <a href="/group-benefits.html">Group Benefits</a>
+        <a href="/real-estate.html">Real Estate</a>
+        <a href="/about.html">About</a>
+        <a href="/coverage-review.html">Coverage Review</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span>Myers Insurance Group</span>
+        <span>Ohio independent broker</span>
+        <span>Est. 2008</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+  /* ============================================
+     BUSINESS GAP CALCULATOR — LOGIC
+     ============================================ */
+
+  var answers = {};
+  var totalScore = 0;
+  var currentQ = 1;
+  var history = [];
+
+  function answer(qNum, value, points) {
+    /* Highlight selected */
+    var card = document.getElementById('q' + qNum);
+    card.querySelectorAll('.answer-btn').forEach(function(btn) {
+      btn.classList.remove('selected');
+    });
+    event.currentTarget.classList.add('selected');
+
+    answers['q' + qNum] = { value: value, points: points };
+
+    setTimeout(function() {
+      history.push(currentQ);
+      if (qNum < 10) {
+        showQuestion(qNum + 1);
+      } else {
+        showResults();
+      }
+    }, 300);
+  }
+
+  function showQuestion(num) {
+    document.querySelectorAll('.question-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('results').classList.remove('active');
+    document.getElementById('q' + num).classList.add('active');
+    currentQ = num;
+
+    var pct = (num / 10) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Question ' + num + ' of 10';
+    document.getElementById('progressWrap').style.display = 'block';
+    document.getElementById('calcNav').style.display = num > 1 ? 'flex' : 'none';
+
+    window.scrollTo({ top: document.getElementById('progressWrap').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  function goBack() {
+    if (history.length === 0) return;
+    var prev = history.pop();
+    document.querySelectorAll('.question-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('results').classList.remove('active');
+    document.getElementById('q' + prev).classList.add('active');
+    currentQ = prev;
+
+    var pct = (prev / 10) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Question ' + prev + ' of 10';
+    document.getElementById('progressWrap').style.display = 'block';
+    document.getElementById('calcNav').style.display = history.length > 0 ? 'flex' : 'none';
+  }
+
+  function showResults() {
+    totalScore = 0;
+    Object.values(answers).forEach(function(a) { totalScore += a.points; });
+    totalScore = Math.min(totalScore, 100);
+
+    document.querySelectorAll('.question-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('calcNav').style.display = 'none';
+    document.getElementById('results').classList.add('active');
+    document.getElementById('scoreDisplay').textContent = totalScore;
+
+    var grade, gradeClass, summary;
+    if (totalScore >= 60) {
+      grade = '⚠️ Critical Gaps Found';
+      gradeClass = 'grade-critical';
+      summary = 'Your business has serious insurance gaps that expose you to significant financial risk. One claim in the areas we identified could be devastating. We strongly recommend a coverage review immediately.';
+    } else if (totalScore >= 35) {
+      grade = '⚡ Concerning Gaps Found';
+      gradeClass = 'grade-concerning';
+      summary = 'Your business has concerning coverage gaps that need attention. While you have some protection in place, the gaps we identified leave you exposed in important areas. A review is overdue.';
+    } else if (totalScore >= 15) {
+      grade = '📋 Some Gaps to Address';
+      gradeClass = 'grade-moderate';
+      summary = 'Your coverage is mostly in order but there are some gaps worth addressing. A quick review could make sure you\'re fully protected without paying more than you need to.';
+    } else {
+      grade = '✅ Looking Good';
+      gradeClass = 'grade-good';
+      summary = 'Your business appears to be well-covered based on your answers. That said, coverage needs change as businesses grow. An annual review ensures you stay protected.';
+    }
+
+    document.getElementById('gradeDisplay').textContent = grade;
+    document.getElementById('gradeDisplay').className = 'results-grade ' + gradeClass;
+    document.getElementById('resultsSummary').textContent = summary;
+
+    /* Build gap list */
+    var gaps = [];
+
+    if (answers.q1 && answers.q1.value === 'no') gaps.push({ icon: 'ti-alert-circle red', title: 'No General Liability Coverage', desc: 'This is the most fundamental business insurance coverage. Without it, a single customer injury or property damage claim can be financially catastrophic.' });
+    if (answers.q1 && answers.q1.value === 'unsure') gaps.push({ icon: 'ti-info-circle orange', title: 'Uncertain General Liability Coverage', desc: 'Not knowing whether you have GL coverage is a serious problem. You need to know your policy inside and out — especially your limits.' });
+    if (answers.q2 && answers.q2.value === 'yes_no_wc') gaps.push({ icon: 'ti-alert-circle red', title: 'No Workers Compensation — Legally Required', desc: 'Ohio law requires Workers Comp for most employers. Operating without it exposes you to fines, lawsuits, and full personal liability for employee injuries.' });
+    if (answers.q3 && answers.q3.value === 'yes_personal') gaps.push({ icon: 'ti-alert-circle red', title: 'Using Personal Auto for Business', desc: 'Your personal auto policy will deny a claim the moment they discover the vehicle was used for business. You need commercial auto coverage immediately.' });
+    if (answers.q4 && answers.q4.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-circle red', title: 'Serving Alcohol Without Liquor Liability', desc: 'This is a business-ending exposure. One DUI accident or bar fight involving your establishment can generate a million-dollar claim that your GL policy won\'t cover.' });
+    if (answers.q5 && answers.q5.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'No Professional Liability Coverage', desc: 'If a client claims your services caused them harm, your GL policy won\'t respond. E&O coverage is essential for any service-based business.' });
+    if (answers.q6 && answers.q6.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'No Cyber Liability Coverage', desc: 'A data breach involving customer information can cost tens of thousands in notification, legal, and recovery costs — none of which standard policies cover.' });
+    if (answers.q7 && answers.q7.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Business Equipment Not Insured', desc: 'Your GL policy covers damage to others — not your own property. Equipment theft, fire, or damage comes entirely out of your pocket without property coverage.' });
+    if (answers.q8 && (answers.q8.value === 'yes_no_coverage' || answers.q8.value === 'no_no_coverage')) gaps.push({ icon: 'ti-alert-triangle orange', title: 'No Business Interruption Coverage', desc: 'Most businesses that close after a disaster never reopen — not because of the damage, but because of the lost income during closure. BI coverage is what keeps you alive.' });
+    if (answers.q9 && (answers.q9.value === 'old' || answers.q9.value === 'never')) gaps.push({ icon: 'ti-info-circle orange', title: 'Coverage Not Recently Reviewed', desc: 'Insurance needs change as businesses grow. Coverage that was adequate two years ago may leave you significantly exposed today.' });
+    if (answers.q10 && answers.q10.value === 'no') gaps.push({ icon: 'ti-info-circle orange', title: 'Unknown Coverage Limits', desc: 'Not knowing your limits is a serious problem. Most business owners find out their limits aren\'t enough when they file a claim — which is too late.' });
+
+    if (gaps.length === 0) {
+      gaps.push({ icon: 'ti-circle-check green', title: 'No Major Gaps Identified', desc: 'Based on your answers, your coverage appears to be in good shape. An annual review with Myers Insurance Group can confirm everything is still right for your current business needs.' });
+    }
+
+    var gapList = document.getElementById('gapList');
+    gapList.innerHTML = '';
+    gaps.forEach(function(g) {
+      var div = document.createElement('div');
+      div.className = 'gap-item';
+      div.innerHTML = '<i class="ti ' + g.icon + ' gap-icon"></i><div><div class="gap-title">' + g.title + '</div><div class="gap-desc">' + g.desc + '</div></div>';
+      gapList.appendChild(div);
+    });
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'business_gap_calculator_complete', { event_category: 'engagement', event_label: 'score_' + totalScore, value: totalScore });
+    }
+
+    window.scrollTo({ top: document.getElementById('results').offsetTop - 100, behavior: 'smooth' });
+  }
+  </script>
+
+</body>
+</html>
