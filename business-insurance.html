@@ -3,28 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Business Insurance | Myers Insurance Group</title>
-  <meta name="description" content="Business insurance for 40+ business types across Ohio. Barber shops, restaurants, contractors, strip clubs, weed shops, churches, and everything in between. No judgment. Just coverage." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Business Insurance | Myers Insurance Group" />
-  <meta property="og:description" content="40+ business types covered. If you own it and run it — we can insure it. Ohio independent broker since 2008." />
+  <title>Business Insurance Ohio | Myers Insurance Group</title>
+  <meta name="description" content="Business insurance in Ohio for every type of business. Bars, restaurants, weed shops, contractors, content creators, and 40+ more. No judgment. Just coverage." />
+  <meta property="og:title" content="Business Insurance Ohio | Myers Insurance Group" />
   <meta property="og:url" content="https://myersinsurancegroup.com/business-insurance.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
-
-  <!-- Twitter/X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Business Insurance | Myers Insurance Group" />
-  <meta name="twitter:description" content="40+ business types covered. If you own it and run it — we can insure it. Ohio independent broker since 2008." />
-  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
-
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="canonical" href="https://myersinsurancegroup.com/business-insurance.html" />
+  <link rel="icon" type="image/png" href="/assets/myers_apple_vibe.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/inner-page.css" />
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2NK67NX7H"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -32,6 +22,52 @@
     gtag('js', new Date());
     gtag('config', 'G-P2NK67NX7H');
   </script>
+
+  <style>
+    .tools-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .tool-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tool-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+    .tool-card-icon {
+      font-size: 24px;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .tool-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .tool-card-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .tools-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -44,23 +80,12 @@
   <!-- NAV -->
   <header class="site-header">
     <nav class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
-        <svg class="logo-mark" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M22 3 L39 9 L39 23 Q39 34 22 43 Q5 34 5 23 L5 9 Z" fill="#1B2B5E" stroke="#B8962E" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="22" cy="16" r="2.8" fill="#B8962E"/>
-          <line x1="22" y1="20" x2="11" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="33" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="22" y2="30" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="15" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="29" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <div class="logo-wordmark">
-          <span class="logo-myers">MYERS</span>
-          <span class="logo-sub">INSURANCE GROUP</span>
-        </div>
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img" />
+        <span class="nav-logo-text">Myers Insurance Group</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <i class="ti ti-menu-2"></i>
+      <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+        <i class="ti ti-menu-2" id="navIcon"></i>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="/business-insurance.html">Business</a></li>
@@ -76,96 +101,26 @@
 
   <main>
 
-    <!-- PAGE HERO -->
-    <section class="page-hero navy">
+    <!-- HERO -->
+    <section class="page-hero">
       <div class="container">
         <p class="hero-eyebrow">BUSINESS INSURANCE</p>
         <h1 class="page-hero-headline">If you own it and run it —<br>we can insure it.</h1>
-        <div class="brand-badge">NO JUDGMENT. JUST COVERAGE.</div>
         <p class="page-hero-sub">40+ business types covered across Ohio. From barber shops to bowling alleys, weed shops to law offices — we insure the whole neighborhood.</p>
         <div class="hero-ctas">
-          <a href="/contact.html" class="btn-gold">Get a business insurance quote</a>
-          <a href="/coverage-review.html" class="btn-outline">Upload your current policy</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- COVERAGE TYPES -->
-    <section class="inner-section">
-      <div class="container">
-        <p class="section-label">WHAT WE COVER</p>
-        <h2 class="section-headline">Core business coverages.</h2>
-        <p class="section-sub">Every business is different. Your coverage should be too. Here are the core products we build business policies around.</p>
-
-        <div class="coverage-grid">
-
-          <div class="coverage-card">
-            <i class="ti ti-shield coverage-card-icon"></i>
-            <h3 class="coverage-card-title">General Liability</h3>
-            <p class="coverage-card-desc">Protects your business from third-party claims of bodily injury, property damage, and personal injury. The foundation of any business policy.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-building coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Commercial Property</h3>
-            <p class="coverage-card-desc">Covers your building, equipment, inventory, and contents against fire, theft, vandalism, and other covered perils.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-car coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Commercial Auto</h3>
-            <p class="coverage-card-desc">Vehicles used for business need commercial coverage — personal auto policies won't cover business use. We cover fleets, single vehicles, and everything in between.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-hard-hat coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Workers Compensation</h3>
-            <p class="coverage-card-desc">Required in Ohio for most businesses with employees. Covers medical expenses and lost wages for employees injured on the job.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-briefcase coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Business Owner Policy (BOP)</h3>
-            <p class="coverage-card-desc">Bundles general liability and commercial property into one cost-effective policy. Ideal for small to mid-size businesses.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-certificate coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Professional Liability</h3>
-            <p class="coverage-card-desc">Also called Errors &amp; Omissions (E&amp;O). Protects service-based businesses against claims of negligence, mistakes, or failure to deliver.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-glass coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Liquor Liability</h3>
-            <p class="coverage-card-desc">Essential for bars, restaurants, and any business that serves alcohol. Covers claims arising from alcohol-related incidents.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-umbrella coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Commercial Umbrella</h3>
-            <p class="coverage-card-desc">Adds an extra layer of liability protection above your primary policies. Critical for businesses with significant exposure.</p>
-          </div>
-
-          <div class="coverage-card">
-            <i class="ti ti-device-laptop coverage-card-icon"></i>
-            <h3 class="coverage-card-title">Cyber Liability</h3>
-            <p class="coverage-card-desc">Covers data breaches, cyberattacks, and the costs of recovery. Increasingly essential for any business that stores customer data.</p>
-          </div>
-
+          <a href="/contact.html" class="btn-outline">Get a business insurance quote</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload your current policy →</a>
         </div>
       </div>
     </section>
 
     <!-- BUSINESS TYPES -->
-    <section class="biz-types-section dark-navy">
+    <section class="inner-section">
       <div class="container">
-        <p class="section-label" style="color: var(--gold);">WHO WE INSURE</p>
-        <h2 class="section-headline-light">Every business type. No exceptions.</h2>
-        <p class="section-sub-light">Don't see your business? Reach out anyway. The answer is probably yes.</p>
-
+        <span class="section-label">WHO WE INSURE</span>
+        <h2 class="section-headline">Every business type.<br>No exceptions.</h2>
+        <p class="section-sub">If you run a legitimate business in Ohio, we will find you coverage. No moral gatekeeping. No judgment.</p>
         <div class="biz-category-grid">
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-scissors"></i> Personal Services</h3>
             <ul class="biz-list">
@@ -176,31 +131,26 @@
               <li>Tanning Salons</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-tools-kitchen-2"></i> Food &amp; Drink</h3>
             <ul class="biz-list">
-              <li>Bars</li>
+              <li>Bars &amp; Nightclubs</li>
               <li>Restaurants</li>
               <li>Food Trucks</li>
               <li>Bakeries</li>
               <li>Ice Cream Stands</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-car"></i> Auto &amp; Transport</h3>
             <ul class="biz-list">
               <li>Car Lots</li>
-              <li>Mechanics</li>
+              <li>Auto Mechanics</li>
               <li>Body Shops</li>
-              <li>Tire Shops</li>
-              <li>Tow Businesses</li>
-              <li>Moving Companies</li>
+              <li>Towing Companies</li>
               <li>Trucking</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-tool"></i> Trades &amp; Services</h3>
             <ul class="biz-list">
@@ -208,51 +158,47 @@
               <li>Contractors</li>
               <li>Plumbers</li>
               <li>Electricians</li>
-              <li>Masonry</li>
               <li>Landscapers</li>
-              <li>Cleaning Companies</li>
-              <li>Handymen</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-shopping-bag"></i> Retail &amp; Specialty</h3>
             <ul class="biz-list">
+              <li>Retail Stores</li>
+              <li>Cannabis Dispensaries</li>
               <li>Florists</li>
               <li>Antique Stores</li>
-              <li>Niche Stores</li>
-              <li>Weed Shops</li>
+              <li>Specialty Shops</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-mood-smile"></i> Entertainment</h3>
             <ul class="biz-list">
+              <li>Strip Clubs</li>
               <li>Bowling Alleys</li>
               <li>Arcades</li>
               <li>Swimming Holes</li>
-              <li>Strip Clubs</li>
+              <li>Event Venues</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-building-church"></i> Faith &amp; Community</h3>
             <ul class="biz-list">
               <li>Churches</li>
+              <li>Nonprofits</li>
+              <li>Community Organizations</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-stethoscope"></i> Professional Offices</h3>
             <ul class="biz-list">
-              <li>Medical Offices</li>
-              <li>Dental Offices</li>
-              <li>Veterinary Offices</li>
+              <li>Medical &amp; Dental</li>
               <li>Legal Offices</li>
-              <li>Realtor Offices</li>
+              <li>Accountants</li>
+              <li>Realtors</li>
+              <li>Veterinarians</li>
             </ul>
           </div>
-
           <div class="biz-category">
             <h3 class="biz-category-title"><i class="ti ti-device-mobile"></i> Content Creators</h3>
             <ul class="biz-list">
@@ -260,67 +206,98 @@
               <li>Podcasters</li>
               <li>Streamers</li>
               <li>Influencers</li>
-              <li>Adult Content Creators</li>
-              <li>Fitness Creators</li>
+              <li>Adult Creators</li>
             </ul>
           </div>
-
-        </div>
-
-        <div class="biz-cta">
-          <p class="biz-cta-text">Don't see your business type?</p>
-          <a href="/contact.html" class="btn-gold">Reach out — the answer is probably yes →</a>
         </div>
       </div>
     </section>
 
-    <!-- WHY MIG FOR BUSINESS -->
+    <!-- COVERAGE TYPES -->
+    <section class="inner-section-alt">
+      <div class="container">
+        <span class="section-label">WHAT WE COVER</span>
+        <h2 class="section-headline">Business coverage built<br>for Ohio operations.</h2>
+        <p class="section-sub">A complete business insurance program covers more than just GL. Here's what Ohio businesses actually need.</p>
+        <div class="coverage-grid">
+          <div class="coverage-card">
+            <i class="ti ti-shield coverage-card-icon"></i>
+            <h3 class="coverage-card-title">General Liability</h3>
+            <p class="coverage-card-desc">Covers third-party injury, property damage, and basic business claims. The foundation of every business policy.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-hard-hat coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Workers Compensation</h3>
+            <p class="coverage-card-desc">Required in Ohio for most employers. Covers employee injuries on the job — non-negotiable for any business with staff.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-building coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Commercial Property</h3>
+            <p class="coverage-card-desc">Covers your building, equipment, inventory, and build-out against fire, theft, vandalism, and covered perils.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-certificate coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Professional Liability</h3>
+            <p class="coverage-card-desc">Covers claims from your professional services. GL doesn't cover this — E&O is a separate and essential policy.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-car coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Commercial Auto</h3>
+            <p class="coverage-card-desc">Covers vehicles used for business. Personal auto policies exclude business use — one accident without this is a serious problem.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-glass coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Liquor Liability</h3>
+            <p class="coverage-card-desc">Required if you serve alcohol. Ohio dram shop laws make you liable for patron behavior. One incident without this can close your business.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-briefcase coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Business Interruption</h3>
+            <p class="coverage-card-desc">Covers lost revenue when a covered loss forces you to close temporarily. Most businesses that close after a disaster never reopen without it.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-lock coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Cyber Liability</h3>
+            <p class="coverage-card-desc">Covers data breaches, ransomware, and notification costs. Standard policies exclude cyber claims entirely.</p>
+          </div>
+          <div class="coverage-card">
+            <i class="ti ti-umbrella coverage-card-icon"></i>
+            <h3 class="coverage-card-title">Commercial Umbrella</h3>
+            <p class="coverage-card-desc">Adds excess liability protection above your primary coverages. Essential for any business with significant liability exposure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
     <section class="inner-section">
       <div class="container">
-        <p class="section-label">WHY MYERS INSURANCE GROUP</p>
-        <h2 class="section-headline">Not your typical business broker.</h2>
-        <div class="why-grid">
-          <div class="why-item">
-            <i class="ti ti-shield-check why-icon"></i>
-            <div>
-              <h3 class="why-title">100% Independent</h3>
-              <p class="why-desc">No captive carrier. We shop the market and find the right coverage at the right price — not what a corporate quota tells us to sell.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <i class="ti ti-users why-icon"></i>
-            <div>
-              <h3 class="why-title">No judgment</h3>
-              <p class="why-desc">Strip clubs, weed shops, adult content creators — businesses others won't touch are businesses we insure. No exceptions.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <i class="ti ti-cpu why-icon"></i>
-            <div>
-              <h3 class="why-title">AI coverage analysis</h3>
-              <p class="why-desc">Upload your current dec pages. We identify every gap and every dollar you're overpaying before we even talk.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <i class="ti ti-clock why-icon"></i>
-            <div>
-              <h3 class="why-title">Insuring since 2008</h3>
-              <p class="why-desc">18+ years protecting Ohio businesses. We understand the risks that come with running a business because we've been in the trenches with business owners for nearly two decades.</p>
-            </div>
-          </div>
+        <span class="section-label">FREE TOOLS</span>
+        <h2 class="section-headline">Not sure what you need?</h2>
+        <p class="section-sub">Use our free tools to find out exactly what your business needs — and whether your current coverage has dangerous gaps.</p>
+        <div class="tools-row">
+          <a href="/business-lookup.html" class="tool-card">
+            <i class="ti ti-search tool-card-icon"></i>
+            <div class="tool-card-title">Business Insurance Lookup</div>
+            <div class="tool-card-desc">Search your business type and get an instant coverage checklist. 40+ business types. Free. No obligation.</div>
+          </a>
+          <a href="/business-gap-calculator.html" class="tool-card">
+            <i class="ti ti-chart-bar tool-card-icon"></i>
+            <div class="tool-card-title">Business Coverage Gap Calculator</div>
+            <div class="tool-card-desc">10 questions. 2 minutes. Find out where your current business coverage has dangerous gaps.</div>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- FOOTER CTA -->
-    <section class="footer-cta navy">
+    <section class="footer-cta">
       <div class="container footer-cta-inner">
-        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
-        <h2 class="footer-cta-headline">Ready to get your business covered?</h2>
-        <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
+        <h2 class="footer-cta-headline">Ready to get your business properly covered?</h2>
+        <p class="footer-cta-sub">Myers Insurance Group for all of your business insurance needs — or settle for much less.</p>
         <div class="footer-cta-btns">
-          <a href="/contact.html" class="btn-gold">Get a free quote</a>
-          <a href="/coverage-review.html" class="btn-outline">Upload my current policy</a>
+          <a href="/contact.html" class="btn-primary">Get a business insurance quote</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload my current policy →</a>
         </div>
       </div>
     </section>
@@ -328,24 +305,13 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer navy">
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-logo">
-        <svg class="logo-mark logo-mark-sm" width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M22 3 L39 9 L39 23 Q39 34 22 43 Q5 34 5 23 L5 9 Z" fill="#1B2B5E" stroke="#B8962E" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="22" cy="16" r="2.8" fill="#B8962E"/>
-          <line x1="22" y1="20" x2="11" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="33" y2="13" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="20" x2="22" y2="30" stroke="#B8962E" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="15" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-          <line x1="22" y1="30" x2="29" y2="38" stroke="#B8962E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <div class="logo-wordmark">
-          <span class="logo-myers">MYERS</span>
-          <span class="logo-sub">INSURANCE GROUP</span>
-        </div>
-      </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img-sm" />
+        <span class="nav-logo-text" style="color:rgba(255,255,255,0.45); font-size:13px;">Myers Insurance Group</span>
+      </a>
+      <nav class="footer-nav">
         <a href="/business-insurance.html">Business</a>
         <a href="/personal-lines.html">Personal</a>
         <a href="/group-benefits.html">Group Benefits</a>
@@ -363,6 +329,5 @@
   </footer>
 
   <script src="/js/main.js"></script>
-
 </body>
 </html>
