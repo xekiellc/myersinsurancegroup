@@ -212,9 +212,9 @@
                 <option value="Other">Other</option>
               </select>
 
-              <!-- Referral name — shows for Friend/Family and Realtor/Mortgage -->
+              <!-- Referral name — shows for Referral, Friend/Family, Realtor/Mortgage -->
               <div class="referral-name-group" id="referralNameGroup">
-                <label for="referral_name" class="field-label" style="margin-top: 10px;">Who referred you?</label>
+                <label for="referral_name" class="field-label" style="margin-top:10px;">Who referred you? <span style="font-weight:400; font-size:12px; color:var(--text-muted);">— their name helps us say thank you</span></label>
                 <input type="text" id="referral_name" name="referral_name" class="field-input" placeholder="Their name" />
               </div>
             </div>
@@ -326,10 +326,10 @@
       });
     });
 
-    /* Show referral name field for Friend/Family and Realtor/Mortgage */
+    /* Show referral name for Referral, Friend/Family, Realtor/Mortgage */
     var sourceSelect = document.getElementById('source');
     var referralGroup = document.getElementById('referralNameGroup');
-    var referralTriggers = ['Friend / Family', 'Realtor / Mortgage Pro'];
+    var referralTriggers = ['Referral', 'Friend / Family', 'Realtor / Mortgage Pro'];
 
     sourceSelect.addEventListener('change', function() {
       if (referralTriggers.indexOf(this.value) !== -1) {
