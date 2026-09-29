@@ -32,6 +32,45 @@
     gtag('js', new Date());
     gtag('config', 'G-P2NK67NX7H');
   </script>
+
+  <style>
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: 6px 10px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s, background 0.2s;
+      user-select: none;
+    }
+    .checkbox-item:hover {
+      border-color: var(--gold);
+      background: rgba(184,150,46,0.05);
+    }
+    .checkbox-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .checkbox-item.checked {
+      border-color: var(--gold);
+      background: rgba(184,150,46,0.08);
+      color: var(--text);
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
 
@@ -90,7 +129,6 @@
             enctype="multipart/form-data"
             novalidate
           >
-
             <!-- Hidden honeypot -->
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
@@ -112,27 +150,27 @@
               <input type="tel" id="phone" name="phone" class="field-input" placeholder="(330) 555-0100" autocomplete="tel" />
             </div>
 
-            <!-- Coverage type -->
+            <!-- Coverage types — checkboxes -->
             <div class="field-group">
-              <label for="coverage" class="field-label">What type of coverage do you need? <span class="required">*</span></label>
-              <select id="coverage" name="coverage" class="field-input" required>
-                <option value="" disabled selected>Select coverage type</option>
-                <option value="Business Insurance">Business Insurance</option>
-                <option value="Personal Lines — Home">Personal Lines — Home</option>
-                <option value="Personal Lines — Auto">Personal Lines — Auto</option>
-                <option value="Personal Lines — Life">Personal Lines — Life</option>
-                <option value="Personal Lines — Umbrella">Personal Lines — Umbrella</option>
-                <option value="Group Benefits — Health">Group Benefits — Health</option>
-                <option value="Group Benefits — Dental">Group Benefits — Dental</option>
-                <option value="Group Benefits — Life">Group Benefits — Life</option>
-                <option value="Group Benefits — Planning">Group Benefits — Benefits Planning</option>
-                <option value="Real Estate — Rental Property">Real Estate — Rental Property</option>
-                <option value="Real Estate — Multi-Unit">Real Estate — Multi-Unit / Apartment</option>
-                <option value="Content Creator">Content Creator</option>
-                <option value="Realtor / Mortgage Partner">Realtor / Mortgage Partner</option>
-                <option value="Website Services">Website Services</option>
-                <option value="Multiple / Not Sure">Multiple / Not Sure</option>
-              </select>
+              <label class="field-label">What type of coverage do you need? <span class="required">*</span><br><span style="font-weight:400; font-size:12px; color:var(--text-muted);">Select all that apply</span></label>
+              <div class="checkbox-grid" id="coverageGrid">
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Business Insurance" /> Business Insurance</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Home Insurance" /> Home Insurance</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Auto Insurance" /> Auto Insurance</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Life Insurance" /> Life Insurance</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Umbrella" /> Umbrella</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Renters Insurance" /> Renters Insurance</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Group Health" /> Group Health</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Group Dental" /> Group Dental</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Group Life" /> Group Life</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Group Disability" /> Group Disability</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Rental / Landlord" /> Rental / Landlord</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Real Estate Portfolio" /> Real Estate Portfolio</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Content Creator" /> Content Creator</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Realtor / Mortgage Partner" /> Realtor Partner</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Website Services" /> Website Services</label>
+                <label class="checkbox-item"><input type="checkbox" name="coverage" value="Not Sure" /> Not Sure</label>
+              </div>
             </div>
 
             <!-- Business type -->
@@ -267,6 +305,14 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/contact.js"></script>
+  <script>
+    /* Checkbox highlight toggle */
+    document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        this.closest('.checkbox-item').classList.toggle('checked', this.checked);
+      });
+    });
+  </script>
 
 </body>
 </html>
