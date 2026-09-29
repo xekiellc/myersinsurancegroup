@@ -4,28 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Free Coverage Review | Myers Insurance Group</title>
-  <meta name="description" content="Upload your current insurance dec pages and our AI analyzes your coverage — identifying gaps, comparing premiums, and flagging where you're overpaying. Free. No obligation." />
-
-  <!-- Open Graph -->
+  <meta name="description" content="Upload your dec pages and our AI analyzes your current coverage — identifying gaps, comparing premiums, and flagging where you're overpaying. Free. No obligation." />
   <meta property="og:title" content="Free Coverage Review | Myers Insurance Group" />
   <meta property="og:description" content="Upload your dec pages. Our AI pulls every detail — coverage limits, premiums, gaps. We review it personally and reach out within 24 hours." />
   <meta property="og:url" content="https://myersinsurancegroup.com/coverage-review.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
-
-  <!-- Twitter/X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Coverage Review | Myers Insurance Group" />
-  <meta name="twitter:description" content="Upload your dec pages. Our AI pulls every detail — coverage limits, premiums, gaps. We review it personally and reach out within 24 hours." />
-  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
-
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="canonical" href="https://myersinsurancegroup.com/coverage-review.html" />
+  <link rel="icon" type="image/png" href="/assets/myers_apple_vibe.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
   <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/contact.css" />
-  <link rel="stylesheet" href="/css/coverage-review.css" />
+  <link rel="stylesheet" href="/css/inner-page.css" />
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2NK67NX7H"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -33,6 +23,11 @@
     gtag('js', new Date());
     gtag('config', 'G-P2NK67NX7H');
   </script>
+
+  <style>
+    .referral-name-group { display: none; margin-top: 10px; }
+    .referral-name-group.visible { display: block; }
+  </style>
 </head>
 <body>
 
@@ -45,11 +40,12 @@
   <!-- NAV -->
   <header class="site-header">
     <nav class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
-        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img" />
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img" />
+        <span class="nav-logo-text">Myers Insurance Group</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <i class="ti ti-menu-2"></i>
+      <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+        <i class="ti ti-menu-2" id="navIcon"></i>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="/business-insurance.html">Business</a></li>
@@ -65,8 +61,8 @@
 
   <main>
 
-    <!-- PAGE HERO -->
-    <section class="page-hero navy">
+    <!-- HERO -->
+    <section class="page-hero">
       <div class="container">
         <p class="hero-eyebrow">AI-POWERED — FREE — NO OBLIGATION</p>
         <h1 class="page-hero-headline">Upload your dec pages.<br>We'll do the rest.</h1>
@@ -75,40 +71,33 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="how-section dark-navy">
+    <section class="how-section">
       <div class="container">
-        <p class="section-label" style="color: var(--gold);">HOW IT WORKS</p>
+        <span class="section-label">HOW IT WORKS</span>
+        <h2 class="section-headline" style="color:var(--white);">Four steps. 24 hours.<br>No phone calls.</h2>
         <div class="how-steps">
           <div class="how-step">
             <div class="how-step-num">1</div>
-            <div class="how-step-content">
-              <h3 class="how-step-title">Upload your dec pages</h3>
-              <p class="how-step-desc">PDF, photo, or screenshot. Personal, business, or commercial — any policy type. Upload as many as you have.</p>
-            </div>
+            <h3 class="how-step-title">Upload your dec pages</h3>
+            <p class="how-step-desc">PDF, photo, or screenshot. Personal, business, or commercial — any policy type. Upload as many as you have.</p>
           </div>
-          <div class="how-step-connector" aria-hidden="true">→</div>
+          <div class="how-step-connector">→</div>
           <div class="how-step">
             <div class="how-step-num">2</div>
-            <div class="how-step-content">
-              <h3 class="how-step-title">AI analyzes everything</h3>
-              <p class="how-step-desc">Our AI extracts every detail — coverage limits, premiums, VINs, drivers, class codes, deductibles, endorsements.</p>
-            </div>
+            <h3 class="how-step-title">AI analyzes everything</h3>
+            <p class="how-step-desc">Our AI extracts every detail — coverage limits, premiums, deductibles, endorsements, and exclusions.</p>
           </div>
-          <div class="how-step-connector" aria-hidden="true">→</div>
+          <div class="how-step-connector">→</div>
           <div class="how-step">
             <div class="how-step-num">3</div>
-            <div class="how-step-content">
-              <h3 class="how-step-title">Gaps get flagged</h3>
-              <p class="how-step-desc">We identify what's missing, what's overpriced, and where your current coverage leaves you exposed.</p>
-            </div>
+            <h3 class="how-step-title">Gaps get flagged</h3>
+            <p class="how-step-desc">We identify what's missing, what's overpriced, and where your current coverage leaves you exposed.</p>
           </div>
-          <div class="how-step-connector" aria-hidden="true">→</div>
+          <div class="how-step-connector">→</div>
           <div class="how-step">
             <div class="how-step-num">4</div>
-            <div class="how-step-content">
-              <h3 class="how-step-title">We reach out within 24 hours</h3>
-              <p class="how-step-desc">No phone calls. No pressure. Just a personal review of your coverage and what we can do better.</p>
-            </div>
+            <h3 class="how-step-title">We reach out within 24 hours</h3>
+            <p class="how-step-desc">No phone calls. No pressure. Just a personal review and what we can do better.</p>
           </div>
         </div>
       </div>
@@ -118,7 +107,6 @@
     <section class="upload-section">
       <div class="container upload-grid">
 
-        <!-- FORM -->
         <div class="contact-form-wrap">
           <h2 class="form-title">Get your free coverage review</h2>
           <p class="form-sub">Fill in your info and upload your current dec pages. We handle the rest.</p>
@@ -130,28 +118,23 @@
             enctype="multipart/form-data"
             novalidate
           >
-            <!-- Honeypot -->
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-            <!-- Name -->
             <div class="field-group">
               <label for="rev-name" class="field-label">Full name <span class="required">*</span></label>
               <input type="text" id="rev-name" name="name" class="field-input" placeholder="John Smith" required autocomplete="name" />
             </div>
 
-            <!-- Email -->
             <div class="field-group">
-              <label for="rev-email" content="field-label">Email address <span class="required">*</span></label>
+              <label for="rev-email" class="field-label">Email address <span class="required">*</span></label>
               <input type="email" id="rev-email" name="email" class="field-input" placeholder="john@example.com" required autocomplete="email" />
             </div>
 
-            <!-- Phone -->
             <div class="field-group">
               <label for="rev-phone" class="field-label">Phone number</label>
               <input type="tel" id="rev-phone" name="phone" class="field-input" placeholder="(330) 555-0100" autocomplete="tel" />
             </div>
 
-            <!-- Policy type -->
             <div class="field-group">
               <label for="rev-type" class="field-label">What type of policy are you uploading? <span class="required">*</span></label>
               <select id="rev-type" name="policy_type" class="field-input" required>
@@ -171,13 +154,11 @@
               </select>
             </div>
 
-            <!-- Current carrier -->
             <div class="field-group">
               <label for="rev-carrier" class="field-label">Current insurance carrier</label>
               <input type="text" id="rev-carrier" name="current_carrier" class="field-input" placeholder="e.g. State Farm, Erie, Progressive..." />
             </div>
 
-            <!-- File upload -->
             <div class="field-group">
               <label class="field-label">Upload your dec pages <span class="required">*</span></label>
               <div class="upload-zone" id="uploadZone">
@@ -189,7 +170,6 @@
                   accept=".pdf,.jpg,.jpeg,.png,.heic,.webp"
                   multiple
                   required
-                  aria-label="Upload dec pages"
                 />
                 <div class="upload-zone-inner" id="uploadZoneInner">
                   <i class="ti ti-cloud-upload upload-icon"></i>
@@ -201,27 +181,23 @@
               </div>
             </div>
 
-            <!-- Notes -->
             <div class="field-group">
               <label for="rev-notes" class="field-label">Anything specific you want us to look at?</label>
-              <textarea id="rev-notes" name="notes" class="field-input field-textarea" placeholder="e.g. I'm not sure if I have enough liability coverage, or I think I'm paying too much for my commercial auto..." rows="3"></textarea>
+              <textarea id="rev-notes" name="notes" class="field-input field-textarea" placeholder="e.g. I'm not sure if I have enough liability coverage..." rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn-gold btn-full submit-btn" id="reviewSubmitBtn">
+            <button type="submit" class="submit-btn" id="reviewSubmitBtn">
               Submit for free review →
             </button>
 
-            <p class="form-disclaimer">Secure upload. Encrypted storage. Your documents are never shared. We'll reach out within 24 hours.</p>
-
+            <p class="form-disclaimer">Secure upload. Your documents are never shared. We'll reach out within 24 hours.</p>
           </form>
 
-          <!-- Success -->
           <div class="form-success" id="reviewSuccess" hidden>
             <i class="ti ti-circle-check success-icon"></i>
             <h3 class="success-title">Received. We're on it.</h3>
-            <p class="success-sub">We'll review your coverage personally and reach out within 24 hours. No phone calls. Just a straight answer on where you stand and where we can do better.</p>
+            <p class="success-sub">We'll review your coverage personally and reach out within 24 hours. No phone calls. Just a straight answer on where you stand.</p>
           </div>
-
         </div>
 
         <!-- SIDEBAR -->
@@ -232,13 +208,12 @@
             <ul class="ai-checklist">
               <li><i class="ti ti-check"></i> Coverage limits vs. your actual exposure</li>
               <li><i class="ti ti-check"></i> Missing endorsements or riders</li>
-              <li><i class="ti ti-check"></i> Premium vs. market rate comparison</li>
+              <li><i class="ti ti-check"></i> Premium vs. market rate</li>
               <li><i class="ti ti-check"></i> Gaps in liability protection</li>
-              <li><i class="ti ti-check"></i> Uninsured / underinsured motorist gaps</li>
+              <li><i class="ti ti-check"></i> Uninsured motorist gaps</li>
               <li><i class="ti ti-check"></i> Business interruption exposure</li>
               <li><i class="ti ti-check"></i> Umbrella coverage opportunities</li>
-              <li><i class="ti ti-check"></i> Class code accuracy (commercial)</li>
-              <li><i class="ti ti-check"></i> Driver and vehicle verification (auto)</li>
+              <li><i class="ti ti-check"></i> Class code accuracy</li>
               <li><i class="ti ti-check"></i> Replacement cost vs. ACV gaps</li>
             </ul>
           </div>
@@ -246,11 +221,11 @@
           <div class="sidebar-card">
             <h3 class="sidebar-title">Who should use this?</h3>
             <ul class="who-list">
-              <li><i class="ti ti-building-store"></i> Business owners unsure if their coverage is right</li>
-              <li><i class="ti ti-home"></i> Homeowners who haven't reviewed their policy in years</li>
-              <li><i class="ti ti-building"></i> Landlords with rental or investment properties</li>
-              <li><i class="ti ti-car"></i> Anyone who thinks they're overpaying for auto</li>
-              <li><i class="ti ti-users"></i> Employers reviewing group benefit options</li>
+              <li><i class="ti ti-building-store"></i> Business owners unsure if coverage is right</li>
+              <li><i class="ti ti-home"></i> Homeowners who haven't reviewed in years</li>
+              <li><i class="ti ti-building"></i> Landlords with rental properties</li>
+              <li><i class="ti ti-car"></i> Anyone who thinks they're overpaying</li>
+              <li><i class="ti ti-users"></i> Employers reviewing group benefits</li>
               <li><i class="ti ti-device-mobile"></i> Content creators with no business coverage</li>
             </ul>
           </div>
@@ -259,26 +234,24 @@
             <h3 class="sidebar-title">Security &amp; privacy</h3>
             <ul class="security-list">
               <li><i class="ti ti-lock"></i> SSL encrypted upload</li>
-              <li><i class="ti ti-shield-check"></i> Documents never shared with third parties</li>
+              <li><i class="ti ti-shield-check"></i> Never shared with third parties</li>
               <li><i class="ti ti-eye-off"></i> Reviewed only by Myers Insurance Group</li>
-              <li><i class="ti ti-trash"></i> Files deleted after review is complete</li>
+              <li><i class="ti ti-trash"></i> Files deleted after review</li>
             </ul>
           </div>
 
         </aside>
-
       </div>
     </section>
 
-    <!-- BOTTOM CTA -->
-    <section class="footer-cta navy">
+    <!-- FOOTER CTA -->
+    <section class="footer-cta">
       <div class="container footer-cta-inner">
-        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
         <h2 class="footer-cta-headline">Ready to get properly covered?</h2>
         <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
         <div class="footer-cta-btns">
-          <a href="/contact.html" class="btn-gold">Get a free quote</a>
-          <a href="/" class="btn-outline">Back to home</a>
+          <a href="/contact.html" class="btn-primary">Get a free quote</a>
+          <a href="/" class="btn-outline">Back to home →</a>
         </div>
       </div>
     </section>
@@ -286,12 +259,13 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer navy">
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-logo">
-        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img logo-img-sm" />
-      </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img-sm" />
+        <span class="nav-logo-text" style="color:rgba(255,255,255,0.45); font-size:13px;">Myers Insurance Group</span>
+      </a>
+      <nav class="footer-nav">
         <a href="/business-insurance.html">Business</a>
         <a href="/personal-lines.html">Personal</a>
         <a href="/group-benefits.html">Group Benefits</a>
@@ -310,6 +284,5 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/coverage-review.js"></script>
-
 </body>
 </html>
