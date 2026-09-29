@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Business Insurance Lookup | Myers Insurance Group</title>
+  <meta name="description" content="Find out exactly what insurance your Ohio business needs. Search by business type and get an instant coverage checklist. Free. No obligation." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Business Insurance Lookup | Myers Insurance Group" />
+  <meta property="og:description" content="Search your business type and get an instant insurance coverage checklist. Free. No obligation." />
+  <meta property="og:url" content="https://myersinsurancegroup.com/business-lookup.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Business Insurance Lookup | Myers Insurance Group" />
+  <meta name="twitter:description" content="Search your business type and get an instant insurance coverage checklist. Free. No obligation." />
+  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/inner-page.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2NK67NX7H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P2NK67NX7H');
+  </script>
+
+  <style>
+    .lookup-hero {
+      background: var(--navy);
+      padding: 3rem 0 2.5rem;
+      border-bottom: 3px solid var(--gold);
+      text-align: center;
+    }
+
+    .lookup-search-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 0;
+    }
+
+    .lookup-search-box {
+      position: relative;
+    }
+
+    .lookup-search-input {
+      width: 100%;
+      padding: 16px 52px 16px 20px;
+      font-size: 16px;
+      font-family: var(--font);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    .lookup-search-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 4px 24px rgba(184,150,46,0.2);
+    }
+
+    .lookup-search-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 22px;
+      pointer-events: none;
+    }
+
+    .lookup-section {
+      background: var(--surface);
+      padding: 3rem 0;
+      min-height: 60vh;
+    }
+
+    /* Category browse */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .category-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .category-card:hover {
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .category-icon {
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .category-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .category-count {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Search results */
+    .search-results {
+      display: none;
+      margin-top: 1.5rem;
+    }
+
+    .search-results.visible { display: block; }
+
+    .result-item {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .result-item:hover { border-color: var(--gold); }
+
+    .result-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .result-category {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .result-arrow {
+      color: var(--gold);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Coverage panel */
+    .coverage-panel-wrap {
+      display: none;
+      margin-top: 2rem;
+    }
+
+    .coverage-panel-wrap.visible { display: block; }
+
+    .coverage-panel-header {
+      background: var(--navy);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .coverage-panel-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .coverage-panel-category {
+      font-size: 12px;
+      color: #9AAAD4;
+      margin-top: 3px;
+    }
+
+    .back-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      padding: 7px 14px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: background 0.2s;
+      font-family: var(--font);
+    }
+
+    .back-btn:hover { background: rgba(255,255,255,0.18); }
+
+    .coverage-panel-body {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .coverage-section-title {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .coverage-item-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .coverage-item-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--border);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .coverage-item-list li:last-child { border-bottom: none; }
+
+    .coverage-item-list li i {
+      color: var(--gold);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .coverage-item-name {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .coverage-item-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .coverage-note-box {
+      background: var(--surface);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .coverage-disclaimer {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-top: 1rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .coverage-cta-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .category-grid { grid-template-columns: 1fr 1fr; }
+      .coverage-panel-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .category-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ATTITUDE BAR -->
+  <div class="attitude-bar">
+    <p class="attitude-line-1">Saints &amp; Sinners. Jews &amp; Gentiles. Freaks &amp; Geeks. In-Laws &amp; Outlaws. Strippers &amp; Scholars. Far Left, Far Right &amp; Fiercely Independent.</p>
+    <p class="attitude-line-2">INSURING SINCE 2008.</p>
+  </div>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
+        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/business-insurance.html">Business</a></li>
+        <li><a href="/personal-lines.html">Personal</a></li>
+        <li><a href="/group-benefits.html">Group Benefits</a></li>
+        <li><a href="/real-estate.html">Real Estate</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/coverage-review.html">Coverage Review</a></li>
+        <li><a href="/contact.html" class="nav-cta">Get A Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO + SEARCH -->
+    <section class="lookup-hero">
+      <div class="container">
+        <p class="hero-eyebrow">BUSINESS INSURANCE LOOKUP</p>
+        <h1 class="hero-headline" style="font-size: clamp(24px,4vw,36px); margin-bottom: 10px;">What does your business need?</h1>
+        <p style="color: #9AAAD4; font-size: 15px; margin-bottom: 0;">Search your business type and get an instant coverage checklist.</p>
+      </div>
+      <div class="lookup-search-wrap">
+        <div class="lookup-search-box">
+          <input
+            type="text"
+            id="lookupInput"
+            class="lookup-search-input"
+            placeholder="Search your business type — e.g. Restaurant, Tattoo Shop, Church..."
+            autocomplete="off"
+            aria-label="Search business type"
+          />
+          <i class="ti ti-search lookup-search-icon"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOKUP SECTION -->
+    <section class="lookup-section">
+      <div class="container">
+
+        <!-- BROWSE BY CATEGORY -->
+        <div id="browseView">
+          <p class="section-label">BROWSE BY CATEGORY</p>
+          <h2 class="section-headline">Every business type. No exceptions.</h2>
+          <div class="category-grid" id="categoryGrid">
+            <div class="category-card" onclick="filterCategory('personal-services')">
+              <i class="ti ti-scissors category-icon"></i>
+              <div class="category-name">Personal Services</div>
+              <div class="category-count">Barber shops, tattoo, salons, spas</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('food-drink')">
+              <i class="ti ti-tools-kitchen-2 category-icon"></i>
+              <div class="category-name">Food &amp; Drink</div>
+              <div class="category-count">Restaurants, bars, food trucks, bakeries</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('auto-transport')">
+              <i class="ti ti-car category-icon"></i>
+              <div class="category-name">Auto &amp; Transport</div>
+              <div class="category-count">Car lots, mechanics, towing, trucking</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('trades-services')">
+              <i class="ti ti-tool category-icon"></i>
+              <div class="category-name">Trades &amp; Services</div>
+              <div class="category-count">Contractors, plumbers, electricians</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('retail-specialty')">
+              <i class="ti ti-shopping-bag category-icon"></i>
+              <div class="category-name">Retail &amp; Specialty</div>
+              <div class="category-count">Stores, dispensaries, florists</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('entertainment')">
+              <i class="ti ti-mood-smile category-icon"></i>
+              <div class="category-name">Entertainment</div>
+              <div class="category-count">Bowling, arcades, adult entertainment</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('faith-community')">
+              <i class="ti ti-building-church category-icon"></i>
+              <div class="category-name">Faith &amp; Community</div>
+              <div class="category-count">Churches, nonprofits, community orgs</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('professional-offices')">
+              <i class="ti ti-stethoscope category-icon"></i>
+              <div class="category-name">Professional Offices</div>
+              <div class="category-count">Medical, dental, legal, realtors</div>
+            </div>
+            <div class="category-card" onclick="filterCategory('content-creators')">
+              <i class="ti ti-device-mobile category-icon"></i>
+              <div class="category-name">Content Creators</div>
+              <div class="category-count">YouTubers, podcasters, adult creators</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEARCH RESULTS -->
+        <div class="search-results" id="searchResults">
+          <p class="section-label" id="searchResultsLabel">SEARCH RESULTS</p>
+          <div id="searchResultsList"></div>
+        </div>
+
+        <!-- COVERAGE PANEL -->
+        <div class="coverage-panel-wrap" id="coveragePanel">
+          <div class="coverage-panel-header">
+            <div>
+              <div class="coverage-panel-title" id="panelTitle"></div>
+              <div class="coverage-panel-category" id="panelCategory"></div>
+            </div>
+            <button class="back-btn" onclick="goBack()">
+              <i class="ti ti-arrow-left"></i> Back
+            </button>
+          </div>
+          <div class="coverage-panel-body">
+            <div class="coverage-note-box" id="panelNote"></div>
+            <p class="coverage-section-title">RECOMMENDED COVERAGES</p>
+            <ul class="coverage-item-list" id="panelCoverages"></ul>
+            <div class="coverage-cta-row">
+              <a href="/contact.html" class="btn-gold">Get a quote for my business →</a>
+              <a href="/coverage-review.html" class="btn-navy">Upload my current policy</a>
+            </div>
+            <p class="coverage-disclaimer">This checklist is for informational purposes only and does not constitute insurance advice. Coverage requirements vary by business size, location, and operations. Contact Myers Insurance Group for a personalized assessment of your specific insurance needs.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta navy">
+      <div class="container footer-cta-inner">
+        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
+        <h2 class="footer-cta-headline">Ready to get your business covered?</h2>
+        <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
+        <div class="footer-cta-btns">
+          <a href="/contact.html" class="btn-gold">Get a free quote</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload my current policy</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer navy">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img logo-img-sm" />
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/business-insurance.html">Business</a>
+        <a href="/personal-lines.html">Personal</a>
+        <a href="/group-benefits.html">Group Benefits</a>
+        <a href="/real-estate.html">Real Estate</a>
+        <a href="/about.html">About</a>
+        <a href="/coverage-review.html">Coverage Review</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span>Myers Insurance Group</span>
+        <span>Ohio independent broker</span>
+        <span>Est. 2008</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+  /* ============================================
+     BUSINESS INSURANCE LOOKUP — DATA + LOGIC
+     ============================================ */
+
+  var businesses = [
+
+    /* PERSONAL SERVICES */
+    { name: 'Barber Shop', category: 'Personal Services', cat: 'personal-services',
+      note: 'Barber shops face customer slip-and-fall risks, equipment theft, and potential claims from chemical reactions or cuts. The right policy protects your chairs, your tools, and your livelihood.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injuries and property damage claims — the most common risk in any shop.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your equipment, chairs, mirrors, and tools against theft, fire, and damage.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Protects against claims of injury from services — cuts, chemical reactions, skin irritation.' },
+        { icon: 'ti-briefcase', name: 'Business Owner Policy (BOP)', desc: 'Bundles GL and property — the most cost-effective option for most barber shops.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio if you have employees. Covers injuries on the job.' }
+      ]
+    },
+    { name: 'Tattoo Shop', category: 'Personal Services', cat: 'personal-services',
+      note: 'Tattoo shops carry unique professional liability exposure — infections, allergic reactions, dissatisfied clients. Most standard business policies exclude tattoo work. You need specialty coverage.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injuries, property damage, and third-party claims.' },
+        { icon: 'ti-certificate', name: 'Professional Liability (E&O)', desc: 'Critical for tattoo artists — covers claims of infection, reaction, or unsatisfactory work.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your equipment, ink, furniture, and build-out.' },
+        { icon: 'ti-virus', name: 'Bloodborne Pathogen Liability', desc: 'Specialty coverage for exposure-related claims — essential for any tattoo or piercing operation.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees. Also covers needle-stick injuries.' }
+      ]
+    },
+    { name: 'Nail Salon', category: 'Personal Services', cat: 'personal-services',
+      note: 'Nail salons face chemical exposure liability, customer injury claims, and equipment risks. Professional liability is especially important for services involving chemicals and tools.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Slips, falls, and customer injury are the top risks in any salon.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from nail damage, infections, or chemical reactions during services.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers equipment, supplies, and your salon build-out.' },
+        { icon: 'ti-briefcase', name: 'Business Owner Policy (BOP)', desc: 'Most cost-effective bundle for small to mid-size nail salons.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees. Chemical exposure is a real risk for nail technicians.' }
+      ]
+    },
+    { name: 'Hair Salon', category: 'Personal Services', cat: 'personal-services',
+      note: 'Hair salons need professional liability coverage for chemical services — coloring, perms, and relaxers carry real risk of burns and damage claims.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, property damage, and customer injury.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from chemical burns, hair damage, or allergic reactions.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your chairs, dryers, tools, and salon build-out.' },
+        { icon: 'ti-briefcase', name: 'Business Owner Policy (BOP)', desc: 'The standard choice for independent salons and booth renters.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+    { name: 'Tanning Salon', category: 'Personal Services', cat: 'personal-services',
+      note: 'Tanning salons carry significant liability exposure from UV equipment burns and eye damage claims. Equipment coverage is also critical — tanning beds are expensive to replace.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers burns, eye injury, and customer claims from UV exposure.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Tanning beds are expensive — equipment coverage is essential.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from improper exposure times or equipment malfunction.' },
+        { icon: 'ti-briefcase', name: 'Business Owner Policy (BOP)', desc: 'Bundles GL and property for cost-effective protection.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+
+    /* FOOD & DRINK */
+    { name: 'Restaurant', category: 'Food & Drink', cat: 'food-drink',
+      note: 'Restaurants face some of the highest liability exposure of any small business — slip-and-fall, food-borne illness, liquor liability, and kitchen fires. Coverage gaps can be catastrophic.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, food contamination, and third-party injury.' },
+        { icon: 'ti-glass', name: 'Liquor Liability', desc: 'Required if you serve alcohol. Covers claims from intoxicated patrons.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers your kitchen equipment, furniture, and build-out.' },
+        { icon: 'ti-briefcase', name: 'Business Interruption', desc: 'Replaces lost income if a fire or covered loss forces you to close temporarily.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Kitchen injuries are among the most common workplace accidents in Ohio.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Required if you use vehicles for delivery or catering.' }
+      ]
+    },
+    { name: 'Bar', category: 'Food & Drink', cat: 'food-drink',
+      note: 'Bars carry some of the highest liability risk of any business. Liquor liability, assault and battery, and late-night crowd management are your biggest exposures.',
+      coverages: [
+        { icon: 'ti-glass', name: 'Liquor Liability', desc: 'Your most critical coverage. One DUI accident from a patron can end your business without it.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers fights, falls, property damage, and third-party injury.' },
+        { icon: 'ti-user-exclamation', name: 'Assault & Battery Coverage', desc: 'Standard GL policies often exclude assault claims — bars need this add-on.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers your bar equipment, furniture, fixtures, and inventory.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees. Bartenders and bouncers face real physical risk.' },
+        { icon: 'ti-users', name: 'Employment Practices Liability', desc: 'Covers harassment and wrongful termination claims — common in nightlife businesses.' }
+      ]
+    },
+    { name: 'Food Truck', category: 'Food & Drink', cat: 'food-drink',
+      note: 'Food trucks are mobile businesses with unique insurance needs — you need both vehicle coverage and business liability, and most personal auto policies exclude commercial food truck use.',
+      coverages: [
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Your food truck is a commercial vehicle — personal auto insurance will not cover it.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers food contamination, customer injury, and property damage at your location.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers your equipment, generator, and inventory inside the truck.' },
+        { icon: 'ti-flame', name: 'Product Liability', desc: 'Covers claims from food-borne illness or allergic reactions.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio if you have employees helping you operate.' }
+      ]
+    },
+    { name: 'Bakery', category: 'Food & Drink', cat: 'food-drink',
+      note: 'Bakeries face product liability from allergen exposure, equipment breakdown from ovens and mixers, and slip-and-fall risks in production areas.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injury, slip-and-fall, and property damage.' },
+        { icon: 'ti-flame', name: 'Product Liability', desc: 'Critical for bakeries — allergen exposure and food contamination claims.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your ovens, mixers, display cases, and build-out.' },
+        { icon: 'ti-engine', name: 'Equipment Breakdown', desc: 'When your commercial oven fails, this covers the repair and lost income.' },
+        { icon: 'ti-briefcase', name: 'Business Interruption', desc: 'Covers lost income during equipment failure or covered property damage.' }
+      ]
+    },
+    { name: 'Ice Cream Stand', category: 'Food & Drink', cat: 'food-drink',
+      note: 'Ice cream stands and seasonal food businesses need flexible coverage that accounts for seasonal operations and product liability from food service.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer slip-and-fall, product claims, and property damage.' },
+        { icon: 'ti-flame', name: 'Product Liability', desc: 'Covers food contamination and allergen exposure claims.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your equipment, freezers, and stand structure.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Required if your stand is mobile or truck-based.' }
+      ]
+    },
+
+    /* AUTO & TRANSPORT */
+    { name: 'Car Lot', category: 'Auto & Transport', cat: 'auto-transport',
+      note: 'Auto dealerships need specialized coverage — your inventory is your biggest asset, and every test drive is a liability exposure.',
+      coverages: [
+        { icon: 'ti-car', name: 'Dealers Open Lot (Inventory)', desc: 'Covers your vehicle inventory against theft, weather, vandalism, and damage.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, property damage, and customer injury on your lot.' },
+        { icon: 'ti-certificate', name: 'Garage Liability', desc: 'Covers test drives and customer vehicles in your care, custody, and control.' },
+        { icon: 'ti-users', name: 'Employment Practices Liability', desc: 'High-turnover sales environments face increased risk of employment claims.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+    { name: 'Auto Mechanic', category: 'Auto & Transport', cat: 'auto-transport',
+      note: 'Auto repair shops face unique liability when customer vehicles are in your care. Garage liability is different from general liability and is essential for any repair operation.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Garage Liability', desc: 'Covers damage to customer vehicles in your care — your most important coverage.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, property damage, and customer injury.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your tools, lifts, equipment, and shop build-out.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Auto mechanic injuries are common — required in Ohio with employees.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers shop vehicles used for test drives or parts runs.' }
+      ]
+    },
+    { name: 'Body Shop', category: 'Auto & Transport', cat: 'auto-transport',
+      note: 'Body shops hold high-value customer vehicles and use expensive equipment. A single fire or theft can be catastrophic without the right coverage.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Garage Liability (Garagekeepers)', desc: 'Covers customer vehicles in your care against fire, theft, and damage.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injury and property damage claims.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your paint booths, frame equipment, and tools.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Chemical exposure and physical injury are constant risks in body shop work.' }
+      ]
+    },
+    { name: 'Tire Shop', category: 'Auto & Transport', cat: 'auto-transport',
+      note: 'Tire shops face liability from improper installation causing accidents. Professional liability is as important as general liability for any tire operation.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall and property damage on your premises.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from improper installation causing an accident or vehicle damage.' },
+        { icon: 'ti-certificate', name: 'Garage Liability', desc: 'Covers customer vehicles while in your care.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your equipment, inventory, and shop.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+    { name: 'Towing Company', category: 'Auto & Transport', cat: 'auto-transport',
+      note: 'Towing operations face constant liability — on public roads, with distressed customers, and handling damaged vehicles. On-hook coverage is non-negotiable.',
+      coverages: [
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers your tow trucks — personal auto insurance never applies to commercial vehicles.' },
+        { icon: 'ti-certificate', name: 'On-Hook Coverage', desc: 'Covers vehicles being towed if they are damaged during transport.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage and injury claims at tow sites.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Roadside work is dangerous. Required in Ohio with employees.' }
+      ]
+    },
+    { name: 'Moving Company', category: 'Auto & Transport', cat: 'auto-transport',
+      note: 'Moving companies are responsible for clients\' most valuable possessions. Cargo coverage and professional liability protect you when something breaks — and something always breaks.',
+      coverages: [
+        { icon: 'ti-package', name: 'Cargo / Inland Marine', desc: 'Covers client belongings in your care during transport.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Required for all moving trucks — personal auto does not apply.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage claims at pickup and delivery locations.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Back injuries and physical accidents are the top risk for movers.' }
+      ]
+    },
+    { name: 'Trucking Company', category: 'Auto & Transport', cat: 'auto-transport',
+      note: 'Trucking is one of the most heavily regulated industries for insurance. FMCSA minimums apply for interstate hauls, and cargo coverage is essential.',
+      coverages: [
+        { icon: 'ti-car', name: 'Trucking Liability', desc: 'FMCSA-compliant liability coverage — required for interstate commerce.' },
+        { icon: 'ti-package', name: 'Cargo Insurance', desc: 'Covers the freight you haul against loss, damage, and theft.' },
+        { icon: 'ti-building', name: 'Physical Damage', desc: 'Covers your trucks against collision, fire, theft, and weather.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees. Long-haul driving carries significant injury risk.' },
+        { icon: 'ti-umbrella', name: 'Excess / Umbrella', desc: 'Trucking accidents can generate massive claims — excess liability is critical.' }
+      ]
+    },
+
+    /* TRADES & SERVICES */
+    { name: 'Roofing Contractor', category: 'Trades & Services', cat: 'trades-services',
+      note: 'Roofing is one of the highest-risk trades for insurance purposes. Falls, property damage, and workers\' injuries are constant exposures. Many carriers won\'t write roofers at all.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage, third-party injury, and job-site accidents.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Falls are the #1 cause of construction fatalities. Non-negotiable.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from faulty workmanship causing leaks or structural damage.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers vehicles used to transport crews and materials.' },
+        { icon: 'ti-package', name: 'Inland Marine / Tools', desc: 'Covers your tools and equipment on job sites.' }
+      ]
+    },
+    { name: 'General Contractor', category: 'Trades & Services', cat: 'trades-services',
+      note: 'General contractors carry liability for every subcontractor on their jobs. Completed operations coverage is critical — claims often come months or years after a job is done.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage, injury, and completed operations claims.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio for employees. Also important when managing subcontractors.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers design errors, faulty workmanship, and project management claims.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers company vehicles used on job sites.' },
+        { icon: 'ti-package', name: 'Inland Marine / Equipment', desc: 'Covers tools, equipment, and materials on and off job sites.' },
+        { icon: 'ti-umbrella', name: 'Umbrella', desc: 'Construction liability claims can be massive — umbrella adds critical excess protection.' }
+      ]
+    },
+    { name: 'Plumber', category: 'Trades & Services', cat: 'trades-services',
+      note: 'Plumbing mistakes can cause significant water damage. Professional liability and completed operations coverage protect you long after the job is finished.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers water damage, property damage, and customer injury claims.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from faulty work that causes flooding or water damage after you leave.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers your service vehicles and plumbing vans.' },
+        { icon: 'ti-package', name: 'Tools & Equipment', desc: 'Covers your tools against theft and damage on job sites.' }
+      ]
+    },
+    { name: 'Electrician', category: 'Trades & Services', cat: 'trades-services',
+      note: 'Electrical work carries significant liability — fire damage from faulty wiring can appear months after a job is complete. Completed operations coverage is essential.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage, fire claims, and customer injury.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers completed operations — fires or failures from your electrical work.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Electrical work carries electrocution and fall risks. Non-negotiable.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers your service vehicles.' },
+        { icon: 'ti-package', name: 'Tools & Equipment', desc: 'Covers specialized electrical tools against theft and damage.' }
+      ]
+    },
+    { name: 'Masonry Contractor', category: 'Trades & Services', cat: 'trades-services',
+      note: 'Masonry work involves heavy materials and significant property damage potential. Coverage needs to address both the work itself and the tools used.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage, customer injury, and completed operations.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Heavy material handling is a constant injury risk. Required in Ohio.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers trucks and vehicles used to transport materials.' },
+        { icon: 'ti-package', name: 'Equipment & Tools', desc: 'Covers saws, mixers, and specialized masonry equipment.' }
+      ]
+    },
+    { name: 'Landscaping Company', category: 'Trades & Services', cat: 'trades-services',
+      note: 'Landscapers work on client property with power equipment — damage to property and injury to bystanders are the top exposures.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage, injury from flying debris, and client claims.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Power equipment injuries are common. Required in Ohio with employees.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers trucks, trailers, and vehicles used to transport equipment.' },
+        { icon: 'ti-package', name: 'Equipment & Tools', desc: 'Covers mowers, trimmers, blowers, and trailers.' }
+      ]
+    },
+    { name: 'Cleaning Company', category: 'Trades & Services', cat: 'trades-services',
+      note: 'Cleaning companies enter client homes and businesses — theft accusations and property damage claims are your biggest risks. Bonding is often required by clients.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage and client injury claims during cleaning visits.' },
+        { icon: 'ti-certificate', name: 'Janitorial Bond', desc: 'Protects clients against theft by your employees — often required to win commercial contracts.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Slip-and-fall and chemical exposure are real risks. Required in Ohio with employees.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Covers vans and vehicles used to transport crews and supplies.' }
+      ]
+    },
+    { name: 'Handyman', category: 'Trades & Services', cat: 'trades-services',
+      note: 'Handymen often assume personal auto and homeowner\'s policies cover their work. They don\'t. Even one job site accident without coverage can be financially devastating.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers property damage and customer injury during your work.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers faulty workmanship claims after a job is complete.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'If you use your personal vehicle for work, you need commercial auto endorsement.' },
+        { icon: 'ti-package', name: 'Tools & Equipment', desc: 'Covers your tools against theft from your vehicle or job site.' }
+      ]
+    },
+
+    /* RETAIL & SPECIALTY */
+    { name: 'Florist', category: 'Retail & Specialty', cat: 'retail-specialty',
+      note: 'Florists depend heavily on perishable inventory and delivery vehicles. Product liability and commercial auto are critical for any flower shop.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, property damage, and customer injury in your shop.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your coolers, inventory, equipment, and shop build-out.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'Delivery vehicles must be covered commercially — personal auto won\'t apply.' },
+        { icon: 'ti-flame', name: 'Spoilage Coverage', desc: 'Covers perishable floral inventory lost due to equipment failure.' }
+      ]
+    },
+    { name: 'Antique Store', category: 'Retail & Specialty', cat: 'retail-specialty',
+      note: 'Antique stores hold high-value, irreplaceable inventory. Standard business property policies may undervalue your stock — agreed value coverage is recommended.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injury and property damage in your store.' },
+        { icon: 'ti-building', name: 'Business Property (Agreed Value)', desc: 'Standard replacement cost coverage undervalues antiques — agreed value ensures proper compensation.' },
+        { icon: 'ti-package', name: 'Fine Arts / Inland Marine', desc: 'Specialty coverage for high-value or irreplaceable items.' },
+        { icon: 'ti-lock', name: 'Theft & Burglary', desc: 'Antiques are high-target items for theft. Dedicated theft coverage is important.' }
+      ]
+    },
+    { name: 'Cannabis Dispensary', category: 'Retail & Specialty', cat: 'retail-specialty',
+      note: 'Cannabis is a specialty insurance market. Most standard carriers won\'t write dispensaries. We find the carriers that will — and build policies that actually protect your operation.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injury, property damage, and third-party claims.' },
+        { icon: 'ti-flame', name: 'Product Liability', desc: 'Critical for dispensaries — covers claims from product reactions or contamination.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers your build-out, displays, equipment, and non-cannabis inventory.' },
+        { icon: 'ti-package', name: 'Crop & Inventory Coverage', desc: 'Covers your cannabis product inventory — a specialty cannabis policy line.' },
+        { icon: 'ti-lock', name: 'Theft & Burglary', desc: 'Dispensaries are high-value theft targets. Vault and cash coverage included.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+    { name: 'Weed Shop', category: 'Retail & Specialty', cat: 'retail-specialty',
+      note: 'Cannabis is a specialty insurance market. Most standard carriers won\'t write dispensaries. We find the carriers that will — and build policies that actually protect your operation.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injury, property damage, and third-party claims.' },
+        { icon: 'ti-flame', name: 'Product Liability', desc: 'Critical for dispensaries — covers claims from product reactions or contamination.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers your build-out, displays, equipment, and non-cannabis inventory.' },
+        { icon: 'ti-package', name: 'Crop & Inventory Coverage', desc: 'Covers your cannabis product inventory — a specialty cannabis policy line.' },
+        { icon: 'ti-lock', name: 'Theft & Burglary', desc: 'Dispensaries are high-value theft targets. Vault and cash coverage included.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+
+    /* ENTERTAINMENT */
+    { name: 'Bowling Alley', category: 'Entertainment', cat: 'entertainment',
+      note: 'Bowling alleys combine food service, alcohol, and high foot traffic. Liquor liability and premises liability are your primary exposures.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, lane equipment injuries, and customer claims.' },
+        { icon: 'ti-glass', name: 'Liquor Liability', desc: 'Required if you serve alcohol. One incident without it can close your business.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers lanes, pinsetters, rental shoes, and facility build-out.' },
+        { icon: 'ti-engine', name: 'Equipment Breakdown', desc: 'Automatic pinsetters and scoring systems are expensive — breakdown coverage is smart.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+    { name: 'Arcade', category: 'Entertainment', cat: 'entertainment',
+      note: 'Arcades face equipment theft, machine malfunction liability, and slip-and-fall claims from high-volume foot traffic.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers customer injury and property damage claims.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Arcade machines are expensive — property coverage is essential.' },
+        { icon: 'ti-engine', name: 'Equipment Breakdown', desc: 'Covers repair costs when machines malfunction.' },
+        { icon: 'ti-lock', name: 'Theft & Burglary', desc: 'Cash-heavy businesses with expensive equipment are theft targets.' }
+      ]
+    },
+    { name: 'Swimming Hole / Pool', category: 'Entertainment', cat: 'entertainment',
+      note: 'Aquatic businesses face extremely high liability exposure. Drowning, diving injuries, and slip-and-fall around water areas require specialty premises liability coverage.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability (Aquatic)', desc: 'Specialty liability coverage for swimming areas — standard GL often excludes water-related injuries.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers lifeguard negligence claims and supervision-related incidents.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers pool equipment, facilities, and structures.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees. Lifeguarding carries physical risk.' },
+        { icon: 'ti-umbrella', name: 'Umbrella', desc: 'Aquatic injury claims can be enormous. Umbrella coverage is strongly recommended.' }
+      ]
+    },
+    { name: 'Strip Club', category: 'Entertainment', cat: 'entertainment',
+      note: 'Adult entertainment venues face significant liability exposure that most agents won\'t touch. We will. Assault and battery, liquor liability, and employment practices are your biggest risks.',
+      coverages: [
+        { icon: 'ti-glass', name: 'Liquor Liability', desc: 'One of your highest exposures — covers alcohol-related incidents.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, property damage, and customer claims.' },
+        { icon: 'ti-user-exclamation', name: 'Assault & Battery Coverage', desc: 'Standard GL policies exclude assault claims — adult venues must add this separately.' },
+        { icon: 'ti-users', name: 'Employment Practices Liability', desc: 'High-risk for harassment and discrimination claims in adult entertainment settings.' },
+        { icon: 'ti-building', name: 'Commercial Property', desc: 'Covers your build-out, lighting, sound, and equipment.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+
+    /* FAITH & COMMUNITY */
+    { name: 'Church', category: 'Faith & Community', cat: 'faith-community',
+      note: 'Houses of worship face unique liability exposures that most agents miss entirely — from volunteer activities to youth programs to special events. Specialized church insurance covers what standard commercial policies don\'t.',
+      coverages: [
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall, property damage, and third-party injury on church property.' },
+        { icon: 'ti-building', name: 'Church Property', desc: 'Covers the building, contents, musical instruments, and AV equipment.' },
+        { icon: 'ti-certificate', name: 'Directors & Officers (D&O)', desc: 'Covers board members and church leadership against management decisions claims.' },
+        { icon: 'ti-user-exclamation', name: 'Sexual Misconduct Liability', desc: 'Essential for any organization working with youth or vulnerable populations.' },
+        { icon: 'ti-users', name: 'Volunteer Coverage', desc: 'Standard workers comp doesn\'t cover volunteers — churches need dedicated volunteer protection.' },
+        { icon: 'ti-calendar', name: 'Special Events Coverage', desc: 'Covers weddings, funerals, community events, and off-site gatherings.' }
+      ]
+    },
+
+    /* PROFESSIONAL OFFICES */
+    { name: 'Medical Office', category: 'Professional Offices', cat: 'professional-offices',
+      note: 'Medical practices face malpractice claims, HIPAA violations, and high-value equipment exposures. Medical malpractice is separate from general liability and is non-negotiable.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Medical Malpractice', desc: 'The most critical coverage for any medical practice — covers patient injury and negligence claims.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall and non-medical injury claims in your office.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your medical equipment, furniture, and office build-out.' },
+        { icon: 'ti-lock', name: 'Cyber Liability / HIPAA', desc: 'Patient data breaches carry massive HIPAA fines — cyber liability is essential.' },
+        { icon: 'ti-hard-hat', name: 'Workers Compensation', desc: 'Required in Ohio with employees.' }
+      ]
+    },
+    { name: 'Dental Office', category: 'Professional Offices', cat: 'professional-offices',
+      note: 'Dental practices have significant equipment investment and malpractice exposure. Equipment breakdown coverage is especially important for high-cost dental equipment.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Dental Malpractice', desc: 'Covers patient claims from procedures, anesthesia, and treatment outcomes.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall and non-treatment claims in your office.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Dental equipment is extremely expensive — proper valuation is critical.' },
+        { icon: 'ti-engine', name: 'Equipment Breakdown', desc: 'X-ray equipment, chairs, and compressors require dedicated breakdown coverage.' },
+        { icon: 'ti-lock', name: 'Cyber Liability', desc: 'Patient records are a major target for data breaches.' }
+      ]
+    },
+    { name: 'Veterinary Office', category: 'Professional Offices', cat: 'professional-offices',
+      note: 'Vet practices face animal-related liability, malpractice claims, and boarding exposure if you keep animals overnight.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Veterinary Malpractice', desc: 'Covers claims from treatment outcomes, medication errors, and surgical complications.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers animal bites, patient injury, and property damage in your clinic.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your equipment, surgical tools, and clinic build-out.' },
+        { icon: 'ti-users', name: 'Care, Custody & Control', desc: 'Covers animals boarded or treated in your facility against injury or death.' }
+      ]
+    },
+    { name: 'Law Office', category: 'Professional Offices', cat: 'professional-offices',
+      note: 'Attorneys face significant malpractice exposure. Legal malpractice (E&O) is a separate policy from general liability and is required by most state bar associations.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Legal Malpractice (E&O)', desc: 'Covers negligence, missed deadlines, and errors in legal advice or representation.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall and non-professional claims in your office.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers your office equipment, files, and furnishings.' },
+        { icon: 'ti-lock', name: 'Cyber Liability', desc: 'Client data and privileged communications are high-value targets.' },
+        { icon: 'ti-certificate', name: 'Directors & Officers', desc: 'Relevant for law firm partners against management decisions claims.' }
+      ]
+    },
+    { name: 'Realtor Office', category: 'Professional Offices', cat: 'professional-offices',
+      note: 'Real estate professionals face E&O exposure on every transaction. One missed disclosure or contract error can generate a significant claim.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Real Estate E&O', desc: 'Covers errors in contracts, missed disclosures, and professional negligence claims.' },
+        { icon: 'ti-shield', name: 'General Liability', desc: 'Covers slip-and-fall and property damage at your office.' },
+        { icon: 'ti-car', name: 'Commercial Auto', desc: 'If you use your personal vehicle to show properties, you need a commercial endorsement.' },
+        { icon: 'ti-building', name: 'Business Property', desc: 'Covers office equipment, signage, and lockbox inventory.' }
+      ]
+    },
+
+    /* CONTENT CREATORS */
+    { name: 'YouTuber', category: 'Content Creators', cat: 'content-creators',
+      note: 'Content creators are running real businesses with real equipment and real income. One theft, one copyright claim, or one equipment failure can derail everything without the right coverage.',
+      coverages: [
+        { icon: 'ti-building', name: 'Equipment Coverage', desc: 'Cameras, lighting, mics, computers — all covered against theft and damage.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers copyright claims, defamation, and content-related disputes.' },
+        { icon: 'ti-briefcase', name: 'Business Interruption', desc: 'Covers lost income when equipment failure prevents you from creating content.' },
+        { icon: 'ti-lock', name: 'Cyber Liability', desc: 'Account hacking and data breaches can devastate a creator\'s business.' }
+      ]
+    },
+    { name: 'Podcaster', category: 'Content Creators', cat: 'content-creators',
+      note: 'Podcasters face defamation risk, equipment investment, and income vulnerability. The bigger your audience, the more important proper coverage becomes.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Media Liability', desc: 'Covers defamation, libel, and copyright infringement claims from podcast content.' },
+        { icon: 'ti-building', name: 'Equipment Coverage', desc: 'Covers microphones, interfaces, computers, and studio equipment.' },
+        { icon: 'ti-briefcase', name: 'Business Interruption', desc: 'Covers lost sponsorship income during equipment failure or covered losses.' }
+      ]
+    },
+    { name: 'Streamer', category: 'Content Creators', cat: 'content-creators',
+      note: 'Streamers depend on expensive equipment and consistent uptime. Equipment coverage and cyber liability are the two most important coverages for any streaming operation.',
+      coverages: [
+        { icon: 'ti-building', name: 'Equipment Coverage', desc: 'PCs, cameras, capture cards, lighting — all need dedicated coverage.' },
+        { icon: 'ti-lock', name: 'Cyber Liability', desc: 'Account hacking and DDOS attacks are real threats for streamers.' },
+        { icon: 'ti-briefcase', name: 'Business Interruption', desc: 'Covers lost subscription and ad revenue during covered outages.' }
+      ]
+    },
+    { name: 'Influencer', category: 'Content Creators', cat: 'content-creators',
+      note: 'Influencers face brand deal liability, copyright exposure, and equipment risk. As your income grows, your exposure grows with it.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from brand deals, endorsements, and sponsored content disputes.' },
+        { icon: 'ti-building', name: 'Equipment Coverage', desc: 'Cameras, phones, lighting, and production gear.' },
+        { icon: 'ti-certificate', name: 'Media Liability', desc: 'Covers copyright, defamation, and content-related claims.' }
+      ]
+    },
+    { name: 'OnlyFans Creator', category: 'Content Creators', cat: 'content-creators',
+      note: 'Adult content creators are running legitimate businesses. Equipment, cyber liability, and income protection are your most important coverages — and we don\'t judge.',
+      coverages: [
+        { icon: 'ti-building', name: 'Equipment Coverage', desc: 'Cameras, lighting, computers, and production equipment.' },
+        { icon: 'ti-lock', name: 'Cyber Liability', desc: 'Account hacking and content theft are serious risks for adult creators.' },
+        { icon: 'ti-briefcase', name: 'Business Interruption', desc: 'Covers lost subscription income during covered equipment failure.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from content disputes and platform policy violations.' }
+      ]
+    },
+    { name: 'Adult Content Creator', category: 'Content Creators', cat: 'content-creators',
+      note: 'Adult content creators are running legitimate businesses. Equipment, cyber liability, and income protection are your most important coverages — and we don\'t judge.',
+      coverages: [
+        { icon: 'ti-building', name: 'Equipment Coverage', desc: 'Cameras, lighting, computers, and production equipment.' },
+        { icon: 'ti-lock', name: 'Cyber Liability', desc: 'Account hacking and content theft are serious risks for adult creators.' },
+        { icon: 'ti-briefcase', name: 'Business Interruption', desc: 'Covers lost subscription income during covered equipment failure.' },
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers claims from content disputes and platform policy violations.' }
+      ]
+    },
+    { name: 'Fitness Creator', category: 'Content Creators', cat: 'content-creators',
+      note: 'Fitness creators give advice that people act on physically. Professional liability is critical — one injury claim from a follower who hurt themselves following your content can be significant.',
+      coverages: [
+        { icon: 'ti-certificate', name: 'Professional Liability', desc: 'Covers injury claims from followers who were hurt following your fitness advice.' },
+        { icon: 'ti-building', name: 'Equipment Coverage', desc: 'Cameras, gym equipment, and production gear.' },
+        { icon: 'ti-certificate', name: 'Media Liability', desc: 'Covers copyright and content-related claims.' }
+      ]
+    }
+
+  ];
+
+  /* ── SEARCH ── */
+  var lookupInput = document.getElementById('lookupInput');
+  var searchResults = document.getElementById('searchResults');
+  var searchResultsList = document.getElementById('searchResultsList');
+  var searchResultsLabel = document.getElementById('searchResultsLabel');
+  var browseView = document.getElementById('browseView');
+  var coveragePanel = document.getElementById('coveragePanel');
+  var currentView = 'browse'; // browse | search | panel
+  var previousView = 'browse';
+
+  lookupInput.addEventListener('input', function() {
+    var q = this.value.trim().toLowerCase();
+    if (!q) {
+      showBrowse();
+      return;
+    }
+    var results = businesses.filter(function(b) {
+      return b.name.toLowerCase().includes(q) || b.category.toLowerCase().includes(q);
+    });
+    showSearchResults(results, q);
+  });
+
+  function showBrowse() {
+    browseView.style.display = 'block';
+    searchResults.classList.remove('visible');
+    coveragePanel.classList.remove('visible');
+    currentView = 'browse';
+  }
+
+  function showSearchResults(results, q) {
+    browseView.style.display = 'none';
+    coveragePanel.classList.remove('visible');
+    searchResults.classList.add('visible');
+    currentView = 'search';
+    previousView = 'browse';
+
+    searchResultsLabel.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + q + '"';
+
+    if (results.length === 0) {
+      searchResultsList.innerHTML = '<div class="no-results"><i class="ti ti-search" style="font-size:32px; color:var(--gold); display:block; margin-bottom:12px;"></i><p>No results found for "' + q + '".</p><p style="margin-top:8px;">Don\'t see your business? <a href="/contact.html" style="color:var(--gold);">Reach out — the answer is probably yes.</a></p></div>';
+      return;
+    }
+
+    searchResultsList.innerHTML = '';
+    results.forEach(function(b) {
+      var div = document.createElement('div');
+      div.className = 'result-item';
+      div.innerHTML = '<div><div class="result-name">' + b.name + '</div><div class="result-category">' + b.category + '</div></div><i class="ti ti-chevron-right result-arrow"></i>';
+      div.addEventListener('click', function() { showCoverage(b); });
+      searchResultsList.appendChild(div);
+    });
+  }
+
+  function filterCategory(cat) {
+    var results = businesses.filter(function(b) { return b.cat === cat; });
+    lookupInput.value = '';
+    showSearchResults(results, results[0] ? results[0].category : cat);
+    previousView = 'browse';
+  }
+
+  function showCoverage(b) {
+    previousView = currentView;
+    browseView.style.display = 'none';
+    searchResults.classList.remove('visible');
+    coveragePanel.classList.add('visible');
+    currentView = 'panel';
+
+    document.getElementById('panelTitle').textContent = b.name;
+    document.getElementById('panelCategory').textContent = b.category;
+    document.getElementById('panelNote').textContent = b.note;
+
+    var list = document.getElementById('panelCoverages');
+    list.innerHTML = '';
+    b.coverages.forEach(function(c) {
+      var li = document.createElement('li');
+      li.innerHTML = '<i class="ti ' + c.icon + '"></i><div><span class="coverage-item-name">' + c.name + '</span><span class="coverage-item-desc">' + c.desc + '</span></div>';
+      list.appendChild(li);
+    });
+
+    coveragePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'business_lookup', { event_category: 'engagement', event_label: b.name });
+    }
+  }
+
+  function goBack() {
+    coveragePanel.classList.remove('visible');
+    if (previousView === 'search') {
+      searchResults.classList.add('visible');
+      currentView = 'search';
+    } else {
+      showBrowse();
+    }
+  }
+  </script>
+
+</body>
+</html>
