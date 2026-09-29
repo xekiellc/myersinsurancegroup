@@ -103,17 +103,20 @@ button { font-family: var(--font); cursor: pointer; }
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
 }
 
 /* ── LOGO IMAGE ── */
 .logo-img {
-  height: 72px;
+  height: 56px;
   width: auto;
   display: block;
 }
 
 .logo-img-sm {
-  height: 48px;
+  height: 44px;
   width: auto;
   display: block;
 }
@@ -785,7 +788,9 @@ button { font-family: var(--font); cursor: pointer; }
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px 8px;
 }
 
 .footer-nav {
@@ -856,8 +861,8 @@ button { font-family: var(--font); cursor: pointer; }
 
   .site-header { position: sticky; top: 0; }
 
-  .logo-img { height: 56px; }
-  .logo-img-sm { height: 40px; }
+  .logo-img { height: 48px; }
+  .logo-img-sm { height: 36px; }
 
   .product-grid { grid-template-columns: 1fr; }
   .product-grid .product-card { grid-column: span 1 !important; }
