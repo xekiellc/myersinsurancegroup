@@ -107,18 +107,17 @@ button { font-family: var(--font); cursor: pointer; }
 
 /* ── LOGO IMAGE ── */
 .logo-img {
-  height: 60px;
+  height: 72px;
   width: auto;
   display: block;
-  mix-blend-mode: multiply;
 }
 
 .logo-img-sm {
-  height: 44px;
+  height: 48px;
   width: auto;
+  display: block;
 }
 
-/* Keep old SVG mark styles in case needed elsewhere */
 .logo-mark { display: block; }
 
 .logo-wordmark {
@@ -857,18 +856,13 @@ button { font-family: var(--font); cursor: pointer; }
 
   .site-header { position: sticky; top: 0; }
 
-  .logo-img { height: 48px; }
+  .logo-img { height: 56px; }
+  .logo-img-sm { height: 40px; }
 
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .product-grid { grid-template-columns: 1fr; }
   .product-grid .product-card { grid-column: span 1 !important; }
 
-  .spectrum-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
+  .spectrum-grid { grid-template-columns: 1fr 1fr; }
   .spectrum-card-full { grid-column: span 2; }
 
   .why-grid { grid-template-columns: 1fr; }
@@ -876,7 +870,6 @@ button { font-family: var(--font); cursor: pointer; }
   .hero-stats { gap: 1.5rem; }
 
   .steps { flex-direction: column; align-items: center; }
-
   .step-arrow { transform: rotate(90deg); }
 
   .footer-inner {
@@ -885,20 +878,14 @@ button { font-family: var(--font); cursor: pointer; }
   }
 
   .footer-nav { gap: 0.75rem; }
-
   .creator-tags { flex-wrap: wrap; }
-
-  .logo-img-sm { height: 36px; }
-
 }
 
 @media (max-width: 480px) {
-
   .spectrum-grid { grid-template-columns: 1fr; }
   .spectrum-card-full { grid-column: span 1; }
   .hero-ctas { flex-direction: column; align-items: center; }
   .footer-cta-btns { flex-direction: column; align-items: center; }
-
 }
 
 /* ── PRODUCT GRID: bottom two cards ── */
