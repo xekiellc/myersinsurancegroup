@@ -4,28 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Myers Insurance Group | Ohio Independent Insurance Broker</title>
-  <meta name="description" content="Myers Insurance Group — a different kind of Ohio insurance brokerage. Business, personal, group benefits, and real estate coverage. No judgment. Just coverage. Insuring since 2008." />
+  <meta name="description" content="Myers Insurance Group — Ohio's independent insurance broker since 2008. Business, personal, group benefits, and real estate coverage. No judgment. Just coverage." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Myers Insurance Group | Ohio Independent Insurance Broker" />
-  <meta property="og:description" content="No judgment. Just coverage. Business, personal, group benefits, and real estate insurance across Ohio. Insuring since 2008." />
-  <meta property="og:url" content="https://myersinsurancegroup.com" />
+  <meta property="og:description" content="Protecting everything you've built since 2008. Business, personal, group benefits, real estate. Ohio independent broker. No judgment. Just coverage." />
+  <meta property="og:url" content="https://myersinsurancegroup.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
 
   <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Myers Insurance Group | Ohio Independent Insurance Broker" />
-  <meta name="twitter:description" content="No judgment. Just coverage. Business, personal, group benefits, and real estate insurance across Ohio. Insuring since 2008." />
+  <meta name="twitter:description" content="Protecting everything you've built since 2008. Ohio independent broker. No judgment. Just coverage." />
   <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
 
-  <!-- Favicon -->
+  <!-- Canonical -->
+  <link rel="canonical" href="https://myersinsurancegroup.com/" />
+
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-
-  <!-- Tabler Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css" />
 
   <!-- Google Analytics -->
@@ -36,6 +34,622 @@
     gtag('js', new Date());
     gtag('config', 'G-P2NK67NX7H');
   </script>
+
+  <style>
+    /* ── Homepage-specific overrides ── */
+    .nav-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--white);
+      padding: clamp(80px, 10vw, 140px) 0 clamp(60px, 8vw, 100px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(ellipse, rgba(184,150,46,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-logo-mark {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 32px;
+      display: block;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 88px);
+      font-weight: 700;
+      letter-spacing: -3px;
+      line-height: 1.02;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: var(--mid);
+      max-width: 560px;
+      margin: 0 auto 12px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .hero-eyebrow-sub {
+      font-size: 13px;
+      color: var(--subtle);
+      margin-bottom: 40px;
+      letter-spacing: 0.2px;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      margin-top: 80px;
+    }
+
+    .stat-item {
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 0.5px solid var(--border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -1.5px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--subtle);
+      font-weight: 400;
+    }
+
+    /* AI Section */
+    .ai-portal {
+      background: var(--black);
+      padding: var(--section-padding) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-portal::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(184,150,46,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(27,43,94,0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .ai-portal .container { position: relative; z-index: 1; }
+
+    .ai-portal-header {
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    .ai-portal-headline {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -1.5px;
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .ai-portal-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    .ai-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .ai-step-card {
+      padding: 32px 28px;
+      border-right: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .ai-step-card:last-child { border-right: none; }
+
+    .ai-step-card-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .ai-step-card-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .ai-step-card-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+    }
+
+    .ai-cta-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Products */
+    .products {
+      background: var(--white);
+      padding: var(--section-padding) 0;
+    }
+
+    .products-header {
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .product-tile {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-tile::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .product-tile:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--border-dark);
+    }
+
+    .product-tile:hover::after { transform: scaleX(1); }
+
+    .product-tile-icon {
+      font-size: 36px;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .product-tile-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .product-tile-desc {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .product-tile-arrow {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Spectrum */
+    .spectrum {
+      background: var(--surface);
+      padding: var(--section-padding) 0;
+    }
+
+    .spectrum-header {
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .spectrum-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .spec-card {
+      background: var(--white);
+      padding: 28px 24px;
+      border-right: 0.5px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .spec-card:last-child { border-right: none; }
+
+    .spec-card:hover { background: var(--surface); }
+
+    .spec-card.active {
+      background: var(--black);
+    }
+
+    .spec-card-icon {
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .spec-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+
+    .spec-card.active .spec-card-title { color: var(--white); }
+
+    .spec-card-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.6;
+      display: none;
+    }
+
+    .spec-card.active .spec-card-desc {
+      display: block;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Life */
+    .life {
+      background: var(--white);
+      padding: var(--section-padding) 0;
+      text-align: center;
+    }
+
+    .life-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .life-q {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -1px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .life-repeat {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    /* Why */
+    .why {
+      background: var(--surface);
+      padding: var(--section-padding) 0;
+    }
+
+    .why-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .why-tile {
+      background: var(--white);
+      padding: 44px 40px;
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .why-tile:nth-child(2) { border-right: none; }
+    .why-tile:nth-child(3) { border-bottom: none; }
+    .why-tile:nth-child(4) { border-right: none; border-bottom: none; }
+
+    .why-tile-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .why-tile-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .why-tile-desc {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* Creators */
+    .creators {
+      background: var(--black);
+      padding: var(--section-padding) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .creators::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 100% 50%, rgba(184,150,46,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .creators .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .creators-text .section-label { color: var(--gold); }
+
+    .creators-headline {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .creators-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .creators-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .creators-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 980px;
+      padding: 6px 14px;
+    }
+
+    .creators-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .creator-tile {
+      padding: 24px 20px;
+      border-right: 0.5px solid rgba(255,255,255,0.06);
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .creator-tile:nth-child(2) { border-right: none; }
+    .creator-tile:nth-child(3) { border-right: none; border-bottom: none; }
+    .creator-tile:nth-child(4) { border-right: none; border-bottom: none; }
+
+    .creator-tile-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .creator-tile-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.6;
+    }
+
+    /* Footer CTA */
+    .final-cta {
+      background: var(--white);
+      padding: var(--section-padding) 0;
+      text-align: center;
+    }
+
+    .final-cta-headline {
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -1.5px;
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .final-cta-sub {
+      font-size: 17px;
+      color: var(--mid);
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .final-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--gold);
+      border: 1px solid rgba(184,150,46,0.3);
+      padding: 6px 16px;
+      border-radius: 980px;
+      margin-bottom: 32px;
+    }
+
+    /* Attitude bar scroll */
+    .attitude-scroll {
+      background: var(--black);
+      padding: 12px 0;
+      overflow: hidden;
+      border-top: 0.5px solid rgba(255,255,255,0.06);
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .attitude-scroll-inner {
+      display: flex;
+      gap: 48px;
+      white-space: nowrap;
+      animation: scrollLeft 30s linear infinite;
+    }
+
+    .attitude-scroll-item {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .attitude-scroll-item.gold { color: var(--gold); }
+
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .ai-steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .spectrum-cards { grid-template-columns: repeat(2, 1fr); }
+      .creators .container { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 0.5px solid var(--border); }
+      .stat-item:nth-child(4) { border-top: 0.5px solid var(--border); border-right: none; }
+      .ai-steps-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .spectrum-cards { grid-template-columns: 1fr; }
+      .why-cards { grid-template-columns: 1fr; }
+      .why-tile { border-right: none; }
+      .creators-right { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .hero-cta-wrap { flex-direction: column; align-items: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -48,14 +662,15 @@
   <!-- NAV -->
   <header class="site-header">
     <nav class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
-        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img" />
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-wrap">
+          <img src="/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img" />
+          <span class="nav-logo-text">Myers Insurance Group</span>
+        </div>
       </a>
-
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <i class="ti ti-menu-2"></i>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="navToggle">
+        <i class="ti ti-menu-2" id="navIcon"></i>
       </button>
-
       <ul class="nav-links" id="navLinks">
         <li><a href="/business-insurance.html">Business</a></li>
         <li><a href="/personal-lines.html">Personal</a></li>
@@ -72,397 +687,313 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="container hero-inner">
-        <p class="hero-eyebrow">A DIFFERENT KIND OF OHIO INSURANCE BROKERAGE</p>
-        <h1 class="hero-headline">Protecting Everything<br>You've Built.</h1>
-        <div class="brand-badge">NO JUDGMENT. JUST COVERAGE.</div>
-        <p class="hero-sub">Businesses. Families. Properties. Teams. Whatever you're building — Myers Insurance Group has been protecting it since 2008. Independent. Knowledgeable. On your side.</p>
-        <div class="hero-ctas">
+      <div class="container">
+
+        <img src="/myers_apple_vibe.png" alt="Myers Insurance Group" class="hero-logo-mark fade-up" />
+
+        <p class="hero-eyebrow fade-up fade-up-delay-1">A Different Kind Of Ohio Insurance Brokerage</p>
+
+        <h1 class="fade-up fade-up-delay-2">Protecting Everything<br>You've <em>Built.</em></h1>
+
+        <p class="hero-sub fade-up fade-up-delay-3">Businesses. Families. Properties. Teams. Whatever you're building — Myers Insurance Group has been protecting it since 2008. Independent. Knowledgeable. On your side.</p>
+
+        <p class="hero-eyebrow-sub fade-up fade-up-delay-3">Ohio Independent Broker · Est. 2008 · No Phone Calls</p>
+
+        <div class="hero-cta-wrap fade-up fade-up-delay-4">
           <a href="/contact.html" class="btn-gold">Get a free quote</a>
-          <a href="/coverage-review.html" class="btn-outline">Upload your policy</a>
+          <a href="/coverage-review.html" class="btn-outline-dark">Upload your policy →</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-num">2008</span>
-            <span class="stat-lbl">Insuring since</span>
+
+        <div class="stats-bar fade-up fade-up-delay-4">
+          <div class="stat-item">
+            <span class="stat-number">2008</span>
+            <span class="stat-label">Insuring since</span>
           </div>
-          <div class="stat">
-            <span class="stat-num">40+</span>
-            <span class="stat-lbl">Business types insured</span>
+          <div class="stat-item">
+            <span class="stat-number">40+</span>
+            <span class="stat-label">Business types covered</span>
           </div>
-          <div class="stat">
-            <span class="stat-num">100%</span>
-            <span class="stat-lbl">Independent</span>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Independent broker</span>
           </div>
-          <div class="stat">
-            <span class="stat-num">Ohio</span>
-            <span class="stat-lbl">Based &amp; operated</span>
+          <div class="stat-item">
+            <span class="stat-number">Ohio</span>
+            <span class="stat-label">Based &amp; operated</span>
           </div>
         </div>
+
       </div>
     </section>
+
+    <!-- SCROLLING ATTITUDE BAR -->
+    <div class="attitude-scroll" aria-hidden="true">
+      <div class="attitude-scroll-inner">
+        <span class="attitude-scroll-item gold">No Judgment.</span>
+        <span class="attitude-scroll-item">Just Coverage.</span>
+        <span class="attitude-scroll-item gold">Saints &amp; Sinners.</span>
+        <span class="attitude-scroll-item">Insuring Since 2008.</span>
+        <span class="attitude-scroll-item gold">Far Left, Far Right &amp; Fiercely Independent.</span>
+        <span class="attitude-scroll-item">Ohio's Different Kind of Broker.</span>
+        <span class="attitude-scroll-item gold">No Phone Calls.</span>
+        <span class="attitude-scroll-item">Plan. Prepare. Protect.</span>
+        <!-- duplicate for seamless loop -->
+        <span class="attitude-scroll-item gold">No Judgment.</span>
+        <span class="attitude-scroll-item">Just Coverage.</span>
+        <span class="attitude-scroll-item gold">Saints &amp; Sinners.</span>
+        <span class="attitude-scroll-item">Insuring Since 2008.</span>
+        <span class="attitude-scroll-item gold">Far Left, Far Right &amp; Fiercely Independent.</span>
+        <span class="attitude-scroll-item">Ohio's Different Kind of Broker.</span>
+        <span class="attitude-scroll-item gold">No Phone Calls.</span>
+        <span class="attitude-scroll-item">Plan. Prepare. Protect.</span>
+      </div>
+    </div>
 
     <!-- AI COVERAGE REVIEW -->
-    <section class="ai-section">
+    <section class="ai-portal fade-up">
       <div class="container">
-        <p class="section-label">AI-POWERED — FREE — NO OBLIGATION</p>
-        <h2 class="ai-headline">Upload your dec pages.<br>We'll do the rest.</h2>
-        <p class="ai-sub">Most people have no idea what their current policy actually covers — or what it's missing. Upload your dec pages and our AI pulls every detail: coverage limits, premiums, VINs, drivers, class codes, gaps. We review it personally and reach out within 24 hours. No phone calls. No pressure.</p>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-title">Upload</div>
-            <div class="step-sub">Dec pages, PDFs, photos</div>
+        <div class="ai-portal-header">
+          <span class="section-label" style="color:var(--gold);">AI-POWERED · FREE · NO OBLIGATION</span>
+          <h2 class="ai-portal-headline">Upload your dec pages.<br>We'll do the rest.</h2>
+          <p class="ai-portal-sub">Most people have no idea what their policy actually covers — or what it's missing. Our AI reads every line and tells you exactly where you stand.</p>
+        </div>
+
+        <div class="ai-steps-grid">
+          <div class="ai-step-card">
+            <span class="ai-step-card-num">01</span>
+            <div class="ai-step-card-title">Upload your dec pages</div>
+            <div class="ai-step-card-desc">PDF, photo, or screenshot. Personal, business, or commercial — any policy type.</div>
           </div>
-          <div class="step-arrow" aria-hidden="true">→</div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-title">AI analyzes</div>
-            <div class="step-sub">Every limit, premium &amp; gap</div>
+          <div class="ai-step-card">
+            <span class="ai-step-card-num">02</span>
+            <div class="ai-step-card-title">AI analyzes everything</div>
+            <div class="ai-step-card-desc">Every coverage limit, deductible, endorsement, and exclusion — extracted and reviewed.</div>
           </div>
-          <div class="step-arrow" aria-hidden="true">→</div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-title">Gaps flagged</div>
-            <div class="step-sub">What's missing &amp; overpriced</div>
+          <div class="ai-step-card">
+            <span class="ai-step-card-num">03</span>
+            <div class="ai-step-card-title">Gaps get flagged</div>
+            <div class="ai-step-card-desc">We identify what's missing, what's overpriced, and where you're exposed.</div>
           </div>
-          <div class="step-arrow" aria-hidden="true">→</div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <div class="step-title">We reach out</div>
-            <div class="step-sub">Within 24 hours. No pressure.</div>
+          <div class="ai-step-card">
+            <span class="ai-step-card-num">04</span>
+            <div class="ai-step-card-title">We reach out</div>
+            <div class="ai-step-card-desc">Within 24 hours. No phone calls. No pressure. Just a straight answer.</div>
           </div>
         </div>
-        <a href="/coverage-review.html" class="btn-gold btn-full">Get my free coverage review →</a>
-        <p class="ai-trust">Secure upload. Encrypted storage. Your documents are never shared.</p>
+
+        <div class="ai-cta-row">
+          <a href="/coverage-review.html" class="btn-gold">Get a free coverage review</a>
+          <span style="font-size:13px; color:rgba(255,255,255,0.3);">No obligation · No phone calls · Results in 24 hours</span>
+        </div>
       </div>
     </section>
 
-    <!-- WHAT WE COVER -->
-    <section class="cover-section">
+    <!-- PRODUCTS -->
+    <section class="products fade-up">
       <div class="container">
-        <p class="section-label">WHAT WE COVER</p>
-        <h2 class="section-headline">Every business. Every family. Every property.</h2>
-        <p class="section-sub">Myers Insurance Group is not a single-line agency. We protect businesses, families, investment portfolios, and employer groups — everything under one roof, with one broker who actually understands what's at stake.</p>
+        <div class="products-header">
+          <span class="section-label">WHAT WE COVER</span>
+          <h2 class="section-headline">Insurance for every chapter<br>of your Ohio story.</h2>
+        </div>
 
-        <div class="product-grid">
+        <div class="products-grid">
+          <a href="/business-insurance.html" class="product-tile">
+            <i class="ti ti-building-store product-tile-icon"></i>
+            <div class="product-tile-title">Business Insurance</div>
+            <div class="product-tile-desc">40+ business types. Bars, weed shops, strip clubs, contractors, restaurants, and every business in between. No judgment.</div>
+            <div class="product-tile-arrow">Learn more <i class="ti ti-arrow-right"></i></div>
+          </a>
 
-          <div class="product-card">
-            <div class="product-card-header">
-              <i class="ti ti-building-store product-icon" aria-hidden="true"></i>
-              <h3 class="product-card-title">Business Insurance</h3>
-            </div>
-            <p class="product-card-desc">40+ business types covered. If you own it and run it — we can insure it.</p>
-            <div class="tag-list">
-              <span class="tag">Restaurants</span>
-              <span class="tag">Contractors</span>
-              <span class="tag">Bars</span>
-              <span class="tag">Auto Shops</span>
-              <span class="tag">Food Trucks</span>
-            </div>
-            <div class="tag-list tag-list-expanded" id="bizExpanded" hidden>
-              <span class="tag">Barber Shops</span>
-              <span class="tag">Tattoo Shops</span>
-              <span class="tag">Nail Salons</span>
-              <span class="tag">Hair Salons</span>
-              <span class="tag">Tanning Salons</span>
-              <span class="tag">Bakeries</span>
-              <span class="tag">Ice Cream Stands</span>
-              <span class="tag">Car Lots</span>
-              <span class="tag">Mechanics</span>
-              <span class="tag">Body Shops</span>
-              <span class="tag">Tire Shops</span>
-              <span class="tag">Tow Businesses</span>
-              <span class="tag">Moving Companies</span>
-              <span class="tag">Trucking</span>
-              <span class="tag">Roofers</span>
-              <span class="tag">Plumbers</span>
-              <span class="tag">Electricians</span>
-              <span class="tag">Masonry</span>
-              <span class="tag">Landscapers</span>
-              <span class="tag">Cleaning Companies</span>
-              <span class="tag">Handymen</span>
-              <span class="tag">Florists</span>
-              <span class="tag">Antique Stores</span>
-              <span class="tag">Niche Stores</span>
-              <span class="tag">Weed Shops</span>
-              <span class="tag">Strip Clubs</span>
-              <span class="tag">Churches</span>
-              <span class="tag">Bowling Alleys</span>
-              <span class="tag">Arcades</span>
-              <span class="tag">Swimming Holes</span>
-              <span class="tag">Medical Offices</span>
-              <span class="tag">Dental Offices</span>
-              <span class="tag">Vet Offices</span>
-              <span class="tag">Legal Offices</span>
-              <span class="tag">Realtor Offices</span>
-              <span class="tag">Content Creators</span>
-            </div>
-            <button class="see-more-btn" onclick="toggleExpanded('bizExpanded', this)" aria-expanded="false">+ See all business types</button>
-          </div>
+          <a href="/personal-lines.html" class="product-tile">
+            <i class="ti ti-home product-tile-icon"></i>
+            <div class="product-tile-title">Personal Lines</div>
+            <div class="product-tile-desc">Home, auto, life, umbrella, renters. Coverage for everything you've worked to build — and the people who depend on you.</div>
+            <div class="product-tile-arrow">Learn more <i class="ti ti-arrow-right"></i></div>
+          </a>
 
-          <div class="product-card">
-            <div class="product-card-header">
-              <i class="ti ti-home-heart product-icon" aria-hidden="true"></i>
-              <h3 class="product-card-title">Personal Lines</h3>
-            </div>
-            <p class="product-card-desc">Home, auto, life, and umbrella coverage for Ohio families who refuse to leave things to chance.</p>
-            <div class="tag-list">
-              <span class="tag">Home</span>
-              <span class="tag">Auto</span>
-              <span class="tag">Life</span>
-              <span class="tag">Umbrella</span>
-            </div>
-            <a href="/personal-lines.html" class="card-link">Learn more →</a>
-          </div>
+          <a href="/group-benefits.html" class="product-tile">
+            <i class="ti ti-users product-tile-icon"></i>
+            <div class="product-tile-title">Group Benefits</div>
+            <div class="product-tile-desc">Health, dental, life, disability, vision. Group benefits that help you attract and keep the people who make your business run.</div>
+            <div class="product-tile-arrow">Learn more <i class="ti ti-arrow-right"></i></div>
+          </a>
 
-          <div class="product-card">
-            <div class="product-card-header">
-              <i class="ti ti-users product-icon" aria-hidden="true"></i>
-              <h3 class="product-card-title">Group Benefits</h3>
-            </div>
-            <p class="product-card-desc">Great people have options. Benefits are how you keep them. Show your team you actually care.</p>
-            <div class="tag-list">
-              <span class="tag">Health</span>
-              <span class="tag">Disability</span>
-              <span class="tag">Life</span>
-              <span class="tag">Planning</span>
-            </div>
-            <a href="/group-benefits.html" class="card-link">Learn more →</a>
-          </div>
+          <a href="/real-estate.html" class="product-tile">
+            <i class="ti ti-building product-tile-icon"></i>
+            <div class="product-tile-title">Real Estate</div>
+            <div class="product-tile-desc">Single family rentals, duplexes, multi-units, apartment buildings. Investment property coverage built for Ohio landlords.</div>
+            <div class="product-tile-arrow">Learn more <i class="ti ti-arrow-right"></i></div>
+          </a>
 
-          <div class="product-card product-card-half">
-            <div class="product-card-header">
-              <i class="ti ti-building product-icon" aria-hidden="true"></i>
-              <h3 class="product-card-title">Real Estate &amp; Investment</h3>
-            </div>
-            <p class="product-card-desc">One rental house or 1,000+ units — we scale with your portfolio and protect every door.</p>
-            <a href="/real-estate.html" class="card-link">Learn more →</a>
-          </div>
+          <a href="/business-lookup.html" class="product-tile">
+            <i class="ti ti-search product-tile-icon"></i>
+            <div class="product-tile-title">Business Lookup Tool</div>
+            <div class="product-tile-desc">Search your business type and get an instant coverage checklist. 40+ business types. Free. No obligation.</div>
+            <div class="product-tile-arrow">Look up your business <i class="ti ti-arrow-right"></i></div>
+          </a>
 
-          <div class="product-card product-card-half">
-            <div class="product-card-header">
-              <i class="ti ti-handshake product-icon" aria-hidden="true"></i>
-              <h3 class="product-card-title">Realtor &amp; Mortgage Partners</h3>
-            </div>
-            <p class="product-card-desc">You close the deal. We protect it. Let's be each other's secret weapon at the closing table.</p>
-            <a href="/contact.html" class="card-link">Partner with us →</a>
-          </div>
-
+          <a href="/business-gap-calculator.html" class="product-tile">
+            <i class="ti ti-chart-bar product-tile-icon"></i>
+            <div class="product-tile-title">Coverage Gap Calculators</div>
+            <div class="product-tile-desc">Business, personal, and life insurance gap calculators. Find out where you're exposed in 2 minutes. Free.</div>
+            <div class="product-tile-arrow">Check your gaps <i class="ti ti-arrow-right"></i></div>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- FULL SPECTRUM -->
-    <section class="spectrum-section">
+    <section class="spectrum fade-up">
       <div class="container">
-        <p class="section-label">NO JUDGMENT. JUST COVERAGE.</p>
-        <h2 class="section-headline-light">We cover the full spectrum of Ohio.</h2>
-        <p class="section-sub-light">Click any card to see what we cover and why it matters.</p>
-
-        <div class="spectrum-grid">
-
-          <div class="spectrum-card" onclick="toggleSpectrum(this)">
-            <div class="spectrum-card-title">Churches</div>
-            <div class="spectrum-card-sub">Houses of worship</div>
-            <div class="spectrum-panel">
-              <ul class="coverage-list">
-                <li>General Liability</li>
-                <li>Property Coverage</li>
-                <li>Directors &amp; Officers</li>
-                <li>Sexual Misconduct Liability</li>
-                <li>Volunteer Coverage</li>
-                <li>Event &amp; Gathering Coverage</li>
-              </ul>
-              <p class="coverage-note">Houses of worship face unique liability exposures most agents miss entirely. We don't.</p>
-            </div>
-          </div>
-
-          <div class="spectrum-card" onclick="toggleSpectrum(this)">
-            <div class="spectrum-card-title">Strip Clubs</div>
-            <div class="spectrum-card-sub">Adult entertainment</div>
-            <div class="spectrum-panel">
-              <ul class="coverage-list">
-                <li>Liquor Liability</li>
-                <li>General Liability</li>
-                <li>Assault &amp; Battery Coverage</li>
-                <li>Employment Practices Liability</li>
-                <li>Property &amp; Contents</li>
-                <li>Bouncer Liability</li>
-              </ul>
-              <p class="coverage-note">High-risk venues need specialty coverage. Most agents won't touch it. We will.</p>
-            </div>
-          </div>
-
-          <div class="spectrum-card" onclick="toggleSpectrum(this)">
-            <div class="spectrum-card-title">Weed Shops</div>
-            <div class="spectrum-card-sub">Cannabis dispensaries</div>
-            <div class="spectrum-panel">
-              <ul class="coverage-list">
-                <li>Product Liability</li>
-                <li>General Liability</li>
-                <li>Commercial Property</li>
-                <li>Crop &amp; Inventory Coverage</li>
-                <li>Theft &amp; Burglary</li>
-                <li>Employee Dishonesty</li>
-              </ul>
-              <p class="coverage-note">Cannabis is a specialty market. Most carriers won't write it. We find the ones that will.</p>
-            </div>
-          </div>
-
-          <div class="spectrum-card" onclick="toggleSpectrum(this)">
-            <div class="spectrum-card-title">Content Creators</div>
-            <div class="spectrum-card-sub">Spicy or mild</div>
-            <div class="spectrum-panel">
-              <ul class="coverage-list">
-                <li>Equipment &amp; Gear Coverage</li>
-                <li>Business Interruption</li>
-                <li>Cyber Liability</li>
-                <li>Professional Liability</li>
-                <li>Income Protection</li>
-                <li>General Liability</li>
-              </ul>
-              <p class="coverage-note">YouTubers, podcasters, OnlyFans creators — you're running a real business. Protect it like one.</p>
-            </div>
-          </div>
-
-          <div class="spectrum-card" onclick="toggleSpectrum(this)">
-            <div class="spectrum-card-title">Landlords</div>
-            <div class="spectrum-card-sub">1 unit or 1,000+ units</div>
-            <div class="spectrum-panel">
-              <ul class="coverage-list">
-                <li>Dwelling &amp; Structure</li>
-                <li>Loss of Rental Income</li>
-                <li>Liability Protection</li>
-                <li>Umbrella Policies</li>
-                <li>Vacant Property</li>
-                <li>Multi-Property Portfolios</li>
-              </ul>
-              <p class="coverage-note">One bad tenant or one busted pipe can cost you everything. We make sure it doesn't.</p>
-            </div>
-          </div>
-
-          <div class="spectrum-card" onclick="toggleSpectrum(this)">
-            <div class="spectrum-card-title">Families</div>
-            <div class="spectrum-card-sub">Home, auto &amp; life</div>
-            <div class="spectrum-panel">
-              <ul class="coverage-list">
-                <li>Homeowners Insurance</li>
-                <li>Auto Insurance</li>
-                <li>Life Insurance</li>
-                <li>Umbrella Coverage</li>
-                <li>Renters Insurance</li>
-                <li>Identity Theft Protection</li>
-              </ul>
-              <p class="coverage-note">If you can't afford life insurance, you can't afford not to have it. Your family deserves better than a GoFundMe.</p>
-            </div>
-          </div>
-
-          <div class="spectrum-card spectrum-card-full" onclick="toggleSpectrum(this)">
-            <div class="spectrum-card-title">Far Left. Far Right. Fiercely Independent.</div>
-            <div class="spectrum-card-sub">All political ideologies — zero judgment</div>
-            <div class="spectrum-panel">
-              <p class="spectrum-panel-headline">We don't care how you vote. We care that you're covered.</p>
-              <p class="spectrum-panel-body">Your political beliefs have zero bearing on the quality of coverage you receive here. Progressive or conservative. Libertarian or Green. MAGA or Squad. It doesn't matter. What matters is that when something goes wrong — and something always does — you're protected. Myers Insurance Group is the one place in Ohio where your politics stay at the door and your coverage comes first.</p>
-            </div>
-          </div>
-
+        <div class="spectrum-header">
+          <span class="section-label">THE FULL SPECTRUM</span>
+          <h2 class="section-headline">We insure the businesses<br>other brokers won't touch.</h2>
+          <p class="section-sub">Saints and sinners. Far left, far right, and fiercely independent. If you run a legitimate business in Ohio, we will find you coverage.</p>
         </div>
 
-        <p class="spectrum-footer">Don't see yourself? <a href="/contact.html" class="spectrum-link">Reach out anyway. The answer is probably yes.</a></p>
+        <div class="spectrum-cards" id="spectrumCards">
+          <div class="spec-card active" data-desc="Ohio's cannabis market is growing fast. Most standard carriers won't write a dispensary. We find the ones that will.">
+            <span class="spec-card-icon">🌿</span>
+            <div class="spec-card-title">Cannabis &amp; Dispensaries</div>
+            <div class="spec-card-desc">Ohio's cannabis market is growing fast. Most standard carriers won't write a dispensary. We find the ones that will.</div>
+          </div>
+          <div class="spec-card" data-desc="Liquor liability, assault and battery, EPLI. Adult venues face the highest liability exposure in hospitality. We cover it.">
+            <span class="spec-card-icon">💃</span>
+            <div class="spec-card-title">Strip Clubs &amp; Adult Venues</div>
+            <div class="spec-card-desc">Liquor liability, assault and battery, EPLI. Adult venues face the highest liability exposure in hospitality. We cover it.</div>
+          </div>
+          <div class="spec-card" data-desc="Equipment, media liability, cyber, professional liability. You're running a real business. Spicy or mild — no judgment.">
+            <span class="spec-card-icon">📱</span>
+            <div class="spec-card-title">Content Creators</div>
+            <div class="spec-card-desc">Equipment, media liability, cyber, professional liability. You're running a real business. Spicy or mild — no judgment.</div>
+          </div>
+          <div class="spec-card" data-desc="D&O, sexual misconduct liability, volunteer coverage. Standard commercial policies miss most of what churches actually need.">
+            <span class="spec-card-icon">⛪</span>
+            <div class="spec-card-title">Churches &amp; Faith Communities</div>
+            <div class="spec-card-desc">D&O, sexual misconduct liability, volunteer coverage. Standard commercial policies miss most of what churches actually need.</div>
+          </div>
+          <div class="spec-card" data-desc="Dwelling coverage, loss of rents, landlord liability. Your homeowner's policy doesn't cover a rental. Not even close.">
+            <span class="spec-card-icon">🏠</span>
+            <div class="spec-card-title">Landlords &amp; Investors</div>
+            <div class="spec-card-desc">Dwelling coverage, loss of rents, landlord liability. Your homeowner's policy doesn't cover a rental. Not even close.</div>
+          </div>
+          <div class="spec-card" data-desc="Life insurance is the financial safety net for the people who depend on you. If you can't afford it, you can't afford not to have it.">
+            <span class="spec-card-icon">❤️</span>
+            <div class="spec-card-title">Families &amp; Life Insurance</div>
+            <div class="spec-card-desc">Life insurance is the financial safety net for the people who depend on you. If you can't afford it, you can't afford not to have it.</div>
+          </div>
+          <div class="spec-card" data-desc="Realtors, agents, and mortgage professionals. E&O, auto, referral partnerships. We make it easy to protect your clients at closing.">
+            <span class="spec-card-icon">🏡</span>
+            <div class="spec-card-title">Realtors &amp; Mortgage Pros</div>
+            <div class="spec-card-desc">Realtors, agents, and mortgage professionals. E&O, auto, referral partnerships. We make it easy to protect your clients at closing.</div>
+          </div>
+          <div class="spec-card" data-desc="Tattoo shops, barber shops, salons, spas. Professional liability for personal services. One chemical burn claim without it is too many.">
+            <span class="spec-card-icon">✂️</span>
+            <div class="spec-card-title">Personal Services</div>
+            <div class="spec-card-desc">Tattoo shops, barber shops, salons, spas. Professional liability for personal services. One chemical burn claim without it is too many.</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- LIFE INSURANCE -->
-    <section class="life-section">
+    <section class="life fade-up">
       <div class="container">
-        <p class="section-label">LIFE INSURANCE</p>
-        <div class="life-card">
-          <blockquote class="life-quote">"If you can't afford life insurance,<br>you can't afford not to have life insurance."</blockquote>
-          <p class="life-read-again">READ THAT AGAIN.</p>
-          <p class="life-sub">Life happens. Make sure your family is ready. Life insurance can protect the people who depend on you when the unexpected happens.</p>
-          <a href="/contact.html" class="btn-gold">Get life insurance today</a>
+        <div class="life-inner">
+          <span class="section-label">LIFE INSURANCE</span>
+          <p class="life-q">"If you can't afford life insurance,<br>you can't afford not to have it."</p>
+          <span class="life-repeat">READ THAT AGAIN.</span>
+          <p class="section-sub" style="margin: 0 auto 40px; text-align:center;">If someone depends on your income — a spouse, children, aging parents — life insurance is not optional. It costs less than you think. The conversation you're putting off could be the most important financial decision you ever make.</p>
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="/contact.html" class="btn-gold">Get a life insurance quote</a>
+            <a href="/life-gap-calculator.html" class="btn-outline-dark">Check my life insurance gaps →</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- WHY MIG -->
-    <section class="why-section">
+    <!-- WHY MYERS -->
+    <section class="why fade-up">
       <div class="container">
-        <p class="section-label">WHY MYERS INSURANCE GROUP</p>
-        <h2 class="section-headline">Not your typical brokerage.</h2>
-        <p class="section-sub">Passing the licensing exam is the minimum. We built Myers Insurance Group to be considerably more.</p>
-        <div class="why-grid">
-          <div class="why-item">
-            <i class="ti ti-shield-check why-icon" aria-hidden="true"></i>
-            <div>
-              <h3 class="why-title">100% Independent</h3>
-              <p class="why-desc">No captive carrier. No corporate quota. No script. We work for you.</p>
-            </div>
+        <span class="section-label">WHY MYERS INSURANCE GROUP</span>
+        <h2 class="section-headline">Passing the licensing exam<br>is the minimum.</h2>
+        <p class="section-sub">We built Myers Insurance Group to be considerably more.</p>
+
+        <div class="why-cards">
+          <div class="why-tile">
+            <span class="why-tile-num">01</span>
+            <div class="why-tile-title">Truly independent</div>
+            <div class="why-tile-desc">We don't work for any carrier. We work for you. That means we shop the market, find the right fit, and aren't limited to one company's products.</div>
           </div>
-          <div class="why-item">
-            <i class="ti ti-clock why-icon" aria-hidden="true"></i>
-            <div>
-              <h3 class="why-title">Insuring since 2008</h3>
-              <p class="why-desc">Protecting Ohio businesses, families, and properties.</p>
-            </div>
+          <div class="why-tile">
+            <span class="why-tile-num">02</span>
+            <div class="why-tile-title">No judgment — ever</div>
+            <div class="why-tile-desc">Strip clubs, weed shops, adult creators, bars at 2am. If you run a legitimate business in Ohio, we will find you coverage. Full stop.</div>
           </div>
-          <div class="why-item">
-            <i class="ti ti-cpu why-icon" aria-hidden="true"></i>
-            <div>
-              <h3 class="why-title">AI-powered coverage analysis</h3>
-              <p class="why-desc">Upload your dec pages. We identify every gap before it costs you.</p>
-            </div>
+          <div class="why-tile">
+            <span class="why-tile-num">03</span>
+            <div class="why-tile-title">Built since 2008</div>
+            <div class="why-tile-desc">Insuring Ohio businesses and families since 2008. We've seen the claims, the gaps, and the policies that look comprehensive until they're not.</div>
           </div>
-          <div class="why-item">
-            <i class="ti ti-school why-icon" aria-hidden="true"></i>
-            <div>
-              <h3 class="why-title">Deep expertise</h3>
-              <p class="why-desc">Finance, public policy &amp; health sciences background. We understand risk at every level.</p>
-            </div>
+          <div class="why-tile">
+            <span class="why-tile-num">04</span>
+            <div class="why-tile-title">DM only. No phone calls.</div>
+            <div class="why-tile-desc">Reach out by email or Facebook DM. We'll respond with real answers — not a call center script and a request to hold.</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CONTENT CREATORS -->
-    <section class="creators-section">
+    <section class="creators fade-up">
       <div class="container">
-        <p class="section-label">CONTENT CREATORS</p>
-        <h2 class="section-headline">Spicy or mild — we've got you covered.</h2>
-        <p class="section-sub">Content creators are one of the most underinsured groups in America. Whether you run a family-friendly YouTube channel, a fitness brand, or something a little more adult — you have real business exposure. Equipment. Liability. Income protection. Let's talk.</p>
-        <div class="creator-tags">
-          <span class="tag">YouTubers</span>
-          <span class="tag">OnlyFans</span>
-          <span class="tag">Podcasters</span>
-          <span class="tag">Streamers</span>
-          <span class="tag">Influencers</span>
-          <span class="tag">Adult Content</span>
-          <span class="tag">Fitness Creators</span>
+        <div class="creators-text">
+          <span class="section-label">CONTENT CREATORS</span>
+          <h2 class="creators-headline">Spicy or mild.<br>We don't judge<br>what you create.</h2>
+          <p class="creators-sub">YouTubers, podcasters, streamers, influencers, fitness creators, adult content creators — you're running a real business. Equipment coverage, media liability, cyber protection. We build creator policies that work.</p>
+          <div class="creators-tags">
+            <span class="creators-tag">YouTubers</span>
+            <span class="creators-tag">Podcasters</span>
+            <span class="creators-tag">Streamers</span>
+            <span class="creators-tag">Influencers</span>
+            <span class="creators-tag">OnlyFans</span>
+            <span class="creators-tag">Fitness Creators</span>
+            <span class="creators-tag">Adult Content</span>
+          </div>
+          <div style="margin-top:32px;">
+            <a href="/insurance-content-creator-ohio.html" class="btn-gold">Content creator coverage →</a>
+          </div>
         </div>
-        <a href="/contact.html" class="btn-navy">Get creator coverage →</a>
+        <div class="creators-right">
+          <div class="creator-tile">
+            <div class="creator-tile-title">Equipment Coverage</div>
+            <div class="creator-tile-desc">Cameras, lighting, mics, streaming rigs. Full replacement value.</div>
+          </div>
+          <div class="creator-tile">
+            <div class="creator-tile-title">Media Liability</div>
+            <div class="creator-tile-desc">Defamation, copyright, invasion of privacy claims from your content.</div>
+          </div>
+          <div class="creator-tile">
+            <div class="creator-tile-title">Cyber Liability</div>
+            <div class="creator-tile-desc">Account hacking, data breaches, ransomware. Real coverage for real risk.</div>
+          </div>
+          <div class="creator-tile">
+            <div class="creator-tile-title">Business Interruption</div>
+            <div class="creator-tile-desc">Lost income when a covered loss keeps you from creating.</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- WEBSITE SERVICES -->
-    <section class="web-section">
+    <!-- FINAL CTA -->
+    <section class="final-cta fade-up">
       <div class="container">
-        <p class="section-label">WEBSITE SERVICES</p>
-        <h2 class="section-headline">Need a website too?</h2>
-        <p class="section-sub">Myers Insurance Group also builds premium websites for Ohio businesses and beyond. If your business doesn't have a web presence — or has one that isn't working — let's fix that. Insurance covered. Website built. One stop. Done.</p>
-        <a href="/contact.html" class="btn-navy">Learn about our website services →</a>
-      </div>
-    </section>
-
-    <!-- FOOTER CTA -->
-    <section class="footer-cta navy">
-      <div class="container footer-cta-inner">
-        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
-        <h2 class="footer-cta-headline">Plan. Prepare. Protect.</h2>
-        <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
-        <div class="footer-cta-btns">
+        <div class="final-badge">NO JUDGMENT. JUST COVERAGE.</div>
+        <h2 class="final-cta-headline">Myers Insurance Group<br>for all of your insurance needs.</h2>
+        <p class="final-cta-sub" style="margin-bottom:40px;">Or settle for much less. Ohio independent broker since 2008. Plan. Prepare. Protect.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <a href="/contact.html" class="btn-gold">Get a free quote</a>
-          <a href="/coverage-review.html" class="btn-outline">Upload my policy</a>
+          <a href="/coverage-review.html" class="btn-outline-dark">Upload my policy →</a>
         </div>
       </div>
     </section>
@@ -470,11 +1001,11 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer navy">
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-logo">
-        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img logo-img-sm" />
-      </div>
+      <a href="/" class="nav-logo">
+        <img src="/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img logo-img-sm" />
+      </a>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="/business-insurance.html">Business</a>
         <a href="/personal-lines.html">Personal</a>
@@ -493,6 +1024,16 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    /* Spectrum card interaction */
+    document.querySelectorAll('.spec-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        document.querySelectorAll('.spec-card').forEach(function(c) { c.classList.remove('active'); });
+        this.classList.add('active');
+        gtag && gtag('event', 'spectrum_click', { event_category: 'engagement', event_label: this.querySelector('.spec-card-title').textContent });
+      });
+    });
+  </script>
 
 </body>
 </html>
