@@ -1,15 +1,6 @@
 # Myers Insurance Group — _redirects
 # Cloudflare Pages routing
 
-# Force HTTPS (handled by Cloudflare but good to have)
-http://myersinsurancegroup.com/*  https://myersinsurancegroup.com/:splat  301
-
-# WWW to non-WWW
-https://www.myersinsurancegroup.com/*  https://myersinsurancegroup.com/:splat  301
-
-# Pages.dev preview to production (optional — comment out if you want preview URLs to work)
-# https://myersinsurancegroup.pages.dev/*  https://myersinsurancegroup.com/:splat  301
-
 # Clean URLs — strip .html
 /business-insurance  /business-insurance.html  200
 /personal-lines      /personal-lines.html       200
