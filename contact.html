@@ -70,6 +70,13 @@
       color: var(--text);
       font-weight: 500;
     }
+    .referral-name-group {
+      display: none;
+      margin-top: 10px;
+    }
+    .referral-name-group.visible {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -204,6 +211,12 @@
                 <option value="Realtor / Mortgage Pro">Realtor / Mortgage Professional</option>
                 <option value="Other">Other</option>
               </select>
+
+              <!-- Referral name — shows for Friend/Family and Realtor/Mortgage -->
+              <div class="referral-name-group" id="referralNameGroup">
+                <label for="referral_name" class="field-label" style="margin-top: 10px;">Who referred you?</label>
+                <input type="text" id="referral_name" name="referral_name" class="field-input" placeholder="Their name" />
+              </div>
             </div>
 
             <button type="submit" class="btn-gold btn-full submit-btn" id="submitBtn">
@@ -311,6 +324,20 @@
       cb.addEventListener('change', function() {
         this.closest('.checkbox-item').classList.toggle('checked', this.checked);
       });
+    });
+
+    /* Show referral name field for Friend/Family and Realtor/Mortgage */
+    var sourceSelect = document.getElementById('source');
+    var referralGroup = document.getElementById('referralNameGroup');
+    var referralTriggers = ['Friend / Family', 'Realtor / Mortgage Pro'];
+
+    sourceSelect.addEventListener('change', function() {
+      if (referralTriggers.indexOf(this.value) !== -1) {
+        referralGroup.classList.add('visible');
+      } else {
+        referralGroup.classList.remove('visible');
+        document.getElementById('referral_name').value = '';
+      }
     });
   </script>
 
