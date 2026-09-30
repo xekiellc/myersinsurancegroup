@@ -69,7 +69,7 @@
 
   function addFiles(newFiles) {
     const maxFiles = 10;
-    const maxSize = 20 * 1024 * 1024; /* 20MB per file */
+    const maxTotal = 15 * 1024 * 1024; /* 15MB total per submission */
     const allowed = ['pdf', 'jpg', 'jpeg', 'png', 'heic', 'webp'];
 
     Array.from(newFiles).forEach(function (file) {
@@ -80,8 +80,9 @@
         return;
       }
 
-      if (file.size > maxSize) {
-        showUploadError(file.name + ' is too large. Maximum file size is 20MB.');
+      const currentTotal = selectedFiles.reduce(function (sum, f) { return sum + f.size; }, 0);
+      if (currentTotal + file.size > maxTotal) {
+        showUploadError(file.name + ' would put you over the 15 MB total limit. Try a smaller file or a screenshot of the dec page.');
         return;
       }
 
@@ -120,6 +121,13 @@
   /* ── FILE INPUT CHANGE ── */
   if (uploadInput) {
     uploadInput.addEventListener('change', function () {
+      if (typeof gtag === 'function' && uploadInput.files.length) {
+        gtag('event', 'dec_page_upload', {
+          event_category: 'engagement',
+          event_label: 'file_selected',
+          value: uploadInput.files.length
+        });
+      }
       addFiles(uploadInput.files);
       /* Reset input so same file can be re-added after remove */
       uploadInput.value = '';
@@ -250,15 +258,21 @@
         showSuccess();
         trackReviewSubmit();
       } else {
-        return res.json().then(function (data) {
-          throw new Error(data.error || 'Submission failed.');
-        });
+        return res.json()
+          .catch(function () { return {}; })
+          .then(function (data) {
+            const err = new Error(data.error || 'Submission failed.');
+            err.fromServer = Boolean(data.error);
+            throw err;
+          });
       }
     })
     .catch(function (err) {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Submit for free review →';
-      showFormError('Something went wrong. Please try again or reach out on Facebook.');
+      showFormError(err && err.fromServer
+        ? err.message
+        : 'Something went wrong. Please try again or reach out on Facebook.');
       console.error('Review form error:', err);
     });
 
@@ -309,19 +323,6 @@
         value: selectedFiles.length
       });
     }
-  }
-
-  /* ── TRACK FILE UPLOADS ── */
-  if (uploadInput) {
-    uploadInput.addEventListener('change', function () {
-      if (typeof gtag === 'function' && uploadInput.files.length) {
-        gtag('event', 'dec_page_upload', {
-          event_category: 'engagement',
-          event_label: 'file_selected',
-          value: uploadInput.files.length
-        });
-      }
-    });
   }
 
 })();
