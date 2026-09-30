@@ -118,7 +118,7 @@
   }
 
   /* CTA buttons */
-  document.querySelectorAll('.btn-gold, .btn-navy, .nav-cta').forEach(function(btn) {
+  document.querySelectorAll('.btn-primary, .btn-outline, .btn-outline-dark, .btn-outline-white, .nav-cta').forEach(function(btn) {
     btn.addEventListener('click', function() {
       track('CTA', this.textContent.trim().substring(0, 50));
     });
@@ -237,100 +237,6 @@
       alert('Something went wrong. Please try again or reach out on Facebook.');
     });
   });
-})();
-
-/* ── COVERAGE REVIEW FORM SUBMIT (FORMSPREE) ── */
-(function() {
-  var form = document.getElementById('reviewForm');
-  var successEl = document.getElementById('reviewSuccess');
-  var submitBtn = document.getElementById('reviewSubmitBtn');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var name = form.querySelector('#rev-name');
-    var email = form.querySelector('#rev-email');
-    var hasError = false;
-
-    [name, email].forEach(function(field) {
-      if (!field) return;
-      if (!field.value.trim()) {
-        field.style.borderColor = '#e74c3c';
-        hasError = true;
-      } else {
-        field.style.borderColor = '';
-      }
-    });
-
-    if (hasError) return;
-
-    submitBtn.textContent = 'Submitting...';
-    submitBtn.disabled = true;
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(response) {
-      if (response.ok) {
-        form.style.display = 'none';
-        if (successEl) successEl.removeAttribute('hidden');
-        if (typeof gtag === 'function') {
-          gtag('event', 'form_submit', { event_category: 'lead', event_label: 'coverage_review' });
-        }
-      } else {
-        submitBtn.textContent = 'Submit for free review →';
-        submitBtn.disabled = false;
-        alert('Something went wrong. Please try again or reach out on Facebook.');
-      }
-    })
-    .catch(function() {
-      submitBtn.textContent = 'Submit for free review →';
-      submitBtn.disabled = false;
-      alert('Something went wrong. Please try again or reach out on Facebook.');
-    });
-  });
-})();
-
-/* ── DRAG AND DROP FILE UPLOAD ── */
-(function() {
-  var zone = document.getElementById('uploadZone');
-  var input = document.getElementById('decFiles');
-  var fileList = document.getElementById('uploadFileList');
-  if (!zone || !input) return;
-
-  zone.addEventListener('dragover', function(e) {
-    e.preventDefault();
-    zone.classList.add('dragover');
-  });
-
-  zone.addEventListener('dragleave', function() {
-    zone.classList.remove('dragover');
-  });
-
-  zone.addEventListener('drop', function(e) {
-    e.preventDefault();
-    zone.classList.remove('dragover');
-    input.files = e.dataTransfer.files;
-    updateFileList(e.dataTransfer.files);
-  });
-
-  input.addEventListener('change', function() {
-    updateFileList(this.files);
-  });
-
-  function updateFileList(files) {
-    if (!fileList) return;
-    fileList.innerHTML = '';
-    Array.from(files).forEach(function(file) {
-      var li = document.createElement('li');
-      li.innerHTML = '<i class="ti ti-file" style="color:var(--gold);"></i> ' + file.name +
-        ' <span style="color:var(--subtle); margin-left:auto;">' + (file.size / 1024 / 1024).toFixed(1) + ' MB</span>';
-      fileList.appendChild(li);
-    });
-  }
 })();
 
 /* ── SMOOTH SCROLL FOR ANCHOR LINKS ── */
