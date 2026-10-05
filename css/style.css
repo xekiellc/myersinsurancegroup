@@ -118,20 +118,20 @@ button { cursor: pointer; font-family: inherit; }
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--gutter);
-  height: 48px;
+  height: 64px;
 }
 
 .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
 
-.logo-img { height: 28px; width: auto; display: block; }
-.logo-img-sm { height: 24px; }
+.logo-img { height: 46px; width: auto; display: block; }
+.logo-img-sm { height: 34px; }
 
 .nav-logo-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--black);
   letter-spacing: -0.3px;
-  margin-left: 8px;
+  margin-left: 10px;
   white-space: nowrap;
 }
 
@@ -799,6 +799,9 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 @media (max-width: 768px) {
+  .nav-inner { height: 56px; }
+  .logo-img { height: 38px; }
+  .nav-logo-text { font-size: 15px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
 
