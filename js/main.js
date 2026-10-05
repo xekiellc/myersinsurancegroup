@@ -3,6 +3,43 @@
    Navigation, animations, interactions
    ============================================ */
 
+/* ── LEGACY PAGE FIXES (OLD LOGO, FAVICON) ── */
+(function() {
+  var newLogo = '/assets/myers_apple_vibe.png';
+
+  /* Swap old logo.jpg for the Atlas logo */
+  document.querySelectorAll('img[src="/logo.jpg"]').forEach(function(img) {
+    img.src = newLogo;
+    var link = img.closest('a.nav-logo');
+    if (link && !link.querySelector('.nav-logo-text')) {
+      var span = document.createElement('span');
+      span.className = 'nav-logo-text';
+      span.textContent = 'Myers Insurance Group';
+      link.appendChild(span);
+    }
+    var footerLogo = img.closest('.footer-logo');
+    if (footerLogo) {
+      img.className = 'logo-img-sm';
+      footerLogo.style.display = 'flex';
+      footerLogo.style.alignItems = 'center';
+      if (!footerLogo.querySelector('.nav-logo-text')) {
+        var fspan = document.createElement('span');
+        fspan.className = 'nav-logo-text';
+        fspan.textContent = 'Myers Insurance Group';
+        fspan.style.color = 'rgba(255,255,255,0.45)';
+        fspan.style.fontSize = '13px';
+        footerLogo.appendChild(fspan);
+      }
+    }
+  });
+
+  /* Swap missing favicon.svg for the PNG */
+  document.querySelectorAll('link[rel="icon"][href*="favicon.svg"]').forEach(function(l) {
+    l.type = 'image/png';
+    l.href = newLogo;
+  });
+})();
+
 /* ── INSURANCE 101 LINK (NAV + FOOTER, ALL PAGES) ── */
 (function() {
   var href = '/insurance-101.html';
@@ -41,9 +78,9 @@
 
 /* ── NAV TOGGLE (MOBILE) ── */
 (function() {
-  var toggle = document.getElementById('navToggle');
+  var toggle = document.getElementById('navToggle') || document.querySelector('.nav-toggle');
   var links = document.getElementById('navLinks');
-  var icon = document.getElementById('navIcon');
+  var icon = document.getElementById('navIcon') || (toggle ? toggle.querySelector('i') : null);
 
   if (!toggle || !links) return;
 
