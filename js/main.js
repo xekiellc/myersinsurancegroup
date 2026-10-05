@@ -228,13 +228,13 @@
       } else {
         submitBtn.textContent = 'Send my quote request →';
         submitBtn.disabled = false;
-        alert('Something went wrong. Please try again or reach out on Facebook.');
+        alert('Something went wrong. Please try again or email us at hello@myersinsurancegroup.com.');
       }
     })
     .catch(function() {
       submitBtn.textContent = 'Send my quote request →';
       submitBtn.disabled = false;
-      alert('Something went wrong. Please try again or reach out on Facebook.');
+      alert('Something went wrong. Please try again or email us at hello@myersinsurancegroup.com.');
     });
   });
 })();
