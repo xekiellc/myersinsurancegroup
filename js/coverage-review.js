@@ -246,7 +246,7 @@
 
     /* Disable submit */
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Analyzing your policy. Hang tight, this takes about a minute...';
+    submitBtn.textContent = 'Analyzing your policy. Hang tight...';
 
     fetch(form.action, {
       method: 'POST',
@@ -298,7 +298,7 @@
     msg.className = 'coming-soon-msg';
     msg.innerHTML = `
       <i class="ti ti-clock"></i>
-      <p><strong>Coverage review portal coming soon.</strong> In the meantime, email your dec pages to <a href="mailto:hello@myersinsurancegroup.com">hello@myersinsurancegroup.com</a> and we'll review them personally.</p>
+      <p>Email your dec pages to <a href="mailto:hello@myersinsurancegroup.com">hello@myersinsurancegroup.com</a> and we'll review them personally.</p>
     `;
     form.insertAdjacentElement('beforebegin', msg);
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
