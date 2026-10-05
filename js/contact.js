@@ -143,7 +143,7 @@
     msg.className = 'coming-soon-msg';
     msg.innerHTML = `
       <i class="ti ti-clock"></i>
-      <p><strong>Quote form coming soon.</strong> In the meantime, email us at <a href="mailto:hello@myersinsurancegroup.com">hello@myersinsurancegroup.com</a>.</p>
+      <p>Email us at <a href="mailto:hello@myersinsurancegroup.com">hello@myersinsurancegroup.com</a>.</p>
     `;
     form.insertAdjacentElement('beforebegin', msg);
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
