@@ -19,18 +19,21 @@
   <meta name="twitter:description" content="Is your family properly protected? Find out if you have enough life insurance. Free assessment." />
   <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
 
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="canonical" href="https://myersinsurancegroup.com/life-gap-calculator.html" />
+  <link rel="icon" type="image/png" href="/assets/myers_apple_vibe.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/inner-page.css" />
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2NK67NX7H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P2NK67NX7H');
+  </script>
+
   <style>
-    .calc-hero {
-      background: var(--navy);
-      padding: 3rem 0 2.5rem;
-      border-bottom: 3px solid var(--gold);
-      text-align: center;
-    }
     .calc-section {
       background: var(--surface);
       padding: 3rem 0 4rem;
@@ -102,8 +105,8 @@
       align-items: center;
       gap: 12px;
     }
-    .answer-btn:hover { border-color: var(--gold); background: rgba(184,150,46,0.05); }
-    .answer-btn.selected { border-color: var(--gold); background: rgba(184,150,46,0.08); font-weight: 500; }
+    .answer-btn:hover { border-color: var(--gold); background: rgba(29,29,31,0.05); }
+    .answer-btn.selected { border-color: var(--gold); background: rgba(29,29,31,0.08); font-weight: 500; }
     .answer-icon { font-size: 20px; color: var(--gold); flex-shrink: 0; }
     .calc-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
     .calc-back-btn {
@@ -128,13 +131,13 @@
     }
     .results-card.active { display: block; }
     .results-header { background: var(--navy); padding: 2rem; text-align: center; }
-    .results-score-label { font-size: 11px; letter-spacing: 2px; color: #9AAAD4; text-transform: uppercase; margin-bottom: 10px; }
-    .results-score { font-size: 72px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
-    .results-score-sub { font-size: 14px; color: #9AAAD4; }
+    .results-score-label { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-bottom: 10px; }
+    .results-score { font-size: 72px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 8px; }
+    .results-score-sub { font-size: 14px; color: rgba(255,255,255,0.45); }
     .results-grade { display: inline-block; padding: 6px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 12px; }
     .grade-critical { background: rgba(192,57,43,0.2); color: #e74c3c; }
     .grade-concerning { background: rgba(230,126,34,0.2); color: #e67e22; }
-    .grade-moderate { background: rgba(184,150,46,0.2); color: var(--gold); }
+    .grade-moderate { background: rgba(255,255,255,0.15); color: var(--white); }
     .grade-good { background: rgba(39,174,96,0.2); color: #27ae60; }
     .results-body { padding: 2rem; }
     .results-summary { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500; }
@@ -151,7 +154,7 @@
     .results-cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1.25rem; }
     .life-quote-banner {
       background: var(--navy);
-      border: 1px solid var(--gold);
+      border: 0.5px solid rgba(255,255,255,0.15);
       border-radius: var(--radius-lg);
       padding: 1.25rem 1.5rem;
       text-align: center;
@@ -165,7 +168,7 @@
       margin-bottom: 4px;
     }
     .life-quote-banner span {
-      color: var(--gold);
+      color: rgba(255,255,255,0.45);
       font-size: 11px;
       letter-spacing: 2px;
       font-weight: 600;
@@ -187,11 +190,12 @@
   <!-- NAV -->
   <header class="site-header">
     <nav class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Myers Insurance Group home">
-        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img" />
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img" />
+        <span class="nav-logo-text">Myers Insurance Group</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <i class="ti ti-menu-2"></i>
+      <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+        <i class="ti ti-menu-2" id="navIcon"></i>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="/business-insurance.html">Business</a></li>
@@ -208,11 +212,11 @@
   <main>
 
     <!-- HERO -->
-    <section class="calc-hero">
+    <section class="page-hero">
       <div class="container">
         <p class="hero-eyebrow">LIFE INSURANCE GAP CALCULATOR</p>
-        <h1 class="hero-headline" style="font-size:clamp(24px,4vw,36px); margin-bottom:10px;">Is your family properly protected?</h1>
-        <p style="color:#9AAAD4; font-size:15px; margin-bottom:0;">10 questions. Free. No obligation.</p>
+        <h1 class="page-hero-headline" style="font-size:clamp(30px,4.5vw,48px); margin-bottom:12px;">Is your family properly protected?</h1>
+        <p class="page-hero-sub" style="margin-bottom:0;">10 questions. Free. No obligation.</p>
       </div>
     </section>
 
@@ -379,8 +383,8 @@
               <p class="section-label">WHAT WE FOUND</p>
               <div class="gap-list" id="gapList"></div>
               <div class="results-cta-row">
-                <a href="/contact.html" class="btn-gold">Get life insurance today →</a>
-                <a href="/coverage-review.html" class="btn-navy">Upload my current policy</a>
+                <a href="/contact.html" class="btn-primary">Get life insurance today →</a>
+                <a href="/coverage-review.html" class="btn-outline-dark">Upload my current policy</a>
               </div>
               <p class="results-disclaimer">This assessment is for informational purposes only and does not constitute insurance advice. Life insurance needs vary significantly by individual situation, income, debt, and family structure. Contact Myers Insurance Group for a personalized life insurance evaluation.</p>
             </div>
@@ -396,13 +400,12 @@
     </section>
 
     <!-- FOOTER CTA -->
-    <section class="footer-cta navy">
+    <section class="footer-cta">
       <div class="container footer-cta-inner">
-        <div class="brand-badge brand-badge-dark">NO JUDGMENT. JUST COVERAGE.</div>
         <h2 class="footer-cta-headline">Your family deserves better than a GoFundMe.</h2>
         <p class="footer-cta-sub">Myers Insurance Group for all of your insurance needs — or settle for much less.</p>
         <div class="footer-cta-btns">
-          <a href="/contact.html" class="btn-gold">Get life insurance today</a>
+          <a href="/contact.html" class="btn-primary">Get life insurance today</a>
           <a href="/coverage-review.html" class="btn-outline">Upload my current policy</a>
         </div>
       </div>
@@ -411,12 +414,13 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer navy">
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-logo">
-        <img src="/logo.jpg" alt="Myers Insurance Group" class="logo-img logo-img-sm" />
-      </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img-sm" />
+        <span class="nav-logo-text" style="color:rgba(255,255,255,0.45); font-size:13px;">Myers Insurance Group</span>
+      </a>
+      <nav class="footer-nav">
         <a href="/business-insurance.html">Business</a>
         <a href="/personal-lines.html">Personal</a>
         <a href="/group-benefits.html">Group Benefits</a>
