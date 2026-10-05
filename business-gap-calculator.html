@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Business Coverage Gap Calculator | Myers Insurance Group</title>
-  <meta name="description" content="Find out if your business insurance has dangerous gaps. Free 10-question assessment. Get your coverage gap score instantly." />
+  <meta name="description" content="Find out if your business insurance has dangerous gaps. Free 10-question assessment. Get your coverage gap score." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Business Coverage Gap Calculator | Myers Insurance Group" />
-  <meta property="og:description" content="Does your business insurance have dangerous gaps? Find out in 2 minutes. Free assessment." />
+  <meta property="og:description" content="Does your business insurance have dangerous gaps? Find out with a free assessment." />
   <meta property="og:url" content="https://myersinsurancegroup.com/business-gap-calculator.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
@@ -16,7 +16,7 @@
   <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Business Coverage Gap Calculator | Myers Insurance Group" />
-  <meta name="twitter:description" content="Does your business insurance have dangerous gaps? Find out in 2 minutes. Free assessment." />
+  <meta name="twitter:description" content="Does your business insurance have dangerous gaps? Find out with a free assessment." />
   <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
@@ -318,7 +318,7 @@
       <div class="container">
         <p class="hero-eyebrow">BUSINESS COVERAGE GAP CALCULATOR</p>
         <h1 class="hero-headline" style="font-size:clamp(24px,4vw,36px); margin-bottom:10px;">Does your business insurance have dangerous gaps?</h1>
-        <p style="color:#9AAAD4; font-size:15px; margin-bottom:0;">10 questions. 2 minutes. Free. No obligation.</p>
+        <p style="color:#9AAAD4; font-size:15px; margin-bottom:0;">10 questions. Free. No obligation.</p>
       </div>
     </section>
 
@@ -607,7 +607,7 @@
     if (totalScore >= 60) {
       grade = '⚠️ Critical Gaps Found';
       gradeClass = 'grade-critical';
-      summary = 'Your business has serious insurance gaps that expose you to significant financial risk. One claim in the areas we identified could be devastating. We strongly recommend a coverage review immediately.';
+      summary = 'Your business has serious insurance gaps that expose you to significant financial risk. One claim in the areas we identified could be devastating. We strongly recommend a coverage review.';
     } else if (totalScore >= 35) {
       grade = '⚡ Concerning Gaps Found';
       gradeClass = 'grade-concerning';
@@ -615,7 +615,7 @@
     } else if (totalScore >= 15) {
       grade = '📋 Some Gaps to Address';
       gradeClass = 'grade-moderate';
-      summary = 'Your coverage is mostly in order but there are some gaps worth addressing. A quick review could make sure you\'re fully protected without paying more than you need to.';
+      summary = 'Your coverage is mostly in order but there are some gaps worth addressing. A review could make sure you\'re fully protected without paying more than you need to.';
     } else {
       grade = '✅ Looking Good';
       gradeClass = 'grade-good';
@@ -632,7 +632,7 @@
     if (answers.q1 && answers.q1.value === 'no') gaps.push({ icon: 'ti-alert-circle red', title: 'No General Liability Coverage', desc: 'This is the most fundamental business insurance coverage. Without it, a single customer injury or property damage claim can be financially catastrophic.' });
     if (answers.q1 && answers.q1.value === 'unsure') gaps.push({ icon: 'ti-info-circle orange', title: 'Uncertain General Liability Coverage', desc: 'Not knowing whether you have GL coverage is a serious problem. You need to know your policy inside and out — especially your limits.' });
     if (answers.q2 && answers.q2.value === 'yes_no_wc') gaps.push({ icon: 'ti-alert-circle red', title: 'No Workers Compensation — Legally Required', desc: 'Ohio law requires Workers Comp for most employers. Operating without it exposes you to fines, lawsuits, and full personal liability for employee injuries.' });
-    if (answers.q3 && answers.q3.value === 'yes_personal') gaps.push({ icon: 'ti-alert-circle red', title: 'Using Personal Auto for Business', desc: 'Your personal auto policy will deny a claim the moment they discover the vehicle was used for business. You need commercial auto coverage immediately.' });
+    if (answers.q3 && answers.q3.value === 'yes_personal') gaps.push({ icon: 'ti-alert-circle red', title: 'Using Personal Auto for Business', desc: 'Your personal auto policy will deny a claim the moment they discover the vehicle was used for business. You need commercial auto coverage.' });
     if (answers.q4 && answers.q4.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-circle red', title: 'Serving Alcohol Without Liquor Liability', desc: 'This is a business-ending exposure. One DUI accident or bar fight involving your establishment can generate a million-dollar claim that your GL policy won\'t cover.' });
     if (answers.q5 && answers.q5.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'No Professional Liability Coverage', desc: 'If a client claims your services caused them harm, your GL policy won\'t respond. E&O coverage is essential for any service-based business.' });
     if (answers.q6 && answers.q6.value === 'yes_not_covered') gaps.push({ icon: 'ti-alert-triangle orange', title: 'No Cyber Liability Coverage', desc: 'A data breach involving customer information can cost tens of thousands in notification, legal, and recovery costs — none of which standard policies cover.' });
