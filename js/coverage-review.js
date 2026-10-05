@@ -272,7 +272,7 @@
       submitBtn.textContent = 'Submit for free review →';
       showFormError(err && err.fromServer
         ? err.message
-        : 'Something went wrong. Please try again or reach out on Facebook.');
+        : 'Something went wrong. Please try again or email us at hello@myersinsurancegroup.com.');
       console.error('Review form error:', err);
     });
 
@@ -298,7 +298,7 @@
     msg.className = 'coming-soon-msg';
     msg.innerHTML = `
       <i class="ti ti-clock"></i>
-      <p><strong>Coverage review portal coming soon.</strong> In the meantime, send your dec pages directly via <a href="https://www.facebook.com/ZMInsuranceGroup" target="_blank" rel="noopener">Facebook Messenger</a> and we'll review them personally.</p>
+      <p><strong>Coverage review portal coming soon.</strong> In the meantime, email your dec pages to <a href="mailto:hello@myersinsurancegroup.com">hello@myersinsurancegroup.com</a> and we'll review them personally.</p>
     `;
     form.insertAdjacentElement('beforebegin', msg);
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
