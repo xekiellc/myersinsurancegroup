@@ -119,7 +119,7 @@
     .catch(function (err) {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send my quote request →';
-      showFormError('Something went wrong. Please try again or reach out on Facebook.');
+      showFormError('Something went wrong. Please try again or email us at hello@myersinsurancegroup.com.');
       console.error('Form error:', err);
     });
 
@@ -143,7 +143,7 @@
     msg.className = 'coming-soon-msg';
     msg.innerHTML = `
       <i class="ti ti-clock"></i>
-      <p><strong>Quote form coming soon.</strong> In the meantime, reach out directly on <a href="https://www.facebook.com/ZMInsuranceGroup" target="_blank" rel="noopener">Facebook</a>.</p>
+      <p><strong>Quote form coming soon.</strong> In the meantime, email us at <a href="mailto:hello@myersinsurancegroup.com">hello@myersinsurancegroup.com</a>.</p>
     `;
     form.insertAdjacentElement('beforebegin', msg);
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
