@@ -3,6 +3,42 @@
    Navigation, animations, interactions
    ============================================ */
 
+/* ── INSURANCE 101 LINK (NAV + FOOTER, ALL PAGES) ── */
+(function() {
+  var href = '/insurance-101.html';
+  var label = 'Insurance 101';
+
+  /* Top nav: insert before About */
+  var navLinks = document.getElementById('navLinks');
+  if (navLinks && !navLinks.querySelector('a[href="' + href + '"]')) {
+    var aboutLink = navLinks.querySelector('a[href="/about.html"]');
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = href;
+    a.textContent = label;
+    li.appendChild(a);
+    if (aboutLink && aboutLink.parentElement) {
+      navLinks.insertBefore(li, aboutLink.parentElement);
+    } else {
+      navLinks.appendChild(li);
+    }
+  }
+
+  /* Footer nav: insert before About */
+  document.querySelectorAll('.footer-nav').forEach(function(footerNav) {
+    if (footerNav.querySelector('a[href="' + href + '"]')) return;
+    var fa = document.createElement('a');
+    fa.href = href;
+    fa.textContent = label;
+    var footerAbout = footerNav.querySelector('a[href="/about.html"]');
+    if (footerAbout) {
+      footerNav.insertBefore(fa, footerAbout);
+    } else {
+      footerNav.appendChild(fa);
+    }
+  });
+})();
+
 /* ── NAV TOGGLE (MOBILE) ── */
 (function() {
   var toggle = document.getElementById('navToggle');
