@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Personal Coverage Gap Calculator | Myers Insurance Group</title>
-  <meta name="description" content="Find out if your home, auto, and personal insurance has dangerous gaps. Free 10-question assessment. Get your coverage gap score instantly." />
+  <meta name="description" content="Find out if your home, auto, and personal insurance has dangerous gaps. Free 10-question assessment. Get your coverage gap score." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Personal Coverage Gap Calculator | Myers Insurance Group" />
-  <meta property="og:description" content="Does your home or auto insurance have dangerous gaps? Find out in 2 minutes. Free assessment." />
+  <meta property="og:description" content="Does your home or auto insurance have dangerous gaps? Find out with a free assessment." />
   <meta property="og:url" content="https://myersinsurancegroup.com/personal-gap-calculator.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
@@ -16,7 +16,7 @@
   <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Personal Coverage Gap Calculator | Myers Insurance Group" />
-  <meta name="twitter:description" content="Does your home or auto insurance have dangerous gaps? Find out in 2 minutes. Free assessment." />
+  <meta name="twitter:description" content="Does your home or auto insurance have dangerous gaps? Find out with a free assessment." />
   <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
@@ -196,7 +196,7 @@
       <div class="container">
         <p class="hero-eyebrow">PERSONAL COVERAGE GAP CALCULATOR</p>
         <h1 class="hero-headline" style="font-size:clamp(24px,4vw,36px); margin-bottom:10px;">Does your personal insurance have dangerous gaps?</h1>
-        <p style="color:#9AAAD4; font-size:15px; margin-bottom:0;">10 questions. 2 minutes. Free. No obligation.</p>
+        <p style="color:#9AAAD4; font-size:15px; margin-bottom:0;">10 questions. Free. No obligation.</p>
       </div>
     </section>
 
@@ -478,7 +478,7 @@
     } else if (totalScore >= 15) {
       grade = '📋 Some Gaps to Address';
       gradeClass = 'grade-moderate';
-      summary = 'Your personal coverage is mostly in order but there are a few gaps worth addressing. A quick review could close the gaps without significantly changing what you pay.';
+      summary = 'Your personal coverage is mostly in order but there are a few gaps worth addressing. A review could close the gaps without significantly changing what you pay.';
     } else {
       grade = '✅ Looking Good';
       gradeClass = 'grade-good';
@@ -496,7 +496,7 @@
     if (answers.q2 && answers.q2.value === 'thought_covered') gaps.push({ icon: 'ti-alert-circle red', title: 'Flood Misconception — Critical Gap', desc: 'Standard homeowners policies never cover floods. If you\'ve been assuming you\'re covered, you have a serious gap that could cost you your entire home in a flood event.' });
     if (answers.q2 && answers.q2.value === 'no_flood') gaps.push({ icon: 'ti-alert-triangle orange', title: 'No Flood Insurance', desc: 'Flooding is the most common natural disaster in the US. Standard homeowners policies exclude flood damage entirely — a separate flood policy is the only solution.' });
     if (answers.q3 && answers.q3.value === 'no') gaps.push({ icon: 'ti-alert-circle red', title: 'No Uninsured Motorist Coverage', desc: 'Ohio has one of the highest rates of uninsured drivers in the country. Without UM/UIM coverage, if an uninsured driver seriously injures you, you pay out of pocket.' });
-    if (answers.q3 && answers.q3.value === 'unsure') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Uncertain Uninsured Motorist Coverage', desc: 'Not knowing whether you have UM/UIM is a serious problem. You need to verify this with your current carrier immediately.' });
+    if (answers.q3 && answers.q3.value === 'unsure') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Uncertain Uninsured Motorist Coverage', desc: 'Not knowing whether you have UM/UIM is a serious problem. You need to verify this with your current carrier.' });
     if (answers.q4 && answers.q4.value === 'work_only') gaps.push({ icon: 'ti-alert-triangle orange', title: 'Life Insurance Only Through Employer', desc: 'Employer-provided life insurance disappears the day you leave — by choice, layoff, or disability. A personal policy protects your family regardless of your employment status.' });
     if (answers.q4 && answers.q4.value === 'no_dependents_yes') gaps.push({ icon: 'ti-alert-circle red', title: 'No Life Insurance With Dependents', desc: 'If you can\'t afford life insurance, you can\'t afford not to have it. People who depend on your income deserve better than a GoFundMe.' });
     if (answers.q5 && answers.q5.value === 'minimum') gaps.push({ icon: 'ti-alert-circle red', title: 'Ohio Minimum Auto Liability Limits', desc: 'Ohio\'s minimum of $25,000 per person was set decades ago. A serious car accident today can easily generate $500,000+ in medical claims. You could be personally liable for the difference.' });
