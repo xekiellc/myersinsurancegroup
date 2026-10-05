@@ -246,7 +246,7 @@
 
     /* Disable submit */
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Uploading...';
+    submitBtn.textContent = 'Analyzing your policy. Hang tight, this takes about a minute...';
 
     fetch(form.action, {
       method: 'POST',
