@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Insurance 101 | Insurance Terms Explained | Myers Insurance Group</title>
+  <meta name="description" content="Insurance in plain English. Definitions of the insurance terms on your policy, plus why an independent broker beats a captive agent. From Myers Insurance Group, Ohio independent broker since 2008." />
+  <meta property="og:title" content="Insurance 101 | Myers Insurance Group" />
+  <meta property="og:description" content="Insurance in plain English. The terms on your policy, explained. Plus why independent beats captive." />
+  <meta property="og:url" content="https://myersinsurancegroup.com/insurance-101.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Insurance 101 | Myers Insurance Group" />
+  <meta name="twitter:description" content="Insurance in plain English. The terms on your policy, explained. Plus why independent beats captive." />
+  <meta name="twitter:image" content="https://myersinsurancegroup.com/assets/og-image.png" />
+  <link rel="canonical" href="https://myersinsurancegroup.com/insurance-101.html" />
+  <link rel="icon" type="image/png" href="/assets/myers_apple_vibe.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/iconfont/tabler-icons.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/inner-page.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2NK67NX7H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P2NK67NX7H');
+  </script>
+
+  <style>
+    /* Jump links */
+    .jump-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Glossary controls */
+    .glossary-controls {
+      margin-top: 40px;
+      margin-bottom: 28px;
+    }
+
+    .glossary-search {
+      width: 100%;
+      max-width: 520px;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .glossary-search:focus { border-color: var(--black); }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .filter-btn {
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--mid);
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 980px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .filter-btn:hover { border-color: var(--black); color: var(--black); }
+
+    .filter-btn.active {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    /* Glossary grid */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .term-card {
+      background: var(--white);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 24px 24px 22px;
+    }
+
+    .term-card[hidden] { display: none; }
+
+    .term-cat {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .term-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+
+    .term-def {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .term-example {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 0.5px solid var(--border-light);
+    }
+
+    .glossary-empty {
+      display: none;
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--mid);
+      font-size: 15px;
+    }
+
+    .glossary-empty a { color: var(--black); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Independent vs captive */
+    .vs-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .vs-card {
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+    }
+
+    .vs-card-light {
+      background: var(--white);
+      border: 0.5px solid var(--border-light);
+    }
+
+    .vs-card-dark {
+      background: var(--black);
+    }
+
+    .vs-card-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .vs-card-light .vs-card-label { color: var(--subtle); }
+    .vs-card-dark .vs-card-label { color: rgba(255,255,255,0.35); }
+
+    .vs-card-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .vs-card-light .vs-card-title { color: var(--black); }
+    .vs-card-dark .vs-card-title { color: var(--white); }
+
+    .vs-card-desc {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .vs-card-light .vs-card-desc { color: var(--mid); }
+    .vs-card-dark .vs-card-desc { color: rgba(255,255,255,0.5); }
+
+    .vs-table-wrap {
+      margin-top: 40px;
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      background: var(--white);
+    }
+
+    .vs-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .vs-table th,
+    .vs-table td {
+      text-align: left;
+      padding: 16px 20px;
+      border-bottom: 0.5px solid var(--border-light);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .vs-table tr:last-child td { border-bottom: none; }
+
+    .vs-table th {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      background: var(--surface);
+    }
+
+    .vs-table td:first-child {
+      font-weight: 600;
+      color: var(--black);
+      width: 28%;
+    }
+
+    .vs-table td { color: var(--mid); }
+
+    .vs-table td.win {
+      color: var(--black);
+      font-weight: 500;
+    }
+
+    .why-grid-101 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .why-tile-101 {
+      background: var(--white);
+      padding: 36px 32px;
+      border-right: 0.5px solid var(--border-light);
+      border-bottom: 0.5px solid var(--border-light);
+    }
+
+    .why-tile-101:nth-child(2n) { border-right: none; }
+    .why-tile-101:nth-last-child(-n+2) { border-bottom: none; }
+
+    .why-n-101 {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--subtle);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .why-title-101 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+
+    .why-desc-101 {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .fair-note {
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .glossary-grid { grid-template-columns: 1fr; }
+      .vs-intro { grid-template-columns: 1fr; }
+      .why-grid-101 { grid-template-columns: 1fr; }
+      .why-tile-101 { border-right: none; }
+      .why-tile-101:nth-last-child(2) { border-bottom: 0.5px solid var(--border-light); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ATTITUDE BAR -->
+  <div class="attitude-bar">
+    <p class="attitude-line-1">Saints &amp; Sinners. Jews &amp; Gentiles. Freaks &amp; Geeks. In-Laws &amp; Outlaws. Strippers &amp; Scholars. Far Left, Far Right &amp; Fiercely Independent.</p>
+    <p class="attitude-line-2">INSURING SINCE 2008.</p>
+  </div>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img" />
+        <span class="nav-logo-text">Myers Insurance Group</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+        <i class="ti ti-menu-2" id="navIcon"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/business-insurance.html">Business</a></li>
+        <li><a href="/personal-lines.html">Personal</a></li>
+        <li><a href="/group-benefits.html">Group Benefits</a></li>
+        <li><a href="/real-estate.html">Real Estate</a></li>
+        <li><a href="/insurance-101.html">Insurance 101</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/coverage-review.html">Coverage Review</a></li>
+        <li><a href="/contact.html" class="nav-cta">Get A Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="hero-eyebrow">INSURANCE 101</p>
+        <h1 class="page-hero-headline">Insurance,<br>in plain English.</h1>
+        <p class="page-hero-sub">Your policy is written in a language nobody speaks. Here's what the words actually mean, and why who you buy from matters as much as what you buy.</p>
+        <div class="jump-row">
+          <a href="#glossary" class="btn-outline">Insurance terms explained</a>
+          <a href="#independent" class="btn-outline">Independent vs. captive →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="inner-section" id="glossary">
+      <div class="container">
+        <span class="section-label">THE GLOSSARY</span>
+        <h2 class="section-headline">The words on your policy,<br>decoded.</h2>
+        <p class="section-sub">Search a term or filter by topic. If a word on your dec page isn't here, email us at <a href="mailto:hello@myersinsurancegroup.com" style="color:var(--black); text-decoration:underline; text-underline-offset:2px;">hello@myersinsurancegroup.com</a> and we'll explain it.</p>
+
+        <div class="glossary-controls">
+          <input type="search" id="glossarySearch" class="glossary-search" placeholder="Search a term, e.g. deductible, umbrella, ACV..." aria-label="Search insurance terms" autocomplete="off" />
+          <div class="glossary-filters" id="glossaryFilters">
+            <button type="button" class="filter-btn active" data-filter="all">All</button>
+            <button type="button" class="filter-btn" data-filter="basics">The Basics</button>
+            <button type="button" class="filter-btn" data-filter="policy">Your Policy</button>
+            <button type="button" class="filter-btn" data-filter="property">Home &amp; Property</button>
+            <button type="button" class="filter-btn" data-filter="auto">Auto</button>
+            <button type="button" class="filter-btn" data-filter="liability">Liability</button>
+            <button type="button" class="filter-btn" data-filter="life">Life</button>
+            <button type="button" class="filter-btn" data-filter="business">Business</button>
+          </div>
+        </div>
+
+        <div class="glossary-grid" id="glossaryGrid">
+
+          <!-- THE BASICS -->
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Premium</h3>
+            <p class="term-def">The price you pay for your insurance policy. You can usually pay it all at once or in installments.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Deductible</h3>
+            <p class="term-def">The amount you pay out of pocket on a claim before your insurance pays the rest. A higher deductible usually means a lower premium.</p>
+            <p class="term-example">Example: Your car takes $4,000 in damage and your deductible is $1,000. You pay $1,000. Insurance pays $3,000.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Limit</h3>
+            <p class="term-def">The most your policy will pay for a covered loss. Anything above the limit comes out of your pocket, which is why limits matter more than almost anything else on your policy.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Claim</h3>
+            <p class="term-def">Your formal request to the insurance company to pay for a covered loss.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Carrier</h3>
+            <p class="term-def">The insurance company that actually issues your policy and pays your claims. Also called the insurer or underwriter.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Peril</h3>
+            <p class="term-def">A specific cause of loss, like fire, wind, hail, theft, or vandalism. Policies either list the perils they cover or cover everything except the perils they exclude.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Underwriting</h3>
+            <p class="term-def">The process a carrier uses to decide whether to insure you and what to charge. Underwriters look at your claims history, property, business type, driving record, and more.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Independent Broker / Agent</h3>
+            <p class="term-def">An agent appointed with multiple insurance companies who can shop your coverage across all of them. Works for you, not for one carrier.</p>
+          </div>
+
+          <div class="term-card" data-cat="basics">
+            <span class="term-cat">The Basics</span>
+            <h3 class="term-name">Captive Agent</h3>
+            <p class="term-def">An agent who can only sell one insurance company's products. If that company's price or coverage isn't right for you, a captive agent has nowhere else to take you.</p>
+          </div>
+
+          <!-- YOUR POLICY -->
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Declarations Page (Dec Page)</h3>
+            <p class="term-def">The summary page of your policy. It lists who's insured, what's covered, your limits, your deductibles, your premium, and your policy period. It's the first thing we look at in a coverage review.</p>
+          </div>
+
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Policy Period</h3>
+            <p class="term-def">The dates your policy is in force, from the effective date to the expiration date. A loss outside those dates isn't covered.</p>
+          </div>
+
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Endorsement</h3>
+            <p class="term-def">A change to your policy that adds, removes, or modifies coverage. Also called a rider, especially on life policies.</p>
+          </div>
+
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Exclusion</h3>
+            <p class="term-def">Something your policy specifically does not cover. Most coverage gaps hide in the exclusions.</p>
+            <p class="term-example">Example: Standard homeowners policies exclude flood damage. You need a separate flood policy.</p>
+          </div>
+
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Named Insured</h3>
+            <p class="term-def">The person or business listed on the dec page as the policyholder. If your rentals are owned by an LLC, the LLC should be the named insured.</p>
+          </div>
+
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Additional Insured</h3>
+            <p class="term-def">A person or business added to your policy who gets protection under it. Landlords, general contractors, and event venues often require you to name them as additional insureds.</p>
+          </div>
+
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Certificate of Insurance (COI)</h3>
+            <p class="term-def">A one-page document that proves you have coverage. Clients, landlords, and venues ask for it before you start work or sign a lease.</p>
+          </div>
+
+          <div class="term-card" data-cat="policy">
+            <span class="term-cat">Your Policy</span>
+            <h3 class="term-name">Non-Renewal</h3>
+            <p class="term-def">When a carrier decides not to offer you a new policy when your current one expires. An independent broker can move you to another carrier. A captive agent usually can't.</p>
+          </div>
+
+          <!-- HOME & PROPERTY -->
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Replacement Cost</h3>
+            <p class="term-def">Pays what it actually costs to repair or replace damaged property with new property of like kind and quality, with no deduction for depreciation.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Actual Cash Value (ACV)</h3>
+            <p class="term-def">Pays replacement cost minus depreciation. On an older roof or older belongings, ACV can leave you thousands short of what it costs to replace them.</p>
+            <p class="term-example">Example: A roof that costs $20,000 to replace might only be worth $8,000 on an ACV basis.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Dwelling Coverage</h3>
+            <p class="term-def">The part of a home or landlord policy that covers the structure itself: walls, roof, floors, and built-in systems.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Personal Property Coverage</h3>
+            <p class="term-def">Covers your belongings: furniture, clothes, electronics, and other contents. Renters insurance is mostly this, plus liability.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Loss of Use</h3>
+            <p class="term-def">Pays extra living expenses, like a hotel and meals, if a covered loss makes your home unlivable while it's repaired.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Scheduled Personal Property</h3>
+            <p class="term-def">High-value items, like jewelry, art, or collectibles, listed individually on your policy with their own coverage amount. Standard policies cap these items at low limits unless they're scheduled.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">DP3 (Dwelling Fire Policy)</h3>
+            <p class="term-def">The standard policy form for rental properties. If you rent a property out, a homeowners policy won't cover it. You need a landlord policy like a DP3.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Loss of Rents</h3>
+            <p class="term-def">Replaces the rental income you lose when a covered loss makes your rental property unlivable.</p>
+          </div>
+
+          <div class="term-card" data-cat="property">
+            <span class="term-cat">Home &amp; Property</span>
+            <h3 class="term-name">Vacancy Clause</h3>
+            <p class="term-def">A policy provision that limits or suspends coverage if a property sits empty past a set period. Vacant properties need dedicated vacant property coverage.</p>
+          </div>
+
+          <!-- AUTO -->
+          <div class="term-card" data-cat="auto">
+            <span class="term-cat">Auto</span>
+            <h3 class="term-name">Split Limits (25/50/25)</h3>
+            <p class="term-def">The three numbers on your auto liability: bodily injury per person, bodily injury per accident, and property damage per accident, in thousands of dollars. 25/50/25 is Ohio's legal minimum, and it's dangerously low.</p>
+          </div>
+
+          <div class="term-card" data-cat="auto">
+            <span class="term-cat">Auto</span>
+            <h3 class="term-name">Uninsured / Underinsured Motorist (UM/UIM)</h3>
+            <p class="term-def">Covers your injuries when the driver who hit you has no insurance or not enough of it. One of the most important coverages on any auto policy.</p>
+          </div>
+
+          <div class="term-card" data-cat="auto">
+            <span class="term-cat">Auto</span>
+            <h3 class="term-name">Collision</h3>
+            <p class="term-def">Covers damage to your own vehicle from hitting another car or object, regardless of who's at fault.</p>
+          </div>
+
+          <div class="term-card" data-cat="auto">
+            <span class="term-cat">Auto</span>
+            <h3 class="term-name">Comprehensive</h3>
+            <p class="term-def">Covers damage to your vehicle from things other than a collision: theft, hail, fire, vandalism, falling trees, and hitting a deer.</p>
+          </div>
+
+          <div class="term-card" data-cat="auto">
+            <span class="term-cat">Auto</span>
+            <h3 class="term-name">Medical Payments (MedPay)</h3>
+            <p class="term-def">Pays medical bills for you and your passengers after an accident, regardless of fault.</p>
+          </div>
+
+          <div class="term-card" data-cat="auto">
+            <span class="term-cat">Auto</span>
+            <h3 class="term-name">Rideshare Coverage</h3>
+            <p class="term-def">An add-on that covers you while driving for Uber, Lyft, DoorDash, or similar services. Personal auto policies typically exclude this activity.</p>
+          </div>
+
+          <!-- LIABILITY -->
+          <div class="term-card" data-cat="liability">
+            <span class="term-cat">Liability</span>
+            <h3 class="term-name">Liability Coverage</h3>
+            <p class="term-def">Pays for injuries or property damage you cause to someone else, plus your legal defense if they sue you.</p>
+          </div>
+
+          <div class="term-card" data-cat="liability">
+            <span class="term-cat">Liability</span>
+            <h3 class="term-name">Umbrella Policy</h3>
+            <p class="term-def">Extra liability coverage that sits on top of your home, auto, or business policies. It kicks in when a claim blows past your other limits.</p>
+          </div>
+
+          <div class="term-card" data-cat="liability">
+            <span class="term-cat">Liability</span>
+            <h3 class="term-name">Bodily Injury</h3>
+            <p class="term-def">Physical injury to another person. Bodily injury claims, with medical bills, lost wages, and pain and suffering, are where liability limits get tested.</p>
+          </div>
+
+          <div class="term-card" data-cat="liability">
+            <span class="term-cat">Liability</span>
+            <h3 class="term-name">Professional Liability (E&amp;O)</h3>
+            <p class="term-def">Errors and omissions coverage. Protects you when a client claims your professional advice or services caused them financial harm. General liability doesn't cover this.</p>
+          </div>
+
+          <div class="term-card" data-cat="liability">
+            <span class="term-cat">Liability</span>
+            <h3 class="term-name">Liquor Liability</h3>
+            <p class="term-def">Covers claims when a patron you served alcohol injures someone or causes damage. Ohio's dram shop laws make this essential for any business that serves alcohol.</p>
+          </div>
+
+          <!-- LIFE -->
+          <div class="term-card" data-cat="life">
+            <span class="term-cat">Life</span>
+            <h3 class="term-name">Term Life</h3>
+            <p class="term-def">Life insurance that covers you for a set period, like 10, 20, or 30 years. Usually the most coverage for the lowest price.</p>
+          </div>
+
+          <div class="term-card" data-cat="life">
+            <span class="term-cat">Life</span>
+            <h3 class="term-name">Whole Life</h3>
+            <p class="term-def">Permanent life insurance that lasts your whole life as long as premiums are paid, and builds cash value you can borrow against.</p>
+          </div>
+
+          <div class="term-card" data-cat="life">
+            <span class="term-cat">Life</span>
+            <h3 class="term-name">Universal Life</h3>
+            <p class="term-def">Permanent life insurance with flexible premiums and a cash value component that grows based on interest rates or market indexes.</p>
+          </div>
+
+          <div class="term-card" data-cat="life">
+            <span class="term-cat">Life</span>
+            <h3 class="term-name">Beneficiary</h3>
+            <p class="term-def">The person or people who receive the death benefit. Keep it current: marriage, divorce, and new kids should all trigger a beneficiary check.</p>
+          </div>
+
+          <div class="term-card" data-cat="life">
+            <span class="term-cat">Life</span>
+            <h3 class="term-name">Death Benefit</h3>
+            <p class="term-def">The amount a life insurance policy pays to your beneficiaries when you die.</p>
+          </div>
+
+          <div class="term-card" data-cat="life">
+            <span class="term-cat">Life</span>
+            <h3 class="term-name">Cash Value</h3>
+            <p class="term-def">The savings component inside permanent life insurance. It grows tax-deferred and can be borrowed against or withdrawn.</p>
+          </div>
+
+          <!-- BUSINESS -->
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">General Liability (GL)</h3>
+            <p class="term-def">The foundation of business insurance. Covers third-party bodily injury, property damage, and advertising injury claims against your business.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Business Owner's Policy (BOP)</h3>
+            <p class="term-def">A bundle of general liability and commercial property for small businesses, usually at a better price than buying them separately.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Workers Compensation</h3>
+            <p class="term-def">Covers employee medical bills and lost wages from on-the-job injuries. Required for most Ohio employers, and in Ohio it's purchased through the state's Bureau of Workers' Compensation.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Commercial Auto</h3>
+            <p class="term-def">Covers vehicles used for business. Personal auto policies generally exclude business use, so one work accident on a personal policy can mean a denied claim.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Business Interruption</h3>
+            <p class="term-def">Replaces lost income and pays ongoing expenses when a covered loss, like a fire, forces you to close temporarily.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Inland Marine</h3>
+            <p class="term-def">Despite the name, it has nothing to do with boats. It covers tools, equipment, and property that moves around, like contractor gear on a job site.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Cyber Liability</h3>
+            <p class="term-def">Covers costs from data breaches and cyberattacks: customer notification, legal fees, ransomware, and recovery. Standard business policies exclude most cyber claims.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Employment Practices Liability (EPLI)</h3>
+            <p class="term-def">Covers claims from employees alleging harassment, discrimination, or wrongful termination.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Garagekeepers</h3>
+            <p class="term-def">Covers customer vehicles while they're in your care at a repair shop, body shop, or dealership.</p>
+          </div>
+
+          <div class="term-card" data-cat="business">
+            <span class="term-cat">Business</span>
+            <h3 class="term-name">Class Code</h3>
+            <p class="term-def">The code a carrier uses to classify your type of business for pricing. The wrong class code can mean overpaying, or worse, a denied claim.</p>
+          </div>
+
+        </div>
+
+        <div class="glossary-empty" id="glossaryEmpty">
+          <p>No match for that term.</p>
+          <p style="margin-top:8px;">Email us at <a href="mailto:hello@myersinsurancegroup.com">hello@myersinsurancegroup.com</a> and we'll explain it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDEPENDENT VS CAPTIVE -->
+    <section class="inner-section-alt" id="independent">
+      <div class="container">
+        <span class="section-label">INDEPENDENT VS. CAPTIVE</span>
+        <h2 class="section-headline">Who you buy from<br>matters as much as what you buy.</h2>
+        <p class="section-sub">There are two kinds of insurance agents. One works for an insurance company. The other works for you.</p>
+
+        <div class="vs-intro">
+          <div class="vs-card vs-card-light">
+            <span class="vs-card-label">Captive agent</span>
+            <div class="vs-card-title">One company. One answer.</div>
+            <p class="vs-card-desc">A captive agent is contracted to sell for a single insurance company. Whatever that company offers is all they can offer you, even when another carrier would cover you better or charge you less.</p>
+          </div>
+          <div class="vs-card vs-card-dark">
+            <span class="vs-card-label">Independent broker</span>
+            <div class="vs-card-title">Many companies. Your best option.</div>
+            <p class="vs-card-desc">An independent broker is appointed with multiple carriers. We compare coverage and price across all of them and put you with the one that fits. That's how Myers Insurance Group has worked since 2008.</p>
+          </div>
+        </div>
+
+        <div class="vs-table-wrap">
+          <table class="vs-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Captive agent</th>
+                <th>Independent broker</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Who they represent</td>
+                <td>One insurance company</td>
+                <td class="win">You, with access to multiple carriers</td>
+              </tr>
+              <tr>
+                <td>Quotes you get</td>
+                <td>One</td>
+                <td class="win">Several, compared side by side</td>
+              </tr>
+              <tr>
+                <td>Your price goes up</td>
+                <td>Accept it, or find a new agent</td>
+                <td class="win">We shop it across our carriers</td>
+              </tr>
+              <tr>
+                <td>Carrier drops you</td>
+                <td>You're starting over</td>
+                <td class="win">We move you. Same broker, new carrier.</td>
+              </tr>
+              <tr>
+                <td>Hard-to-place risks</td>
+                <td>Often a flat no</td>
+                <td class="win">Access to specialty carriers that write them</td>
+              </tr>
+              <tr>
+                <td>Coverage design</td>
+                <td>Limited to one company's forms</td>
+                <td class="win">Built from the best fit across the market</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="why-grid-101">
+          <div class="why-tile-101">
+            <span class="why-n-101">01</span>
+            <div class="why-title-101">More options, better fit</div>
+            <div class="why-desc-101">Every carrier prices risk differently. The company that's cheapest for your neighbor may be the most expensive for you. More carriers means a better shot at the right coverage at the right price.</div>
+          </div>
+          <div class="why-tile-101">
+            <span class="why-n-101">02</span>
+            <div class="why-title-101">We work for you</div>
+            <div class="why-desc-101">A captive agent's job is to sell their company's policy. Our job is to find the policy that fits you, wherever it is.</div>
+          </div>
+          <div class="why-tile-101">
+            <span class="why-n-101">03</span>
+            <div class="why-title-101">One broker, for the long run</div>
+            <div class="why-desc-101">Rates change. Carriers leave markets. Your life and business change. With an independent broker, you keep the same person in your corner while the carrier behind you changes as needed.</div>
+          </div>
+          <div class="why-tile-101">
+            <span class="why-n-101">04</span>
+            <div class="why-title-101">Nobody's too different</div>
+            <div class="why-desc-101">Strip clubs, weed shops, tattoo shops, adult creators, vacant rentals. Many standard companies won't touch them. Independent brokers can reach the specialty carriers that will.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box fair-note">
+          <h3 class="highlight-box-title">To be fair</h3>
+          <p class="highlight-box-body">Plenty of captive agents know their stuff. The limitation isn't the person, it's the structure: they can only sell what one company makes. An independent broker isn't limited that way, and that's the whole point.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta">
+      <div class="container footer-cta-inner">
+        <h2 class="footer-cta-headline">Now that you speak the language.</h2>
+        <p class="footer-cta-sub">Upload your dec pages and our SI will read every line. Or get a quote shopped across multiple carriers.</p>
+        <div class="footer-cta-btns">
+          <a href="/contact.html" class="btn-primary">Get a free quote</a>
+          <a href="/coverage-review.html" class="btn-outline">Upload my policy →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="/" class="nav-logo">
+        <img src="/assets/myers_apple_vibe.png" alt="Myers Insurance Group" class="logo-img-sm" />
+        <span class="nav-logo-text" style="color:rgba(255,255,255,0.45); font-size:13px;">Myers Insurance Group</span>
+      </a>
+      <nav class="footer-nav">
+        <a href="/business-insurance.html">Business</a>
+        <a href="/personal-lines.html">Personal</a>
+        <a href="/group-benefits.html">Group Benefits</a>
+        <a href="/real-estate.html">Real Estate</a>
+        <a href="/insurance-101.html">Insurance 101</a>
+        <a href="/about.html">About</a>
+        <a href="/coverage-review.html">Coverage Review</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span>Myers Insurance Group</span>
+        <span>Ohio independent broker</span>
+        <span>Est. 2008</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      var filters = document.querySelectorAll('#glossaryFilters .filter-btn');
+      var cards = document.querySelectorAll('#glossaryGrid .term-card');
+      var empty = document.getElementById('glossaryEmpty');
+      var activeCat = 'all';
+      var searchTimer = null;
+
+      function apply() {
+        var q = search.value.trim().toLowerCase();
+        var shown = 0;
+        cards.forEach(function (card) {
+          var catMatch = activeCat === 'all' || card.getAttribute('data-cat') === activeCat;
+          var textMatch = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+          var show = catMatch && textMatch;
+          card.hidden = !show;
+          if (show) shown++;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+      }
+
+      search.addEventListener('input', function () {
+        apply();
+        clearTimeout(searchTimer);
+        var q = search.value.trim();
+        if (q.length > 2 && typeof gtag === 'function') {
+          searchTimer = setTimeout(function () {
+            gtag('event', 'glossary_search', { event_category: 'engagement', event_label: q.toLowerCase() });
+          }, 1200);
+        }
+      });
+
+      filters.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filters.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeCat = btn.getAttribute('data-filter');
+          apply();
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
